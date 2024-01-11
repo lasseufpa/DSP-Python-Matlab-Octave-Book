@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aldebaro Klautau">
+
+<title>Digital Signal Processing with Python, Matlab or Octave – ak_dsp_bookse24</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ak_dsp_bookse25.html" rel="next">
+<link href="./ak_dsp_bookse23.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ak_dsp_bookse24.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ak_dsp_bookse24.html</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Digital Signal Processing with Python, Matlab or Octave</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookad1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ak_dsp_bookad1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ak_dsp_bookap1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ak_dsp_bookap2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ak_dsp_bookap3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ak_dsp_bookap4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ak_dsp_bookch1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">ak_dsp_bookch2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ak_dsp_bookch3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ak_dsp_bookch4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ak_dsp_bookli1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ak_dsp_bookli2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ak_dsp_bookli3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ak_dsp_bookli4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ak_dsp_book.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ak_dsp_bookse1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ak_dsp_bookse2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">ak_dsp_bookse3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ak_dsp_bookse4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">ak_dsp_bookse5.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">ak_dsp_bookse6.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">ak_dsp_bookse7.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">ak_dsp_bookse8.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ak_dsp_bookse9.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ak_dsp_bookse10.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ak_dsp_bookse11.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ak_dsp_bookse12.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">ak_dsp_bookse13.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">ak_dsp_bookse14.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">ak_dsp_bookse15.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ak_dsp_bookse16.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ak_dsp_bookse17.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">ak_dsp_bookse18.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">ak_dsp_bookse19.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">ak_dsp_bookse20.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">ak_dsp_bookse21.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">ak_dsp_bookse22.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">ak_dsp_bookse23.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse24.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ak_dsp_bookse24.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ak_dsp_bookse25.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ak_dsp_bookse26.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">ak_dsp_bookse27.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ak_dsp_bookse28.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ak_dsp_bookse29.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse30.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse31.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">ak_dsp_bookse32.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse33.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">ak_dsp_bookse33.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse34.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">ak_dsp_bookse34.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse35.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse36.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse37.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">ak_dsp_bookse37.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse38.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">ak_dsp_bookse38.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse39.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">ak_dsp_bookse39.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse40.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">ak_dsp_bookse40.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse41.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">ak_dsp_bookse41.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse42.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">ak_dsp_bookse42.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse43.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">ak_dsp_bookse43.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse44.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">ak_dsp_bookse44.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse45.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">ak_dsp_bookse45.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse46.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">ak_dsp_bookse46.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse47.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">ak_dsp_bookse47.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse48.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">ak_dsp_bookse48.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse49.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">ak_dsp_bookse49.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse50.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">ak_dsp_bookse50.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse51.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">ak_dsp_bookse51.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse52.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">ak_dsp_bookse52.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse53.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">ak_dsp_bookse53.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse54.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">ak_dsp_bookse54.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse55.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">ak_dsp_bookse55.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse56.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">ak_dsp_bookse56.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse57.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">ak_dsp_bookse57.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse58.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">ak_dsp_bookse58.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse59.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">ak_dsp_bookse59.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse60.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">ak_dsp_bookse60.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse61.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">ak_dsp_bookse61.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse62.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">ak_dsp_bookse62.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse63.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">ak_dsp_bookse63.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">ak_dsp_bookse64.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse65.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">ak_dsp_bookse65.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse66.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">ak_dsp_bookse66.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse67.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">ak_dsp_bookse67.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse68.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">ak_dsp_bookse68.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse69.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">ak_dsp_bookse69.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse70.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">ak_dsp_bookse70.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse71.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">ak_dsp_bookse71.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse72.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">ak_dsp_bookse72.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse73.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">ak_dsp_bookse73.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse74.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">ak_dsp_bookse74.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse75.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">ak_dsp_bookse75.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse76.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">ak_dsp_bookse76.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse77.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">ak_dsp_bookse77.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse78.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">ak_dsp_bookse78.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse79.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">ak_dsp_bookse79.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse80.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">ak_dsp_bookse80.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse81.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">ak_dsp_bookse81.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse82.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">ak_dsp_bookse82.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse83.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">ak_dsp_bookse83.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse84.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">98</span>&nbsp; <span class="chapter-title">ak_dsp_bookse84.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse85.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">99</span>&nbsp; <span class="chapter-title">ak_dsp_bookse85.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse86.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">100</span>&nbsp; <span class="chapter-title">ak_dsp_bookse86.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse87.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">101</span>&nbsp; <span class="chapter-title">ak_dsp_bookse87.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse88.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">102</span>&nbsp; <span class="chapter-title">ak_dsp_bookse88.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse89.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">103</span>&nbsp; <span class="chapter-title">ak_dsp_bookse89.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse90.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">104</span>&nbsp; <span class="chapter-title">ak_dsp_bookse90.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse91.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">105</span>&nbsp; <span class="chapter-title">ak_dsp_bookse91.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse92.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">106</span>&nbsp; <span class="chapter-title">ak_dsp_bookse92.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse93.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">107</span>&nbsp; <span class="chapter-title">ak_dsp_bookse93.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse94.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">108</span>&nbsp; <span class="chapter-title">ak_dsp_bookse94.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse95.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">109</span>&nbsp; <span class="chapter-title">ak_dsp_bookse95.html</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+&lt;!DOCTYPE html&gt;
+
+
+<title>
+Summary of equations for DFT / FFT Usage
+</title>
+<meta charset="utf-8">
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link href="ak_dsp_book.css" rel="stylesheet" type="text/css">
+<meta content="ak_dsp_book.tex" name="src">
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+
+
+<h3 class="sectionHead anchored">
+<span class="titlemark">2.7</span>&nbsp;&nbsp;<a id="x32-1010002.7"></a>Summary of equations for DFT / FFT Usage
+</h3>
+<!-- l. 1369 -->
+<p class="noindent">
+The DFT resolution in radians is <!-- l. 1369 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi>N</mi></mrow></math>. Using <!-- l. 1370 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi mathvariant="normal">Ω</mi><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></math>, one can note that the continuous-time angular frequency <!-- l. 1370 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mi>π</mi><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></math> rad/s corresponds to the angle <!-- l. 1370 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mi>π</mi></mrow></math> rad. Hence, the DFT frequency spacing is
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1371 -->
+<p class="indent">
+</p>
+<!-- l. 1371 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101001r32"></mstyle><!-- endlabel --><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow> <mrow><mi>N</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.32)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1375 -->
+<p class="indent">
+For example, assuming <!-- l. 1375 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>100</mn></mrow></math>&nbsp;Hz, a DFT of <!-- l. 1375 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>256</mn></mrow></math> points has a resolution of <!-- l. 1375 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.3906</mn></mrow></math>&nbsp;Hz. In radians, this resolution corresponds to <!-- l. 1376 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>256</mn> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>0.0245</mn></mrow></math> rad.
+</p>
+<!-- l. 1378 -->
+<p class="indent">
+Note that <!-- l. 1378 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi></mrow></math> can also be written as <!-- l. 1378 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mi>N</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>N</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, where <!-- l. 1378 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></math> is the total duration <!-- l. 1378 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">total</mtext></mstyle></mrow></msub></math> of the signal being analyzed, such that
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1379 -->
+<p class="indent">
+</p>
+<!-- l. 1379 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101002r33"></mstyle><!-- endlabel --><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow> <mrow><msub><mrow><mi>T</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">total</mtext></mstyle></mrow></msub></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.33)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1383 -->
+<p class="indent">
+Hence, a spectral analysis with resolution of at least <!-- l. 1383 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi></mrow></math>&nbsp;Hz requires a data record of length
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1384 -->
+<p class="indent">
+</p>
+<!-- l. 1384 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101003r34"></mstyle><!-- endlabel --><msub><mrow><mi>T</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">total</mtext></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">≥</mo> <mfrac><mrow><mn>1</mn></mrow> <mrow><mi mathvariant="normal">Δ</mi><mi>f</mi></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.34)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1389 -->
+<p class="indent">
+The following example illustrates the interpretation in Hz of a DFT result. The DFT performs a sampling operation on the frequency domain <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Ω</mi></math> according Eq.&nbsp;(<a href="ak_dsp_bookse22.html#x30-99001r30">2.30<!-- tex4ht:ref: eq:dtft_via_dft  --></a>). As illustrated in Figure&nbsp;<a href="ak_dsp_bookse21.html#x29-870093">2.3<!-- tex4ht:ref: fig:circledivided  --></a>, a DFT with <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></mrow></math> points (or 3-DFT) uses three basis functions <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup></math> with the angles <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn><mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>4</mn><mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>3</mn></mrow></math> rad, i. e., a counter-clockwise rotation using a step of <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>w</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>3</mn></mrow></math>. These angles correspond to <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn></mrow></math>, respectively, as indicated by Eq.&nbsp;(<a href="ak_dsp_bookse21.html#x29-87001r11">2.11<!-- tex4ht:ref: eq:dft_basis_function  --></a>). Note that in Figure&nbsp;<a href="ak_dsp_bookse21.html#x29-870093">2.3<!-- tex4ht:ref: fig:circledivided  --></a>, incrementing <!-- l. 1390 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math> corresponds to a clockwise rotation, given that Eq.&nbsp;(<a href="ak_dsp_bookse21.html#x29-87004r12">2.12<!-- tex4ht:ref: eq:twiddle_factor  --></a>) defines the twiddle factor with a negative exponent.
+</p>
+<!-- l. 1392 -->
+<p class="indent">
+</p><p>The three angles of a 3-DFT correspond to <!-- l. 1392 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>3</mn></mrow></math> Hz, respectively, as indicated by <!-- l. 1392 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi mathvariant="normal">Ω</mi><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></math> or directly observing that the DFT uses a grid of <!-- l. 1392 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mi>N</mi></mrow></math>. For <!-- l. 1392 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>N</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></mrow></math>, the four angles correspond to the frequencies <!-- l. 1392 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>4</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>4</mn></mrow></math> Hz. The angle corresponding to <!-- l. 1392 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> is always 0 rad, which is called DC because corresponds to 0&nbsp;Hz. Note that for</p>
+<!-- l. 1392 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mi>N</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> the DFT values correspond to negative frequencies. The angular frequency corresponding to the <!-- l. 1393 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math>-th angle is
+<p></p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1394 -->
+<p class="indent">
+</p>
+<!-- l. 1394 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101004r35"></mstyle><!-- endlabel --><msub><mrow><mi mathvariant="normal">Ω</mi></mrow><mrow><mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mi mathvariant="normal">Δ</mi><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mfrac><mrow><mn>2</mn><mi>π</mi></mrow> <mrow><mi>N</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.35)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1398 -->
+<p class="indent">
+which corresponds to the regular (linear) frequency
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1399 -->
+<p class="indent">
+</p>
+<!-- l. 1399 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101005r36"></mstyle><!-- endlabel --><msub><mrow><mi>f</mi></mrow><mrow><mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mfrac><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow> <mrow><mi>N</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.36)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1403 -->
+<p class="indent">
+The values representing the largest frequency when <!-- l. 1403 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> is even is
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1404 -->
+<p class="indent">
+</p>
+<!-- l. 1404 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101006r37"></mstyle><!-- endlabel --><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>N</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.37)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1408 -->
+<p class="indent">
+which corresponds to <!-- l. 1408 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math> rad and <!-- l. 1408 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> Hz. When <!-- l. 1408 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> is odd, the value at
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1409 -->
+<p class="indent">
+</p>
+<!-- l. 1409 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101007r38"></mstyle><!-- endlabel --><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>N</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn> </mrow></math>
+</td>
+<td class="eq-no">
+(2.38)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1413 -->
+<p class="indent">
+</p><p>is the one representing the largest frequency <!-- l. 1413 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>N</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>N</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> Hz. Table&nbsp;<a href="#x32-1010086">2.6<!-- tex4ht:ref: tab:fft_equations  --></a> summarizes some equations typically used with FFT algorithms.</p>
+<p></p>
+<!-- l. 1415 -->
+<p class="indent">
+<a id="x32-1010086"></a>
+</p>
+<figure class="float figure">
+<figcaption class="caption figure-caption">
+<span class="id">Table&nbsp;2.6: </span><span class="content">Summary of equations useful for signal processing with FFT.</span>
+</figcaption>
+<!-- tex4ht:label?: x32-1010086  -->
+<div class="tabular">
+
+<table class="tabular" id="TBL-92" rules="groups">
+<colgroup id="TBL-92-1g">
+<col id="TBL-92-1">
+</colgroup>
+<colgroup id="TBL-92-2g">
+<col id="TBL-92-2">
+</colgroup>
+<colgroup id="TBL-92-3g">
+<col id="TBL-92-3">
+</colgroup>
+<tbody><tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-1-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-1-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Expression </span>
+</td>
+<td class="td11" id="TBL-92-1-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Reference </span>
+</td>
+<td class="td11" id="TBL-92-1-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Comment </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-2-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-2-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1421 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mi>N</mi></mrow></math>
+</td>
+<td class="td11" id="TBL-92-2-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x32-101001r32"><span class="ec-lmr-10">2.32</span><!-- tex4ht:ref: eq:fft_freq_resolution  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-2-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Frequency spacing (Hz) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-3-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-3-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1422 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>T</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">total</mtext></mstyle></mrow></msub></mrow></math>
+</td>
+<td class="td11" id="TBL-92-3-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x32-101002r33"><span class="ec-lmr-10">2.33</span><!-- tex4ht:ref: eq:fft_total_duration  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-3-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Dependence on signal duration (Hz) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-4-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-4-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1423 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mi>N</mi></mrow></math>
+</td>
+<td class="td11" id="TBL-92-4-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="ak_dsp_bookse27.html#x35-106151r53"><span class="ec-lmr-10">2.53</span><!-- tex4ht:ref: eq:fft_delta_dw  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-4-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Frequency spacing (rad) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-5-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-5-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1424 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>f</mi></mrow><mrow><mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mstyle class="text"><mtext class="textrm" mathvariant="normal">&nbsp;</mtext></mstyle><mi mathvariant="normal">Δ</mi><mi>f</mi></mrow></math>
+</td>
+<td class="td11" id="TBL-92-5-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x32-101005r36"><span class="ec-lmr-10">2.36</span><!-- tex4ht:ref: eq:fft_freq_tone_hz  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-5-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Frequency of </span><!-- l. 1424 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math><span class="ec-lmr-10">-th tone (Hz) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-6-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-6-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1425 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi mathvariant="normal">Ω</mi></mrow><mrow><mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mstyle class="text"><mtext class="textrm" mathvariant="normal">&nbsp;</mtext></mstyle><mi mathvariant="normal">Δ</mi><mi mathvariant="normal">Ω</mi></mrow></math>
+</td>
+<td class="td11" id="TBL-92-6-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x32-101004r35"><span class="ec-lmr-10">2.35</span><!-- tex4ht:ref: eq:fft_freq_tone_rad  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-6-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Frequency of </span><!-- l. 1425 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math><span class="ec-lmr-10">-th tone (rad) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-7-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-7-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1426 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>
+</td>
+<td class="td11" id="TBL-92-7-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x32-101006r37"><span class="ec-lmr-10">2.37</span><!-- tex4ht:ref: eq:fft_max_even  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-7-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Highest frequency (Hz) for even </span><!-- l. 1426 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-92-8-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-92-8-1" style="text-align:left; white-space:nowrap;">
+<!-- l. 1427 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>N</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>N</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+</td>
+<td class="td11" id="TBL-92-8-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x32-101007r38"><span class="ec-lmr-10">2.38</span><!-- tex4ht:ref: eq:fft_max_odd  --></a><span class="ec-lmr-10">) </span>
+</td>
+<td class="td11" id="TBL-92-8-3" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Highest frequency (Hz) for odd </span><!-- l. 1427 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+
+</tbody></table>
+<pre><code>                                                                                                                       &lt;/div&gt;
+                                                                          
+                                                                          </code></pre>
+</div></figure>
+<!-- l. 1435 -->
+<p class="indent">
+As discussed, the following three transforms differ only on the normalization factor: DFT, unitary DFT and DTFS. Generalizing Eq.&nbsp;(<a href="ak_dsp_bookse21.html#x29-87014r15">2.15<!-- tex4ht:ref: eq:dft  --></a>) and Eq.&nbsp;(<a href="ak_dsp_bookse21.html#x29-87015r16">2.16<!-- tex4ht:ref: eq:idft  --></a>), the “core” DFT transform equations can be written as follows:
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1439 -->
+<p class="indent">
+</p>
+<!-- l. 1439 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101009r39"></mstyle><!-- endlabel --><mi>X</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>α</mi><munderover accent="false" accentunder="false"><mrow><mo>∑</mo> </mrow><mrow><mi>n</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></munderover><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><msup><mrow> <mrow><mo fence="true" form="prefix"> (</mo><mrow><msub><mrow><mi>W</mi></mrow><mrow> <mi>N</mi></mrow></msub></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mi mathvariant="italic">nk</mi></mrow></msup> </mrow></math>
+</td>
+<td class="eq-no">
+(2.39)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1443 -->
+<p class="indent">
+and
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1444 -->
+<p class="indent">
+</p>
+<!-- l. 1444 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101010r40"></mstyle><!-- endlabel --><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>β</mi><munderover accent="false" accentunder="false"><mrow><mo>∑</mo> </mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></munderover><mi>X</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">]</mo><msup><mrow> <mrow><mo fence="true" form="prefix"> (</mo><mrow><msub><mrow><mi>W</mi></mrow><mrow> <mi>N</mi></mrow></msub></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="italic">nk</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.40)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1447 -->
+<p class="indent">
+As indicated in Eq.&nbsp;(<a href="ak_dsp_bookse21.html#x29-90002r20">2.20<!-- tex4ht:ref: eq:nonorthogonaltransform  --></a>), the only requirement to have a valid pair is that
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1448 -->
+<p class="indent">
+</p>
+<!-- l. 1448 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x32-101011r41"></mstyle><!-- endlabel --><mi mathvariant="italic">αβ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow> <mrow><mi>N</mi></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(2.41)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 1453 -->
+<p class="indent">
+In summary, the three popular options for choosing <!-- l. 1453 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> and <!-- l. 1453 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>β</mi></math>:
+</p>
+<pre><code> &lt;ul class='itemize1'&gt;
+ &lt;li class='itemize'&gt;
+ &lt;!-- l. 1455 --&gt;&lt;p class='noindent'&gt;&lt;span class='ec-lmbx-10x-x-109'&gt;DFT as samples of the DTFT (in frequency domain)&lt;/span&gt;: &lt;/p&gt;&lt;table class='equation'&gt;&lt;tr&gt;&lt;td&gt;
+ &lt;!-- l. 1456 --&gt;&lt;p class='noindent'&gt;
+ &lt;/p&gt;&lt;!-- l. 1456 --&gt;&lt;math class='equation' display='block' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;
+                          &lt;mstyle class='label' id='x32-101012r42'&gt;&lt;/mstyle&gt;&lt;!-- endlabel --&gt;&lt;mi&gt;α&lt;/mi&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt; &lt;mn&gt;1&lt;/mn&gt;&lt;mstyle class='text'&gt;&lt;mtext class='textrm' mathvariant='normal'&gt;&nbsp;&nbsp;and&nbsp;&nbsp;&lt;/mtext&gt;&lt;/mstyle&gt;&lt;mi&gt;β&lt;/mi&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt;  &lt;mfrac&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt; </code></pre>
+<mrow><mi>N</mi></mrow><mo class="MathClass-punc" stretchy="false">.</mo> 
+
+
+(2.42)
+
+
+
+
+<pre><code> &lt;!-- l. 1460 --&gt;&lt;p class='noindent'&gt;Matlab/Octave implements this transform in its &lt;span class='ec-lmss-10x-x-109'&gt;fft &lt;/span&gt;and &lt;span class='ec-lmss-10x-x-109'&gt;ifft&lt;/span&gt;
+ routines. It allows to estimate the DTFT at specific values of
+ &lt;!-- l. 1460 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mi mathvariant='normal'&gt;Ω&lt;/mi&gt;&lt;/math&gt;
+ using Eq.&nbsp;(&lt;a href='ak_dsp_bookse22.html#x30-99001r30'&gt;2.30&lt;!-- tex4ht:ref: eq:dtft_via_dft  --&gt;&lt;/a&gt;). Also, it is the fastest in the direct transform because there is no
+ scaling factor to be accounted for.
+ &lt;/p&gt;&lt;/li&gt;
+ &lt;li class='itemize'&gt;
+ &lt;!-- l. 1461 --&gt;&lt;p class='noindent'&gt;&lt;span class='ec-lmbx-10x-x-109'&gt;Unitary DFT&lt;/span&gt;: &lt;/p&gt;&lt;table class='equation'&gt;&lt;tr&gt;&lt;td&gt;
+ &lt;!-- l. 1462 --&gt;&lt;p class='noindent'&gt;
+ &lt;/p&gt;&lt;!-- l. 1462 --&gt;&lt;math class='equation' display='block' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;
+                             &lt;mstyle class='label' id='x32-101013r43'&gt;&lt;/mstyle&gt;&lt;!-- endlabel --&gt;&lt;mi&gt;α&lt;/mi&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt; &lt;mi&gt;β&lt;/mi&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt;   &lt;mfrac&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt; </code></pre>
+<mrow><msqrt><mrow><mi>N</mi></mrow></msqrt></mrow><mo class="MathClass-punc" stretchy="false">.</mo> 
+
+
+(2.43)
+
+
+
+
+<pre><code> &lt;!-- l. 1466 --&gt;&lt;p class='noindent'&gt;Because this transform is unitary, Theorem &lt;a href='ak_dsp_bookse21.html#x29-89001r2'&gt;2&lt;!-- tex4ht:ref: th:parseval  --&gt;&lt;/a&gt; applies and the energy &lt;span class='ec-lmss-10x-x-109'&gt;sum(abs(X).^2) &lt;/span&gt;in
+ frequency and time &lt;span class='ec-lmss-10x-x-109'&gt;sum(abs(x).^2) &lt;/span&gt;domains coincide. To implement the unitary DFT
+ when using Matlab/Octave one can call &lt;span class='ec-lmss-10x-x-109'&gt;X=fft(x)/sqrt(N) &lt;/span&gt;and &lt;span class='ec-lmss-10x-x-109'&gt;x=ifft(X)*sqrt(N) &lt;/span&gt;for the
+ direct and inverse transforms, respectively.
+                                                                          
+                                                                          
+ &lt;/p&gt;&lt;/li&gt;
+ &lt;li class='itemize'&gt;
+ &lt;!-- l. 1467 --&gt;&lt;p class='noindent'&gt;&lt;span class='ec-lmbx-10x-x-109'&gt;DFT as DTFS in case the number of DFT points coincides with the signal
+ period&lt;/span&gt;: &lt;/p&gt;&lt;table class='equation'&gt;&lt;tr&gt;&lt;td&gt;
+ &lt;!-- l. 1468 --&gt;&lt;p class='noindent'&gt;
+ &lt;/p&gt;&lt;!-- l. 1468 --&gt;&lt;math class='equation' display='block' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;
+                          &lt;mstyle class='label' id='x32-101014r44'&gt;&lt;/mstyle&gt;&lt;!-- endlabel --&gt;&lt;mi&gt;α&lt;/mi&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt;  &lt;mfrac&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt; </code></pre>
+<mrow><mi>N</mi></mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">&nbsp;&nbsp;and&nbsp;&nbsp;</mtext></mstyle><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo> 
+
+
+(2.44)
+
+
+
+
+<pre><code> &lt;!-- l. 1472 --&gt;&lt;p class='noindent'&gt;In this case, the DFT coefficients can be interpreted in Volts when the time-domain
+ signal is given in Volts. If the signal is periodic with fundamental period
+ &lt;!-- l. 1472 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mrow&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;/msub&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt; &lt;mi&gt;N&lt;/mi&gt;&lt;/mrow&gt;&lt;/math&gt; coinciding with
+ the number &lt;!-- l. 1472 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;/math&gt;
+ of DFT points, choosing Eq.&nbsp;(&lt;a href='#x32-101014r44'&gt;2.44&lt;!-- tex4ht:ref: eq:dft_as_dtfs  --&gt;&lt;/a&gt;) allows to obtain the DTFS coefficients
+ via the DFT. To implement this version when using Matlab/Octave, one
+ can call &lt;span class='ec-lmss-10x-x-109'&gt;X=fft(x)/N &lt;/span&gt;and &lt;span class='ec-lmss-10x-x-109'&gt;x=ifft(X)*N &lt;/span&gt;for the direct and inverse transforms,
+ respectively.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</code></pre>
+<!-- l. 1480 -->
+<p class="indent">
+The next two sections present the Laplace and Z transforms.<span class="footnote-mark"><a href="#fn9x4" id="fn9x4-bk"><sup class="textsuperscript">9</sup></a></span><a id="x32-101015f9"></a> Both have two parameters that identifies each basis functions, in contrast to Fourier equations that have only the frequency. This extra degree of freedom, represented by sets of basis functions that are more powerful than the ones used in Fourier analysis, has the advantage of allowing the representation of a larger class of signals (and systems). A disadvantage is that the inverse transform is defined as a <span class="ec-lmri-10x-x-109">contour integration </span>in the complex plane, which is an area of <span class="ec-lmri-10x-x-109">complex analysis </span>that is out of the scope of this text. But it is rarely necessary to calculate the inverse transform using complex analysis. The Laplace and Z inverse transforms will be calculated here only by an alternative method called partial fraction expansion, which is discussed in the Appendix, Section&nbsp;<a href="ak_dsp_bookse72.html#x84-265000B.10">B.10<!-- tex4ht:ref: sec:partial_fraction  --></a>.
+</p>
+<!-- l. 1484 -->
+<p class="indent">
+</p><p>The Laplace and Z transforms are widely used to represent the action of linear and time-invariant systems, as will be detailed in Chapter&nbsp;<a href="ak_dsp_bookch3.html#x39-1100003">3<!-- tex4ht:ref: ch:systems  --></a>. The Laplace transform has a number of properties that make it useful for analyzing linear systems. The most prominent advantage is that differentiation and integration become multiplication and division, respectively, by <!-- l. 1485 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>. For example, this converts differential equations into polynomial equations, which are much easier to solve and, once solved, the inverse Laplace transform can provide the</p>
+<p>time domain formula. Similarly, Z transforms are useful to analyze discrete-time systems.</p>
+<p></p>
+<div class="footnotes">
+<a id="x32-101016x2.7"></a> <!-- l. 1481 -->
+<p class="indent">
+<span class="footnote-mark"><a href="#fn9x4-bk" id="fn9x4"><sup class="textsuperscript">9</sup>&nbsp;</a></span><span class="ec-lmr-9">There are lots of materials on the Web. For example, check: [url2pol], [url2lap] and [url2vid].</span>
+</p>
+<pre><code>&lt;/div&gt;</code></pre>
+
+
+
+
+
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ak_dsp_bookse23.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">ak_dsp_bookse23.html</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ak_dsp_bookse25.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ak_dsp_bookse25.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Digital Signal Processing with Python, Matlab or Octave, Applications in Machine Learning Aldebaro Klautau Federal University of Pará (UFPA), Brazil</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

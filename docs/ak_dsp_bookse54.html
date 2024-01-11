@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aldebaro Klautau">
+
+<title>Digital Signal Processing with Python, Matlab or Octave – ak_dsp_bookse54</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ak_dsp_bookse55.html" rel="next">
+<link href="./ak_dsp_bookse53.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ak_dsp_bookse54.html"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">ak_dsp_bookse54.html</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Digital Signal Processing with Python, Matlab or Octave</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookad1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ak_dsp_bookad1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ak_dsp_bookap1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ak_dsp_bookap2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ak_dsp_bookap3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ak_dsp_bookap4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ak_dsp_bookch1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">ak_dsp_bookch2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ak_dsp_bookch3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ak_dsp_bookch4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ak_dsp_bookli1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ak_dsp_bookli2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ak_dsp_bookli3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ak_dsp_bookli4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ak_dsp_book.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ak_dsp_bookse1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ak_dsp_bookse2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">ak_dsp_bookse3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ak_dsp_bookse4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">ak_dsp_bookse5.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">ak_dsp_bookse6.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">ak_dsp_bookse7.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">ak_dsp_bookse8.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ak_dsp_bookse9.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ak_dsp_bookse10.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ak_dsp_bookse11.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ak_dsp_bookse12.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">ak_dsp_bookse13.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">ak_dsp_bookse14.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">ak_dsp_bookse15.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ak_dsp_bookse16.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ak_dsp_bookse17.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">ak_dsp_bookse18.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">ak_dsp_bookse19.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">ak_dsp_bookse20.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">ak_dsp_bookse21.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">ak_dsp_bookse22.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">ak_dsp_bookse23.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ak_dsp_bookse24.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ak_dsp_bookse25.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ak_dsp_bookse26.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">ak_dsp_bookse27.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ak_dsp_bookse28.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ak_dsp_bookse29.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse30.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse31.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">ak_dsp_bookse32.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse33.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">ak_dsp_bookse33.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse34.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">ak_dsp_bookse34.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse35.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse36.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse37.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">ak_dsp_bookse37.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse38.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">ak_dsp_bookse38.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse39.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">ak_dsp_bookse39.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse40.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">ak_dsp_bookse40.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse41.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">ak_dsp_bookse41.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse42.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">ak_dsp_bookse42.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse43.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">ak_dsp_bookse43.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse44.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">ak_dsp_bookse44.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse45.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">ak_dsp_bookse45.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse46.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">ak_dsp_bookse46.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse47.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">ak_dsp_bookse47.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse48.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">ak_dsp_bookse48.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse49.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">ak_dsp_bookse49.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse50.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">ak_dsp_bookse50.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse51.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">ak_dsp_bookse51.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse52.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">ak_dsp_bookse52.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse53.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">ak_dsp_bookse53.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse54.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">ak_dsp_bookse54.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse55.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">ak_dsp_bookse55.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse56.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">ak_dsp_bookse56.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse57.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">ak_dsp_bookse57.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse58.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">ak_dsp_bookse58.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse59.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">ak_dsp_bookse59.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse60.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">ak_dsp_bookse60.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse61.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">ak_dsp_bookse61.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse62.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">ak_dsp_bookse62.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse63.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">ak_dsp_bookse63.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">ak_dsp_bookse64.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse65.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">ak_dsp_bookse65.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse66.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">ak_dsp_bookse66.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse67.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">ak_dsp_bookse67.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse68.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">ak_dsp_bookse68.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse69.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">ak_dsp_bookse69.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse70.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">ak_dsp_bookse70.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse71.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">ak_dsp_bookse71.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse72.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">ak_dsp_bookse72.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse73.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">ak_dsp_bookse73.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse74.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">ak_dsp_bookse74.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse75.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">ak_dsp_bookse75.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse76.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">ak_dsp_bookse76.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse77.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">ak_dsp_bookse77.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse78.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">ak_dsp_bookse78.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse79.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">ak_dsp_bookse79.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse80.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">ak_dsp_bookse80.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse81.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">ak_dsp_bookse81.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse82.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">ak_dsp_bookse82.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse83.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">ak_dsp_bookse83.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse84.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">98</span>&nbsp; <span class="chapter-title">ak_dsp_bookse84.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse85.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">99</span>&nbsp; <span class="chapter-title">ak_dsp_bookse85.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse86.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">100</span>&nbsp; <span class="chapter-title">ak_dsp_bookse86.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse87.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">101</span>&nbsp; <span class="chapter-title">ak_dsp_bookse87.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse88.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">102</span>&nbsp; <span class="chapter-title">ak_dsp_bookse88.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse89.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">103</span>&nbsp; <span class="chapter-title">ak_dsp_bookse89.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse90.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">104</span>&nbsp; <span class="chapter-title">ak_dsp_bookse90.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse91.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">105</span>&nbsp; <span class="chapter-title">ak_dsp_bookse91.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse92.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">106</span>&nbsp; <span class="chapter-title">ak_dsp_bookse92.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse93.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">107</span>&nbsp; <span class="chapter-title">ak_dsp_bookse93.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse94.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">108</span>&nbsp; <span class="chapter-title">ak_dsp_bookse94.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse95.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">109</span>&nbsp; <span class="chapter-title">ak_dsp_bookse95.html</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+&lt;!DOCTYPE html&gt;
+
+
+<title>
+Filtering Random Signals and the Impact on PSDs
+</title>
+<meta charset="utf-8">
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link href="ak_dsp_book.css" rel="stylesheet" type="text/css">
+<meta content="ak_dsp_book.tex" name="src">
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+
+
+<h3 class="sectionHead anchored">
+<span class="titlemark">4.5</span>&nbsp;&nbsp;<a id="x64-2230004.5"></a>Filtering Random Signals and the Impact on PSDs
+</h3>
+<!-- l. 818 -->
+<p class="noindent">
+This section investigates the result of processing a random input signal through a system, and how the output PSD relates to the input.
+</p>
+<!-- l. 821 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">4.5.1</span>&nbsp;&nbsp;<a id="x64-2240004.5.1"></a>Response of LTI systems to random inputs
+</h4>
+<!-- l. 824 -->
+<p class="noindent">
+An important result of stochastic processes theory is that when the input of a LTI system is a WSS process <!-- l. 824 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, the corresponding output is also a WSS process <!-- l. 824 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>Y</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, as indicated below
+</p>
+
+<table class="equation-star">
+<tbody><tr>
+<td>
+<!-- l. 825 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;h(t)</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle mathvariant="script"></mstyle><mi>Y</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 828 -->
+<p class="indent">
+where <!-- l. 828 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is the impulse response of the LTI system.
+</p>
+<!-- l. 830 -->
+<p class="indent">
+Given that <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"></mstyle><mi>F</mi><mo class="MathClass-open" stretchy="false">{</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">}</mo></mrow></math> is the frequency response of the system, the relationship between the PSDs <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>Y</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, respectively, is given by
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 831 -->
+<p class="indent">
+</p>
+<!-- l. 831 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-224001r36"></mstyle><!-- endlabel --><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><msub><mrow><mi>S</mi></mrow><mrow> <mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.36)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 836 -->
+<p class="indent">
+Similarly, if a discrete-time WSS random process <!-- l. 836 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is filtered by a LTI with impulse response <!-- l. 836 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> as in
+</p>
+
+<table class="equation-star">
+<tbody><tr>
+<td>
+<!-- l. 837 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;h[n]</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle mathvariant="script"></mstyle><mi>Y</mi> <mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 840 -->
+<p class="indent">
+the PSD of the WSS output process <!-- l. 840 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>Y</mi> <mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is given by
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 841 -->
+<p class="indent">
+</p>
+<!-- l. 841 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-224002r37"></mstyle><!-- endlabel --><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><msub><mrow><mi>S</mi></mrow><mrow> <mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.37)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 845 -->
+<p class="indent">
+</p><p>where <!-- l. 845 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is the DTFT of <!-- l. 845 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.</p>
+<p></p>
+<!-- l. 847 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">4.5.2</span>&nbsp;&nbsp;<a id="x64-2250004.5.2"></a>Continuous-time signals with a white PSD and their filtering
+</h4>
+<!-- l. 850 -->
+<p class="noindent">
+A signal model that is used in several applications is the white noise, previously discussed in Section&nbsp;<a href="ak_dsp_bookse12.html#x19-72000doc">1.12.1.0<!-- tex4ht:ref: sec:examplesAutocorrelation  --></a>. A realization <!-- l. 852 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of a continuous-time white noise process has autocorrelation
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 853 -->
+<p class="indent">
+</p>
+<!-- l. 853 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-225001r38"></mstyle><!-- endlabel --><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>τ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>τ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>τ</mi><mo class="MathClass-close" stretchy="false">)</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.38)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 857 -->
+<p class="indent">
+and zero mean <!-- l. 857 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>.
+</p>
+<!-- l. 859 -->
+<p class="indent">
+Using Eq.&nbsp;(<a href="ak_dsp_bookse53.html#x63-219005r22">4.22<!-- tex4ht:ref: eq:auto_psd_continuous  --></a>), the <span class="ec-lmri-10x-x-109">bilateral </span>PSD of a white noise is
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 860 -->
+<p class="indent">
+</p>
+<!-- l. 860 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-225002r39"></mstyle><!-- endlabel --><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"></mstyle><mi>F</mi> <mrow><mo fence="true" form="prefix"> {</mo><mrow><mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>τ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mo fence="true" form="postfix">}</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">&nbsp;&nbsp;&nbsp;</mtext></mstyle><mi class="MathClass-op">∀</mi><mo> ⁡<!-- FUNCTION APPLICATION --></mo><mi>f</mi><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.39)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 864 -->
+<p class="indent">
+When a <span class="ec-lmri-10x-x-109">unilateral </span>representation is adopted, the white PSD is conveniently denoted as <!-- l. 864 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msub><mrow> <mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>. For instance, if <!-- l. 864 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>6</mn></mrow></math>&nbsp;W/Hz is the constant level of a unilateral PSD, its bilateral representation has a constant level of <!-- l. 864 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></mrow></math>&nbsp;W/Hz. Writing <!-- l. 864 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> and <!-- l. 864 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></math> for the bilateral and unilateral PSDs, respectively, the average power over a given frequency band<span class="footnote-mark"><a href="#fn6x6" id="fn6x6-bk"><sup class="textsuperscript">6</sup></a></span><a id="x64-225003f6"></a> <!-- l. 864 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle></math> is always
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 865 -->
+<p class="indent">
+</p>
+<!-- l. 865 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-225005r40"></mstyle><!-- endlabel --><mstyle mathvariant="script"></mstyle><mi>P</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msub><mrow> <mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle> </mrow></math>
+</td>
+<td class="eq-no">
+(4.40)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 869 -->
+<p class="indent">
+for both representations, given that in the case of a bilateral PSD one needs to multiply it by <!-- l. 869 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle></mrow></math> to find the average power.
+</p>
+<!-- l. 871 -->
+<p class="indent">
+Note from Eq.&nbsp;(<a href="#x64-225001r38">4.38<!-- tex4ht:ref: eq:awgnAutocorrelation  --></a>) and Eq.&nbsp;(<a href="ak_dsp_bookse12.html#x19-71004r60">1.60<!-- tex4ht:ref: eq:autocorrelationOriginIsPower  --></a>) that the continuous-time white noise power is <!-- l. 871 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>∞</mi></mrow></math> because there is an impulse in <!-- l. 871 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>τ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> (the area is <!-- l. 871 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> but the amplitude goes to infinite). Another way of observing that the continuous time WGN has infinite power is looking at the frequency domain: its PSD is <!-- l. 872 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> </mrow></math>, such that from Eq.&nbsp;(<a href="ak_dsp_bookse53.html#x63-218001r17">4.17<!-- tex4ht:ref: eq:psd_integration_continuousTime  --></a>), the area under the curve goes to infinite.
+</p>
+<!-- l. 874 -->
+<p class="indent">
+With infinite power, a white noise cannot be measured (it would damage the measuring equipment!). But white noise is a very good model for many practical applications, with an implicit assumption that limits the frequencies to some bandwidth of interest and makes measurements and simulations feasible. In other words, the noise can have a flat PSD only over a given finite bandwidth but, for the purpose of the experiment / simulation, be conveniently modeled as white noise.
+</p>
+<!-- l. 876 -->
+<p class="indent">
+Because power can be written as <!-- l. 876 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>P</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>, and <!-- l. 876 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>, the continuous-time white noise variance <!-- l. 876 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup></math> is infinite.
+</p>
+<!-- l. 884 -->
+<p class="indent">
+If the input <!-- l. 884 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is white noise with autocorrelation <!-- l. 884 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>τ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo><mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>τ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and PSD <!-- l. 884 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>, Eq.&nbsp;(<a href="#x64-224001r36">4.36<!-- tex4ht:ref: eq:wss_continuous_lti_output_psd  --></a>) informs that the PSD at the output of the LIT system is
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 885 -->
+<p class="indent">
+</p>
+<!-- l. 885 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-225006r41"></mstyle><!-- endlabel --><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.41)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 889 -->
+<p class="indent">
+</p><ol type="i">
+<li>e., <!-- l. 889 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is a scaled version of <!-- l. 889 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>.</li>
+</ol>
+<p></p>
+<!-- l. 891 -->
+<p class="indent">
+A special case of white noise is the Gaussian or WGN, introduced earlier in Section&nbsp;<a href="ak_dsp_bookse12.html#x19-72000doc">1.12.1.0<!-- tex4ht:ref: sec:examplesAutocorrelation  --></a>.
+</p>
+<!-- l. 896 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">4.5.3</span>&nbsp;&nbsp;<a id="x64-2260004.5.3"></a>Discrete-time signals with a white PSD and their filtering
+</h4>
+<!-- l. 904 -->
+<p class="noindent">
+It is important to distinguish the continuous-time white noise, which has a flat bilateral PSD with value <!-- l. 904 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> Watts/Hz and infinite power, from the discrete-time white noise that has finite power typically denoted by <!-- l. 904 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>. To emphasize the similarities and differences between continuous and discrete-time white noise, the goals here are to discuss how to: 1) generate a discrete-time white noise, 2) interpret the conversion of a continuous-time white noise into a discrete-time version and 3) its conversion back to continuous-time.
+</p>
+<!-- l. 907 -->
+<p class="noindent">
+</p>
+<h5 class="subsubsectionHead anchored">
+<a id="x64-227000"></a>Discrete-time white noise
+</h5>
+<!-- l. 909 -->
+<p class="noindent">
+As mentioned, a discrete-time white process <!-- l. 909 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>X</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> has its power <!-- l. 909 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mstyle mathvariant="script"></mstyle><mi>X</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></math> coinciding with the variance <!-- l. 909 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math> because the mean <!-- l. 909 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>μ</mi></mrow><mrow><mi>x</mi></mrow></msub></math> has to be zero for white processes. Moreover, its <span class="ec-lmri-10x-x-109">bilateral </span>PSD level <!-- l. 909 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></math> Watts per normalized frequency (or Dhertz) coincides with its variance in Watts. To observe that, denote the constant PSD value as <!-- l. 909 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> and note from Eq.&nbsp;(<a href="ak_dsp_bookse53.html#x63-218004r20">4.20<!-- tex4ht:ref: eq:psd_integration  --></a>) that
+</p>
+
+<table class="equation-star">
+<tbody><tr>
+<td>
+<!-- l. 911 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle mathvariant="script"></mstyle><mi>P</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow> <mrow><mn>2</mn><mi>π</mi></mrow></mfrac><msub><mrow><mo>∫ <!-- nolimits --></mo><!-- nolimits --></mrow><mrow><mo class="MathClass-rel" stretchy="false">&lt;</mo><mn>2</mn><mi>π</mi><mo class="MathClass-rel" stretchy="false">&gt;</mo></mrow></msub><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mi>d</mi><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow> <mrow><mn>2</mn><mi>π</mi></mrow></mfrac><mn>2</mn><mi mathvariant="italic">πα</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>α</mi><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 914 -->
+<p class="indent">
+In other words, the constant PSD level <!-- l. 914 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> has the same numerical value of the power <!-- l. 914 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup></math> in Watts, but should be interpreted as having unit of Watts per normalized frequency, as discussed in Example&nbsp;<a href="ak_dsp_bookse53.html#x63-217038r7">4.7<!-- tex4ht:ref: ex:units_of_esd_psd  --></a> and Example&nbsp;<a href="ak_dsp_bookse53.html#x63-217041r8">4.8<!-- tex4ht:ref: ex:units_of_esd_discrete_time  --></a>. In case of a unilateral PSD, the constant value <!-- l. 914 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>α</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> would be twice the power.
+</p>
+<!-- l. 916 -->
+<p class="indent">
+Therefore, a discrete-time bilateral white PSD (with a constant level) can be denoted as:
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 917 -->
+<p class="indent">
+</p>
+<!-- l. 917 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-227001r42"></mstyle><!-- endlabel --><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"></mstyle><mi>P</mi><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.42)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 921 -->
+<p class="indent">
+This result may be confusing because the values of power and spectral density coincide.
+</p>
+<!-- l. 923 -->
+<p class="indent">
+Denoting as <!-- l. 923 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></math> the PSD of a white noise at the input of a filter <!-- l. 923 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, Eq.&nbsp;(<a href="#x64-224002r37">4.37<!-- tex4ht:ref: eq:discrete_filtered_wss  --></a>) leads to an output PSD given by
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 925 -->
+<p class="indent">
+</p>
+<!-- l. 925 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-227002r43"></mstyle><!-- endlabel --><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>σ</mi></mrow><mrow> <mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.43)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 929 -->
+<p class="indent">
+Eq.&nbsp;(<a href="#x64-227002r43">4.43<!-- tex4ht:ref: eq:discrete_filtered_awgn  --></a>) suggests that the output PSD <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>y</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> has its shape <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> imposed by the filter, given that the input PSD <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math> is simply a scaling factor.
+</p>
+<!-- l. 933 -->
+<p class="noindent">
+<a id="x64-227003r11"></a> <span id="textcolor291">Example 4.11. </span><span class="ec-lmbx-10x-x-109">Generation of uniform and Gaussian white noise using Matlab/Octave</span>. A discrete-time white noise with i. i. d.&nbsp;samples is relatively easy to generate in Matlab/Octave using functions that implement random number generators. For example, <span class="ec-lmss-10x-x-109">x=rand(1,1000)-0.5 </span>creates a signal with an autocorrelation that approximates an impulse at the origin and 1,000 samples that are uniformly distributed. The subtraction of 0.5 is necessary to make <!-- l. 934 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>. Similarly, a discrete-time version of WGN (Gaussian, not a uniform distribution) can be generated with <span class="ec-lmss-10x-x-109">x=randn(1,1000)</span>. &nbsp;&nbsp;<!-- l. 936 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mtext class="MathClass-ord">□</mtext></math>
+</p>
+<!-- l. 938 -->
+<p class="noindent">
+</p>
+<h5 class="subsubsectionHead anchored">
+<a id="x64-228000"></a>Converting white noise from continuous to discrete-time
+</h5>
+<!-- l. 946 -->
+<p class="noindent">
+The signals discussed in the previous section were already created in discrete-time. But in some cases the discrete-time white noise is obtained from a continuous-time version or should be interpreted as such.
+</p>
+<!-- l. 949 -->
+<p class="indent">
+For example, assume <!-- l. 949 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is a continuous-time WGN submitted to filtering by an ideal lowpass filter and A/D conversion, as illustrated by the following block diagram:
+</p>
+<!-- tex4ht:inline -->
+<!-- l. 952 -->
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align-star" columnalign="left" displaystyle="true"> <mtr><mtd class="align-odd" columnalign="right"><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;h(t)</mtext></mstyle><mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;A/D</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo></mtd> <mtd class="align-even"><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"> </mtd></mtr></mtable></math></p>
+<!-- l. 953 -->
+<p class="noindent">
+From Eq.&nbsp;(<a href="#x64-224001r36">4.36<!-- tex4ht:ref: eq:wss_continuous_lti_output_psd  --></a>), the PSD at the output of <!-- l. 953 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is <!-- l. 953 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>. If the filter is ideal and the A/D conversion does not incur in aliasing, the PSD <!-- l. 953 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of <!-- l. 953 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is a scaled and periodic version of <!-- l. 953 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. Therefore, it is white in discrete-time.
+</p>
+<!-- l. 955 -->
+<p class="indent">
+Assuming that <!-- l. 955 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is an ideal lowpass filter of bandwidth <!-- l. 955 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> (gain equal to 1 over the band <!-- l. 955 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> to <!-- l. 955 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>&nbsp;Hz and zero otherwise), where <!-- l. 955 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></math> is the A/D sampling frequency, then the PSD of the continuous-time signal at the output of <!-- l. 956 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is <!-- l. 956 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msub><mrow> <mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> over <!-- l. 956 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle></math> and its power is <!-- l. 956 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"></mstyle><mi>P</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>. Under the same assumptions of Eq.&nbsp;(<a href="ak_dsp_bookse11.html#x18-67003r51">1.51<!-- tex4ht:ref: eq:energyConservationContinuousDiscreteTime  --></a>), the power values in discrete and continuous-time are the same, such that the power of <!-- l. 957 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is denoted by its variance <!-- l. 957 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>.
+</p>
+<!-- l. 959 -->
+<p class="noindent">
+<a id="x64-228001r12"></a> <span id="textcolor292">Example 4.12. </span><span class="ec-lmbx-10x-x-109">Discretizing white noise</span>. For example, given that white noise with <!-- l. 961 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></mrow></math> W/Hz is converted to a discrete-time signal <!-- l. 961 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> via the cascade of an ideal lowpass filter <!-- l. 961 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with passband <!-- l. 961 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> and an A/D process with <!-- l. 961 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>200</mn></mrow></math>&nbsp;Hz, the power of the signal at the output of the ideal lowpass filter <!-- l. 961 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is
+</p>
+
+<table class="equation-star">
+<tbody><tr>
+<td>
+<!-- l. 962 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac><msub><mrow> <mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>100</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>6</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>600</mn><mspace class="nbsp" width="0.33em"></mspace><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle> </mrow></math>
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 965 -->
+<p class="indent">
+and the power of <!-- l. 965 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is <!-- l. 965 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>600</mn></mrow></math>&nbsp;W.
+</p>
+<figure class="figure">
+<p><a id="x64-2280027"></a></p>
+<pre><code>                                   &lt;div class='center'&gt;</code></pre>
+<!-- l. 968 -->
+<p class="noindent">
+</p>
+<!-- l. 969 -->
+<p class="noindent">
+<img alt="PIC" src="./Figures/awgn_continuous_discrete.png" class="figure-img">
+</p>
+<figcaption class="caption figure-caption">
+<span class="id">Figure&nbsp;4.7: </span><span class="content">PSD <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of a continuous-time white noise with <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn></mrow></math> W/Hz (top) and its discrete-time counterpart <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> obtained with <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>200</mn></mrow></math>&nbsp;Hz (bottom). </span>
+</figcaption>
+<!-- tex4ht:label?: x64-2280027  -->
+<pre><code>                                   &lt;/div&gt;
+                                                                          
+                                                                          </code></pre>
+</figure>
+<!-- l. 974 -->
+<p class="indent">
+Figure&nbsp;<a href="#x64-2280027">4.7<!-- tex4ht:ref: fig:awgn_continuous_discrete  --></a> depicts the PSD for both continuous and discrete-time signals. Note that the abscissa of <!-- l. 974 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, which is periodic, is represented from 0 to <!-- l. 974 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>π</mi></mrow></math>. As indicated by Eq.&nbsp;(<a href="ak_dsp_bookse53.html#x63-218004r20">4.20<!-- tex4ht:ref: eq:psd_integration  --></a>), the power <!-- l. 974 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math> can be obtained by integrating <!-- l. 974 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>600</mn></mrow></math>&nbsp;Watts per normalized frequency (Dhertz) over the range <!-- l. 974 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>2</mn><mi>π</mi><mo class="MathClass-open" stretchy="false">[</mo></mrow></math> and dividing the result by <!-- l. 974 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>π</mi></mrow></math>. &nbsp;&nbsp;<!-- l. 975 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mtext class="MathClass-ord">□</mtext></math>
+</p>
+<!-- l. 977 -->
+<p class="noindent">
+<a id="x64-228003r13"></a> <span id="textcolor293">Example 4.13. </span><span class="ec-lmbx-10x-x-109">Filtering white noise through systems with unitary-energy impulse responses</span>. Another situation of interest is when white noise is filtered by an LTI that has impulse response <!-- l. 980 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with energy <!-- l. 980 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>E</mi></mrow><mrow><mi>h</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow> <mo>∫</mo> <!-- nolimits --><!-- nolimits --></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>∞</mi></mrow><mrow><mi>∞</mi></mrow></msubsup><mo class="MathClass-rel" stretchy="false">|</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><mi mathvariant="italic">dt</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>&nbsp;Joule, as depicted in:
+</p>
+<!-- tex4ht:inline -->
+<!-- l. 983 -->
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align-star" columnalign="left" displaystyle="true"> <mtr><mtd class="align-odd" columnalign="right"><mi>ν</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;h(t)</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;A/D</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo></mtd> <mtd class="align-even"><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"> </mtd></mtr></mtable></math> <!-- l. 985 -->
+<p class="noindent">
+In this case, the Parseval relation of Eq.&nbsp;(<a href="ak_dsp_bookse79.html#x91-278011r51">B.51<!-- tex4ht:ref: eq:parsevalEnergy  --></a>) indicates that <!-- l. 986 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>E</mi></mrow><mrow><mi>h</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow> <mo>∫</mo> <!-- nolimits --><!-- nolimits --></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>∞</mi></mrow><mrow><mi>∞</mi></mrow></msubsup><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><mstyle class="text"><mtext class="textrm" mathvariant="normal">d</mtext></mstyle><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> and from Eq.&nbsp;(<a href="#x64-225006r41">4.41<!-- tex4ht:ref: eq:whiteNoiseLTIOutput  --></a>), the power of <!-- l. 987 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 988 -->
+<p class="indent">
+</p>
+<!-- l. 988 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x64-228004r44"></mstyle><!-- endlabel --><msub><mrow><mstyle mathvariant="script"></mstyle><mi>P</mi></mrow><mrow><mi>x</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫ <!-- nolimits --></mo><!-- nolimits --></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>∞</mi></mrow><mrow><mi>∞</mi></mrow></msubsup><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup><mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mstyle class="text"><mtext class="textrm" mathvariant="normal">d</mtext></mstyle><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow> <mrow><mn>2</mn></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(4.44)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 992 -->
+<p class="indent">
+Therefore, the power of <!-- l. 992 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is <!-- l. 992 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo><msub><mrow> <mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>, independent of <!-- l. 992 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> (or its transform <!-- l. 992 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>). However, <!-- l. 992 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> will not have a flat PSD unless <!-- l. 993 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is an ideal lowpass filter as in Example&nbsp;<a href="#x64-228001r12">4.12<!-- tex4ht:ref: ex:discretizingWhiteNoise  --></a>. &nbsp;&nbsp;<!-- l. 994 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mtext class="MathClass-ord">□</mtext></math>
+</p>
+<h5 class="subsubsectionHead anchored">
+<a id="x64-229000"></a>Gaussian signal filtered by LTI system remains Gaussian
+</h5>
+<!-- l. 998 -->
+<p class="noindent">
+If the system is LTI and its input is a realization of a WGN process, then it is well-known from random processes textbooks that the filter output is another Gaussian process. In other words, a Gaussian signal filtered by a linear system remains Gaussian but, in the general case, with a non-white PSD that was shaped by the filter.
+</p>
+<!-- l. 1000 -->
+<p class="indent">
+When the LTI is an ideal lowpass filter such as in Example&nbsp;<a href="#x64-228001r12">4.12<!-- tex4ht:ref: ex:discretizingWhiteNoise  --></a>, besides being Gaussian, the output is also flat within the filter passband (or “white” within this band). Hence, when the input is WGN, and <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> an ideal lowpass filter with passband frequency <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> that has its output converted to discrete-time, the resulting <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is a <span class="ec-lmri-10x-x-109">white and Gaussian</span> process with PSD <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> (again, “white” within the band <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>π</mi></mrow></math> to <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math> rad) and power <!-- l. 1001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math> Watts.
+</p>
+<!-- l. 1003 -->
+<p class="noindent">
+</p>
+<h5 class="subsubsectionHead anchored">
+<a id="x64-230000"></a>Converting white noise from discrete to continuous-time
+</h5>
+<!-- l. 1005 -->
+<p class="noindent">
+</p><p>The conversion of a discrete-time white noise <!-- l. 1005 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> into a continuous-time signal <!-- l. 1005 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is depicted as:</p>
+<p></p>
+<!-- tex4ht:inline -->
+<!-- l. 1008 -->
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align-star" columnalign="left" displaystyle="true"> <mtr><mtd class="align-odd" columnalign="right"><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>&nbsp;D/A</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="fbox"><mtext>h(t)</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo></mtd> <mtd class="align-even"><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"> </mtd></mtr></mtable></math> <!-- l. 1010 -->
+<p class="noindent">
+</p><p>Similar to the previous discussion about white noise C/D conversion in this section, if <!-- l. 1011 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is an ideal lowpass filter with passband frequency <!-- l. 1012 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>, <!-- l. 1012 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> has a flat PSD <!-- l. 1012 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with value <!-- l. 1012 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"></mstyle><mi>N</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></math>, where <!-- l. 1012 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>σ</mi></mrow><mrow><mn>2</mn></mrow></msup></math> is the power of <!-- l. 1013 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ν</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> and <!-- l. 1013 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub></math> the sampling frequency. Note that <!-- l. 1013 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>S</mi></mrow><mrow><mi>x</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> for <!-- l. 1014 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-rel" stretchy="false">|</mo></mrow></math>. Therefore, <!-- l. 1014 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is not a continuous-time WGN, but has a flat PSD within the band <!-- l. 1015 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.</p>
+<p></p>
+<div class="footnotes">
+<a id="x64-225004x4.5.2"></a> <!-- l. 864 -->
+<p class="indent">
+<span class="footnote-mark"><a href="#fn6x6-bk" id="fn6x6"><sup class="textsuperscript">6</sup>&nbsp;</a></span><span class="ec-lmr-9">Unless otherwise stated, the bandwidth is assumed to be over non-negative frequencies.</span>
+</p>
+<pre><code>       &lt;/div&gt;</code></pre>
+
+
+
+
+
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ak_dsp_bookse53.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">ak_dsp_bookse53.html</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ak_dsp_bookse55.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">ak_dsp_bookse55.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Digital Signal Processing with Python, Matlab or Octave, Applications in Machine Learning Aldebaro Klautau Federal University of Pará (UFPA), Brazil</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

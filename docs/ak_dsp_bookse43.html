@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aldebaro Klautau">
+
+<title>Digital Signal Processing with Python, Matlab or Octave – ak_dsp_bookse43</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ak_dsp_bookse44.html" rel="next">
+<link href="./ak_dsp_bookse42.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ak_dsp_bookse43.html"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">ak_dsp_bookse43.html</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Digital Signal Processing with Python, Matlab or Octave</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookad1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ak_dsp_bookad1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ak_dsp_bookap1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ak_dsp_bookap2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ak_dsp_bookap3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ak_dsp_bookap4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ak_dsp_bookch1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">ak_dsp_bookch2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ak_dsp_bookch3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ak_dsp_bookch4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ak_dsp_bookli1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ak_dsp_bookli2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ak_dsp_bookli3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ak_dsp_bookli4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ak_dsp_book.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ak_dsp_bookse1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ak_dsp_bookse2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">ak_dsp_bookse3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ak_dsp_bookse4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">ak_dsp_bookse5.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">ak_dsp_bookse6.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">ak_dsp_bookse7.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">ak_dsp_bookse8.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ak_dsp_bookse9.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ak_dsp_bookse10.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ak_dsp_bookse11.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ak_dsp_bookse12.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">ak_dsp_bookse13.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">ak_dsp_bookse14.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">ak_dsp_bookse15.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ak_dsp_bookse16.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ak_dsp_bookse17.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">ak_dsp_bookse18.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">ak_dsp_bookse19.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">ak_dsp_bookse20.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">ak_dsp_bookse21.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">ak_dsp_bookse22.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">ak_dsp_bookse23.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ak_dsp_bookse24.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ak_dsp_bookse25.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ak_dsp_bookse26.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">ak_dsp_bookse27.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ak_dsp_bookse28.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ak_dsp_bookse29.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse30.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse31.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">ak_dsp_bookse32.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse33.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">ak_dsp_bookse33.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse34.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">ak_dsp_bookse34.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse35.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse36.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse37.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">ak_dsp_bookse37.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse38.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">ak_dsp_bookse38.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse39.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">ak_dsp_bookse39.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse40.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">ak_dsp_bookse40.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse41.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">ak_dsp_bookse41.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse42.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">ak_dsp_bookse42.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse43.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">ak_dsp_bookse43.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse44.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">ak_dsp_bookse44.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse45.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">ak_dsp_bookse45.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse46.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">ak_dsp_bookse46.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse47.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">ak_dsp_bookse47.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse48.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">ak_dsp_bookse48.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse49.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">ak_dsp_bookse49.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse50.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">ak_dsp_bookse50.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse51.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">ak_dsp_bookse51.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse52.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">ak_dsp_bookse52.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse53.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">ak_dsp_bookse53.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse54.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">ak_dsp_bookse54.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse55.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">ak_dsp_bookse55.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse56.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">ak_dsp_bookse56.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse57.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">ak_dsp_bookse57.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse58.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">ak_dsp_bookse58.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse59.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">ak_dsp_bookse59.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse60.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">ak_dsp_bookse60.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse61.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">ak_dsp_bookse61.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse62.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">ak_dsp_bookse62.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse63.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">ak_dsp_bookse63.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">ak_dsp_bookse64.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse65.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">ak_dsp_bookse65.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse66.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">ak_dsp_bookse66.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse67.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">ak_dsp_bookse67.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse68.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">ak_dsp_bookse68.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse69.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">ak_dsp_bookse69.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse70.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">ak_dsp_bookse70.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse71.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">ak_dsp_bookse71.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse72.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">ak_dsp_bookse72.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse73.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">ak_dsp_bookse73.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse74.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">ak_dsp_bookse74.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse75.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">ak_dsp_bookse75.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse76.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">ak_dsp_bookse76.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse77.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">ak_dsp_bookse77.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse78.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">ak_dsp_bookse78.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse79.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">ak_dsp_bookse79.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse80.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">ak_dsp_bookse80.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse81.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">ak_dsp_bookse81.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse82.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">ak_dsp_bookse82.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse83.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">ak_dsp_bookse83.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse84.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">98</span>&nbsp; <span class="chapter-title">ak_dsp_bookse84.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse85.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">99</span>&nbsp; <span class="chapter-title">ak_dsp_bookse85.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse86.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">100</span>&nbsp; <span class="chapter-title">ak_dsp_bookse86.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse87.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">101</span>&nbsp; <span class="chapter-title">ak_dsp_bookse87.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse88.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">102</span>&nbsp; <span class="chapter-title">ak_dsp_bookse88.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse89.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">103</span>&nbsp; <span class="chapter-title">ak_dsp_bookse89.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse90.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">104</span>&nbsp; <span class="chapter-title">ak_dsp_bookse90.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse91.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">105</span>&nbsp; <span class="chapter-title">ak_dsp_bookse91.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse92.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">106</span>&nbsp; <span class="chapter-title">ak_dsp_bookse92.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse93.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">107</span>&nbsp; <span class="chapter-title">ak_dsp_bookse93.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse94.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">108</span>&nbsp; <span class="chapter-title">ak_dsp_bookse94.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse95.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">109</span>&nbsp; <span class="chapter-title">ak_dsp_bookse95.html</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+&lt;!DOCTYPE html&gt;
+
+
+<title>
+FIR Filter Design
+</title>
+<meta charset="utf-8">
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link href="ak_dsp_book.css" rel="stylesheet" type="text/css">
+<meta content="ak_dsp_book.tex" name="src">
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+
+
+<h3 class="sectionHead anchored">
+<span class="titlemark">3.13</span>&nbsp;&nbsp;<a id="x52-1800003.13"></a>FIR Filter Design
+</h3>
+<!-- l. 2922 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.1</span>&nbsp;&nbsp;<a id="x52-1810003.13.1"></a>A FIR filter does not have finite poles
+</h4>
+<!-- l. 2924 -->
+<p class="noindent">
+Essentially, most FIR filters are non-recursive and have a transfer function that can be written as <!-- l. 2924 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>B</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, i. e., the denominator is <!-- l. 2924 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> in Eq.&nbsp;(<a href="ak_dsp_bookse40.html#x49-154003r52">3.52<!-- tex4ht:ref: eq:transferfunction  --></a>). Given this denominator, all poles of FIR filters are located in <!-- l. 2925 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>z</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> or <!-- l. 2925 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>z</mi><mo class="MathClass-rel" stretchy="false">|</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>∞</mi></mrow></math> (while IIR filters do not have this restriction). For example, <!-- l. 2925 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn></mrow></msup></mrow></math> has a pole of order (or multiplicity) 2 at <!-- l. 2925 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>z</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>. You can check that with <span class="ec-lmss-10x-x-109">zplane([1 1 1],1) </span>on Matlab/Octave<span class="footnote-mark"><a href="#fn30x5" id="fn30x5-bk"><sup class="textsuperscript">30</sup></a></span><a id="x52-181001f30"></a> or note it by rewriting as <!-- l. 2925 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>z</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>z</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><msup><mrow><mi>z</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>. Another example is the noncausal system <!-- l. 2926 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>z</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>z</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math>, which has a pole of multiplicity 2 at infinity.<span class="footnote-mark"><a href="#fn31x5" id="fn31x5-bk"><sup class="textsuperscript">31</sup></a></span><a id="x52-181003f31"></a>
+</p>
+<!-- l. 2928 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.2</span>&nbsp;&nbsp;<a id="x52-1820003.13.2"></a>The coefficients of a FIR coincide with its impulse response
+</h4>
+<!-- l. 2929 -->
+<p class="noindent">
+An interesting property of FIR filters is that the coefficients of <!-- l. 2929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>B</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> (also called “taps”<a id="dx52-182001"></a>) are exactly the non-zero values of the filter’s impulse response <!-- l. 2929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>. For example, using the inverse Z-transform on <!-- l. 2929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn></mrow></msup></mrow></math>, one obtains <!-- l. 2929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mstyle mathvariant="script"></mstyle><mi>Z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-open" stretchy="false">{</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">}</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.
+</p>
+<!-- l. 2931 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.3</span>&nbsp;&nbsp;<a id="x52-1830003.13.3"></a>Algorithms for FIR filter design
+</h4>
+<figure class="figure">
+<p><a id="x52-18300146"></a></p>
+<!-- l. 2935 -->
+<p class="noindent">
+<img alt="PIC" src="FiguresTex/differentiator_mask.png" class="figure-img">
+</p>
+<figcaption class="caption figure-caption">
+<span class="id">Figure&nbsp;3.46: </span><span class="content">Mask for a differentiator filter specified with the syntax for arbitrary filter magnitudes.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-18300146  -->
+</figure>
+<!-- l. 2939 -->
+<p class="indent">
+There are several algorithms for both FIR and IIR. Instead of using pre-defined functions such as Butterworth’s, a FIR design is typically done with alternative methods, which seek to optimize a given criterion. The most common algorithm is the <span class="ec-lmri-10x-x-109">least-squares</span><a id="dx52-183002"></a>, which is implemented in Matlab/Octave via <span class="ec-lmss-10x-x-109">firls</span>. Another algorithm is <span class="ec-lmri-10x-x-109">Parks-McClellan</span>, implemented in Matlab’s <span class="ec-lmss-10x-x-109">firpm</span>, but not available in Octave 3.2.3.
+</p>
+<!-- l. 2942 -->
+<p class="indent">
+These and other optimization-based algorithms are executed according to a syntax that allows specifying an arbitrary function, not restricted to be lowpass, highpass, etc. Figure&nbsp;<a href="#x52-18300146">3.46<!-- tex4ht:ref: fig:differentiator_mask  --></a> illustrates the specification of a desired magnitude response of a <span class="ec-lmri-10x-x-109">differentiator</span><a id="dx52-183003"></a>, which has a gain in passband that is proportional to frequency. An arbitrary function will be specified in <!-- l. 2944 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>N</mi></mrow><mrow><mi>B</mi></mrow></msub></math> bands of interest. For each band <!-- l. 2944 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>, four parameters are necessary: the start <!-- l. 2944 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>f</mi></mrow><mrow><mi>b</mi></mrow><mrow><mi>s</mi></mrow></msubsup></math> and end <!-- l. 2944 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>f</mi></mrow><mrow><mi>b</mi></mrow><mrow><mi>e</mi></mrow></msubsup></math> frequencies, the desired function values (the magnitude in this context) <!-- l. 2944 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>A</mi></mrow><mrow><mi>b</mi></mrow><mrow><mi>s</mi></mrow></msubsup></math> and <!-- l. 2944 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>A</mi></mrow><mrow><mi>b</mi></mrow><mrow><mi>e</mi></mrow></msubsup></math> at the start and end frequencies. An optional parameter is the weight of each band (e. g., W1 and W2 in Figure&nbsp;<a href="#x52-18300146">3.46<!-- tex4ht:ref: fig:differentiator_mask  --></a>). The larger the weight, the higher the importance given to that band in the design process.
+</p>
+<!-- l. 2946 -->
+<p class="indent">
+In Matlab/Octave, the function <span class="ec-lmss-10x-x-109">fir2 </span>implements another algorithm for designing a FIR with arbitrary frequency response magnitude, using a different syntax. Instead of working with bands, <span class="ec-lmss-10x-x-109">fir2 </span>allows the specification of the desired magnitude at frequencies of interest.
+</p>
+<!-- l. 2948 -->
+<p class="indent">
+An example of using least-squares for FIR design with <span class="ec-lmss-10x-x-109">firls </span>is discussed in the sequel.
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.4</span>&nbsp;&nbsp;<a id="x52-1840003.13.4"></a>FIR design via least-squares
+</h4>
+<!-- l. 2952 -->
+<p class="noindent">
+The least-squares method tries to minimize the total squared error between the desired function and the obtained approximation over the specified band. It is possible to give a different weight to each band. The larger the weight, the smaller the error in that band. A vector <span class="ec-lmss-10x-x-109">W </span>with weights is an optional input parameter of <span class="ec-lmss-10x-x-109">firls</span>.
+</p>
+<!-- l. 2954 -->
+<p class="indent">
+</p><p>For example, an ideal lowpass with cutoff <!-- l. 2954 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> rad can be specified with <!-- l. 2954 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>N</mi></mrow><mrow><mi>B</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math> bands. The (normalized) frequencies could be <!-- l. 2954 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>f</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>s</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>f</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>e</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.5</mn><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>f</mi></mrow><mrow><mn>2</mn></mrow><mrow><mi>s</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.5</mn><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>f</mi></mrow><mrow><mn>2</mn></mrow><mrow><mi>e</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> and the amplitudes <!-- l. 2954 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>A</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>s</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>A</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>e</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>A</mi></mrow><mrow><mn>2</mn></mrow><mrow><mi>s</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>A</mi></mrow><mrow><mn>2</mn></mrow><mrow><mi>e</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>. These values are organized in vectors <span class="ec-lmss-10x-x-109">F=[0 0.5 0.5 1] </span>and <span class="ec-lmss-10x-x-109">A=[1 1 0 0] </span>and a <!-- l. 2955 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>100</mn></mrow></math>-order FIR can be obtained with <span class="ec-lmss-10x-x-109">B=firls(100,F,A)</span>. Note that <span class="ec-lmss-10x-x-109">A </span>and <span class="ec-lmss-10x-x-109">F </span>have the same length, which must be</p>
+<!-- l. 2956 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><msub><mrow><mi>N</mi></mrow><mrow><mi>B</mi></mrow></msub></mrow></math> (even number), and <span class="ec-lmss-10x-x-109">W</span> must have length equal to <!-- l. 2956 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>N</mi></mrow><mrow><mi>B</mi></mrow></msub></math> if specified. The default is to weight all bands equally, which corresponds to <span class="ec-lmss-10x-x-109">W </span>with all elements equal to 1.
+<p></p>
+<figure class="figure">
+<p><a id="x52-18400347"></a></p>
+<a id="x52-184001r1"></a>
+<div class="subfigure">
+
+<table>
+<tbody><tr>
+<td style="text-align:left">
+<img alt="PIC" src="Figures/fir_first_band_important.png" class="figure-img">
+<div class="subfigcaption">
+<span class="ec-lmr-9">(a) 1st passband prioritized</span>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+</div>
+<a id="x52-184002r2"></a>
+<div class="subfigure">
+
+<table>
+<tbody><tr>
+<td style="text-align:left">
+<img alt="PIC" src="Figures/fir_second_band_important.png" class="figure-img">
+<div class="subfigcaption">
+<span class="ec-lmr-9">(b) 2nd passband prioritized</span>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+</div>
+<figcaption class="caption figure-caption">
+<span class="id">Figure&nbsp;3.47: </span><span class="content">Frequency response of filters obtained with <span class="ec-lmss-10x-x-109">firls</span>. In (a), the first passband had a larger weight than the second, while in (b) it was the opposite.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-18400347  -->
+</figure>
+<!-- l. 2966 -->
+<p class="indent">
+Figure&nbsp;<a href="#x52-18400347">3.47<!-- tex4ht:ref: fig:fir_bands  --></a> compares the frequency responses of two filters obtained with <span class="ec-lmss-10x-x-109">firls</span>. Figure&nbsp;<a href="#x52-184001r1">3.47(a)<!-- tex4ht:ref: fig:fir_first_band_important  --></a> was obtained with Listing&nbsp;<a href="#x52-184004r26">3.26<!-- tex4ht:ref: code:snip_systems_firls  --></a>.
+</p>
+<!-- l. 2967 -->
+<figcaption class="caption">
+<span class="id">Listing&nbsp;3.26: </span><span class="content">MatlabOctaveCodeSnippets/snip_systems_firls.m</span>
+</figcaption>
+<!-- tex4ht:label?: x52-184004r3.13.4  -->
+<pre class="lstinputlisting" id="listing-101"><span class="label"><a id="x52-184006r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[0</span></span><span style="color:#000000"> <span class="ec-lmtt-9">0.25 0.3 0.55 0.6 0.85 0.9 1];</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">frequencies</span></span> 
+<span class="label"><a id="x52-184007r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">A</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1</span></span><span style="color:#000000"> <span class="ec-lmtt-9">1 0 0 1 1 0 0];</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">amplitudes</span></span> 
+<span class="label"><a id="x52-184008r3"></a></span><span style="color:#000000"><span class="ec-lmtt-9">M</span></span><span style="color:#000000"><span class="ec-lmtt-9">=20;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">filter</span></span><span style="color:#005900"> <span class="ec-lmtt-9">order</span> 
+</span><span class="label"><a id="x52-184009r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">W</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1000</span></span><span style="color:#000000"> <span class="ec-lmtt-9">1 1 1];</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">weights</span></span><span style="color:#005900"><span class="ec-lmtt-9">,</span></span><span style="color:#005900"> <span class="ec-lmtt-9">first passband is prioritized</span> 
+</span><span class="label"><a id="x52-184010r5"></a><span class="ec-lmr-6">5</span></span><span style="color:#000000"><span class="ec-lmtt-9">B</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">firls</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">M</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">A</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">W</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span> 
+<span class="label"><a id="x52-184011r6"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">freqz</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">B</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span>
+  </pre>
+<!-- l. 2976 -->
+<p class="indent">
+The horizontal lines were superimposed to indicate the bands in which the gain should be 0 dB. Figure&nbsp;<a href="#x52-184002r2">3.47(b)<!-- tex4ht:ref: fig:fir_second_band_important  --></a> was obtained with the same commands, but changing <span class="ec-lmss-10x-x-109">W </span>to <span class="ec-lmss-10x-x-109">W=[1 1 1000 1]</span>. Note that the impact of <span class="ec-lmss-10x-x-109">W </span>is visible with the band that is not prioritized having larger deviations.
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.5</span>&nbsp;&nbsp;<a id="x52-1850003.13.5"></a>FIR design via windowing
+</h4>
+<!-- l. 2982 -->
+<p class="noindent">
+The <span class="ec-lmri-10x-x-109">windowing </span>method for FIR design is implemented in <span class="ec-lmss-10x-x-109">fir1</span>. In terms of computational cost, the method is very simple: the FIR impulse response <!-- l. 2983 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is obtained by multiplying the impulse response of an ideal filter (which has an infinite duration) by a finite-length sequence <!-- l. 2983 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>w</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> called <span class="ec-lmri-10x-x-109">window </span>with <!-- l. 2983 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> non-zero samples. Recall that the coefficients <!-- l. 2983 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>B</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of a FIR coincide with its <!-- l. 2983 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>. For the case of an ideal lowpass filter, the impulse response is given by
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 2985 -->
+<p class="indent">
+</p>
+<!-- l. 2985 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x52-185001r82"></mstyle><!-- endlabel --><msub><mrow><mi>h</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">LP</mtext></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mtext class="qopname">sin</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo><!-- nolimits --><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi mathvariant="normal">Ω</mi></mrow><mrow><mi>c</mi></mrow></msub><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow> <mrow><mi mathvariant="italic">πn</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.82)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 2989 -->
+<p class="indent">
+which is the inverse DTFT of a “rectangular pulse” in frequency-domain.
+</p>
+<!-- l. 2991 -->
+<p class="indent">
+The impulse response for the ideal highpass filter can be obtained by noting that <!-- l. 2992 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">HP</mtext></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>H</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">HP</mtext></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and converting this to time-domain leads to
+</p>
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 2994 -->
+<p class="indent">
+</p>
+<!-- l. 2994 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x52-185002r83"></mstyle><!-- endlabel --><msub><mrow><mi>h</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">HP</mtext></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>h</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">LP</mtext></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.83)
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 2999 -->
+<p class="indent">
+The steps to obtain a FIR filter <!-- l. 2999 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> of order <!-- l. 2999 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math> (assumed to be an even number here) via the windowing method are:
+</p>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">f</span> 1.
+</dt>
+<dd class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">Obtain the impulse response for the corresponding ideal filter</span>: <!-- l. 3001 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> has an infinite duration but the next steps will require only <!-- l. 3002 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> of its coefficients.
+</dd>
+<dt class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">f</span> 2.
+</dt>
+<dd class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">Choose a window</span>: Pick a window <!-- l. 3003 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>w</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> with <!-- l. 3003 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> non-zero coefficients in the range <!-- l. 3003 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.
+</dd>
+<dt class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">f</span> 3.
+</dt>
+<dd class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">Get a filter with finite order </span><!-- l. 3004 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math> <span class="ec-lmbx-10x-x-109">(i. e., </span><!-- l. 3004 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> <span class="ec-lmbx-10x-x-109">coefficients)</span>: Multiply the chosen window <!-- l. 3004 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>w</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> by the ideal filter impulse response <!-- l. 3004 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> to get a temporary
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 3005 -->
+<p class="noindent">
+</p>
+<!-- l. 3005 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x52-185006r84"></mstyle><!-- endlabel --><msubsup><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow><mrow><mi>t</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mi>w</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.84)
+</td>
+</tr>
+
+</tbody></table>
+<pre><code> &lt;/dd&gt;&lt;dt class='enumerate-enumitem'&gt;&lt;span class='ec-lmbx-10x-x-109'&gt;f&lt;/span&gt;</code></pre>
+<ol start="4" type="1">
+<li>
+<dd class="enumerate-enumitem">
+<span class="ec-lmbx-10x-x-109">Make the filter causal</span>: Delay <!-- l. 3009 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow><mrow><mi>t</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> such that the first <!-- l. 3009 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> coefficient is at <!-- l. 3009 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>:
+
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 3010 -->
+<p class="noindent">
+</p>
+<!-- l. 3010 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x52-185008r85"></mstyle><!-- endlabel --><msub><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow><mrow><mi>t</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.85)
+</td>
+</tr>
+
+</tbody></table>
+<pre><code> &lt;/dd&gt;&lt;/dl&gt;</code></pre>
+<!-- l. 3016 -->
+<p class="indent">
+The DTFT of <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>, <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>w</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>, <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow><mrow><mi>t</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> and <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>h</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> are <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>W</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>H</mi></mrow><mrow><mi>w</mi></mrow><mrow><mi>t</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 3016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, respectively. Figure&nbsp;<a href="#x52-18500948">3.48<!-- tex4ht:ref: fig:fir_design  --></a> illustrates the effect of multiplying a signal (<!-- l. 3017 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> in this case) by a finite-duration window. This is a very useful approach for modeling the process of truncating an infinite-duration signal for further processing. This model allows to calculate, for instance, the spectrum of the finite-duration signal based on the convolution between the original and the window spectra. This is useful not only in FIR design, but many other situations such as segmenting a signal into frames.
+</p>
+<figure class="figure"></figure></dd></li>
+</ol>
+<p><a id="x52-18500948"></a></p>
+<!-- l. 3025 -->
+<p class="noindent">
+<img alt="PIC" src="FiguresTex/fir_design.png">
+</p>
+<figcaption class="caption">
+<span class="id">Figure&nbsp;3.48: </span><span class="content">FIR design described in both time and frequency domains.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-18500948  -->
+
+<!-- l. 3029 -->
+<p class="indent">
+In windows-based FIR design, the filter frequency response <!-- l. 3029 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is the result of the (circular) convolution between <!-- l. 3031 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 3031 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>W</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, as indicated in Figure&nbsp;<a href="#x52-18500948">3.48<!-- tex4ht:ref: fig:fir_design  --></a>. The ripples (ringing) observed in <!-- l. 3033 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mi>w</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> are located at the transitions of <!-- l. 3033 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and indicate that the main lobe of <!-- l. 3034 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>W</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> dictates the transition band and the amplitude of <!-- l. 3035 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>W</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> sidelobes determine the attenuation at the stopband.
+</p>
+<!-- l. 3038 -->
+<p class="indent">
+The properties of the filter are completely dependent on the adopted window type. The most common windows are named after their inventors: Hamming, Blackman, Kaiser and Hann (also called the hanning window). Among these four, the Kaiser is the only one with an extra degree of freedom provided by a parameter <!-- l. 3038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>β</mi></math>. The other three are completely specified by the order <!-- l. 3038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math>.
+</p>
+<!-- l. 3040 -->
+<p class="indent">
+The rectangular window is useful to better understand the windowing process. The rectangular is 1 for <!-- l. 3041 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> samples and 0 otherwise. For example, a <!-- l. 3042 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn></math>-th order lowpass filter with <!-- l. 3042 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi mathvariant="normal">Ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>3</mn></mrow></math> can be designed with a rectangular windows according to Listing&nbsp;<a href="#x52-185010r27">3.27<!-- tex4ht:ref: code:snip_systems_rectangular_window  --></a>.
+</p>
+<!-- l. 3044 -->
+<figcaption class="caption">
+<span class="id">Listing&nbsp;3.27: </span><span class="content">MatlabOctaveCodeSnippets/snip_systems_rectangular_window.m</span>
+</figcaption>
+<!-- tex4ht:label?: x52-185010r3.13.5  -->
+<pre class="lstinputlisting" id="listing-102"><span class="label"><a id="x52-185012r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">=2</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">the</span></span><span style="color:#005900"> <span class="ec-lmtt-9">FIR order is M=2N in this case</span> 
+</span><span class="label"><a id="x52-185013r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">n</span></span><span style="color:#000000"><span class="ec-lmtt-9">=-</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">:</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">time</span></span><span style="color:#005900"> <span class="ec-lmtt-9">indices</span> 
+</span><span class="label"><a id="x52-185014r3"></a></span><span style="color:#000000"><span class="ec-lmtt-9">wc</span></span><span style="color:#000000"> <span class="ec-lmtt-9">=</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"><span class="ec-lmtt-9">/3</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">specified</span></span><span style="color:#005900"> <span class="ec-lmtt-9">cutoff frequency</span> 
+</span><span class="label"><a id="x52-185015r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">hn</span></span><span style="color:#000000"> <span class="ec-lmtt-9">=</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">sin</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">wc</span></span><span style="color:#000000"> <span class="ec-lmtt-9">* n) ./ (</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"> <span class="ec-lmtt-9">* n)</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">ideal</span></span><span style="color:#005900"> <span class="ec-lmtt-9">filter response</span> 
+</span><span class="label"><a id="x52-185016r5"></a><span class="ec-lmr-6">5</span></span><span style="color:#000000"><span class="ec-lmtt-9">hn</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">+1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">wc</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">correct</span></span><span style="color:#005900"> <span class="ec-lmtt-9">undetermined value hn=0/0 at n=0</span> 
+</span><span class="label"><a id="x52-185017r6"></a></span><span style="color:#000000"><span class="ec-lmtt-9">hn</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= hn/</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">sum</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hn</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">normalize</span></span><span style="color:#005900"> <span class="ec-lmtt-9">filter to have gain 1 at DC</span> 
+</span><span class="label"><a id="x52-185018r7"></a></span><span style="color:#000000"><span class="ec-lmtt-9">B</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">fir1</span></span><span style="color:#000000"><span class="ec-lmtt-9">(2*</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">wc</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">rectwin</span></span><span style="color:#000000"><span class="ec-lmtt-9">(2*</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">+1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">alternatively</span></span><span style="color:#005900"><span class="ec-lmtt-9">,</span></span><span style="color:#005900"> <span class="ec-lmtt-9">use fir1</span> 
+</span><span class="label"><a id="x52-185019r8"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">max</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">abs</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hn</span></span><span style="color:#000000"><span class="ec-lmtt-9">-</span></span><span style="color:#000000"><span class="ec-lmtt-9">B</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">compare</span></span><span style="color:#005900"> <span class="ec-lmtt-9">hn with B obtained with fir1</span></span>
+  </pre>
+<!-- l. 3048 -->
+<p class="indent">
+There is support in Matlab/Octave for obtaining windows other than the rectangular. For example, the command <span class="ec-lmss-10x-x-109">w=window(<span class="citation" data-cites="hamming">(<a href="#ref-hamming" role="doc-biblioref"><strong>hamming?</strong></a>)</span>,10) </span>obtains a Hamming window with 10 non-zero samples, which can be used to obtain a FIR of order <!-- l. 3048 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>9</mn></mrow></math> with cutoff frequency <!-- l. 3048 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> rad via the command <span class="ec-lmss-10x-x-109">B=fir1(9,0.5,w)</span>.
+</p>
+<!-- l. 3050 -->
+<p class="indent">
+The adopted window determines the frequency response of the associated FIR designed via windowing. Section&nbsp;<a href="ak_dsp_bookse52.html#x62-2070004.3">4.3<!-- tex4ht:ref: sec:windows  --></a> discusses the characteristics of windows in more details.
+</p>
+<!-- l. 3053 -->
+<p class="indent">
+</p><p>One tricky feature of <span class="ec-lmss-10x-x-109">fir1 </span>is that it generates filters with cutoff frequency <!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi mathvariant="normal">Ω</mi></mrow><mrow><mi>c</mi></mrow></msub></math> that corresponds to a gain of <!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>6</mn></mrow></math>&nbsp;dB</p>
+(0.5 in linear scale). In contrast, the cutoff frequency of a filter obtained with <span class="ec-lmss-10x-x-109">butter </span>and other IIR filter design functions corresponds to a gain of <!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn></mrow></math>&nbsp;dB (<!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow><mn>2</mn></mrow></msqrt></mrow></math> in linear scale). Another aspect is that, if the order <!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math> is too small when using <span class="ec-lmss-10x-x-109">fir1</span>, the gain at <!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi mathvariant="normal">Ω</mi></mrow><mrow><mi>c</mi></mrow></msub></math> may not reach <!-- l. 3053 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>6</mn></mrow></math>&nbsp;dB. This also happens with other filter design procedures.
+<p></p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.6</span>&nbsp;&nbsp;<a id="x52-1860003.13.6"></a>Two important characteristics: FIRs are always stable and can have linear phase
+</h4>
+<!-- l. 3057 -->
+<p class="noindent">
+</p><p>Because practical FIR filters have all <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> coefficients with finite values, Eq.&nbsp;(<a href="ak_dsp_bookse89.html#x101-322001r122">B.122<!-- tex4ht:ref: eq:bibo_stable  --></a>) indicates that all FIR filters are BIBO stable. Besides, FIR filters can easily have linear phase, which is a desirable property in many applications (such as telecommunications, as will be discussed in Application&nbsp;<a href="ak_dsp_bookse46.html#x55-200257r13">3.13<!-- tex4ht:ref: app:linear_filtering  --></a>). It can be proved that the linear phase is achieved if and only if there is symmetry in <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> about some value <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>n</mi></mrow><mrow><mi>s</mi></mrow></msub></math>. For example, a FIR <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1.5</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1.5</mn><msup><mrow><mi>z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></mrow></msup></mrow></math> of order <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></mrow></math> has 5 non-zero samples in <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> and exhibit symmetry about <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>n</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>, which corresponds to <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn></mrow></math>, such that <!-- l. 3057 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mn>4</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>. The phase is linear over frequency because, for the given example:</p>
+<p></p>
+<!-- tex4ht:inline -->
+<!-- l. 3069 -->
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true"> <mtr><mtd class="align-odd" columnalign="right"><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"></mstyle><mi>F</mi><mo class="MathClass-open" stretchy="false">{</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">}</mo><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186001r86"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.86)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"></mstyle><mi>F</mi><mo class="MathClass-open" stretchy="false">{</mo><mn>1.5</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>3</mn><mo class="MathClass-close" stretchy="false">]</mo><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"></mtd> <mtd class="align-label"> <mspace width="2em"></mspace></mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1.5</mn><mi>δ</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">}</mo><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186002r87"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.87)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1.5</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>3</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1.5</mn><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>4</mn><mi mathvariant="normal">Ω</mi></mrow></msup><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186003r88"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.88)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mrow><mo fence="true" form="prefix"> (</mo><mrow><mn>1.5</mn><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1.5</mn><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186004r89"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.89)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mrow><mo fence="true" form="prefix"> [</mo><mrow><mn>1.5</mn><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn></mrow><mo fence="true" form="postfix">]</mo></mrow><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186005r90"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.90)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup> <mrow><mo fence="true" form="prefix"> [</mo><mrow><mn>3</mn><mtext class="qopname">cos</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo><!-- nolimits --><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn><mtext class="qopname">cos</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo><!-- nolimits --><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn></mrow><mo fence="true" form="postfix">]</mo></mrow><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186006r91"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.91)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"><mstyle class="label" id="x52-186007r92"></mstyle><!-- endlabel --><mstyle class="maketag"><mtext>(3.92)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace> </mtd></mtr></mtable></math> <!-- l. 3070 -->
+<p class="noindent">
+where <!-- l. 3070 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mtext class="qopname">cos</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo><!-- nolimits --><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mtext class="qopname">cos</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo><!-- nolimits --><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>5</mn></mrow></math> is a real function that provides the magnitude <!-- l. 3070 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">|</mo></mrow></math>, such that the phase <!-- l. 3070 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></msup></math> of <!-- l. 3070 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is linear <!-- l. 3070 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mi mathvariant="normal">Ω</mi></mrow></math>, given by the factor .
+</p>
+<!-- l. 3072 -->
+<p class="indent">
+As Eq.&nbsp;(<a href="#x52-186007r92">3.92<!-- tex4ht:ref: eq:linear_phase_example  --></a>) indicates, a symmetric FIR can always be decomposed as
+</p>
+
+<table class="equation-star">
+<tbody><tr>
+<td>
+<!-- l. 3073 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>j</mi><mi mathvariant="normal">Ω</mi><msub><mrow><mi>τ</mi></mrow><mrow><mi>g</mi></mrow></msub> </mrow></msup><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 3076 -->
+<p class="indent">
+where <!-- l. 3076 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is a real function and <!-- l. 3076 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>τ</mi></mrow><mrow><mi>g</mi></mrow></msub></math> is the <span class="ec-lmri-10x-x-109">group delay</span>, to be further discussed along with Eq.&nbsp;(<a href="ak_dsp_bookse38.html#x47-152003r47">3.47<!-- tex4ht:ref: eq:discreteTimeGroupDelay  --></a>).
+</p>
+<!-- l. 3078 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.7</span>&nbsp;&nbsp;<a id="x52-1870003.13.7"></a>Examples of linear and non-linear phase filters
+</h4>
+<!-- l. 3080 -->
+<p class="noindent">
+</p><p>When the system has linear phase it is relatively easy to calculate its group delay because it coincides with the slope of a straight line. Listing&nbsp;<a href="#x52-187001r28">3.28<!-- tex4ht:ref: code:groupDelayLinearPhase  --></a> uses the FIR from Eq.&nbsp;(<a href="#x52-186007r92">3.92<!-- tex4ht:ref: eq:linear_phase_example  --></a>) to show an example of calculating the slope from two points <span class="ec-lmss-10x-x-109">k1 </span>and <span class="ec-lmss-10x-x-109">k2</span>, comparing it with the result</p>
+of the <span class="ec-lmss-10x-x-109">grpdelay </span>function:
+<p></p>
+<!-- l. 3082 -->
+<figcaption class="caption">
+<span class="id">Listing&nbsp;3.28: </span><span class="content">Group delay estimation for linar phase system</span>
+</figcaption>
+<!-- tex4ht:label?: x52-187001r3.13.7  -->
+<pre class="lstinputlisting" id="listing-103"><span class="label"><a id="x52-187003r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">h</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1.5</span></span><span style="color:#000000"> <span class="ec-lmtt-9">-2 5 -2 1.5];</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">coefficients</span></span><span style="color:#005900"> <span class="ec-lmtt-9">of symmetric FIR</span> 
+</span><span class="label"><a id="x52-187004r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">=8;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">number</span></span><span style="color:#005900"> <span class="ec-lmtt-9">of FFT points</span> 
+</span><span class="label"><a id="x52-187005r3"></a></span><span style="color:#000000"><span class="ec-lmtt-9">Fs</span></span><span style="color:#000000"><span class="ec-lmtt-9">=44100;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">sampling</span></span><span style="color:#005900"> <span class="ec-lmtt-9">frequency (Hz)</span> 
+</span><span class="label"><a id="x52-187006r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">H</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">fft</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">h</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">calculate</span></span><span style="color:#005900"> <span class="ec-lmtt-9">FFT of N points</span> 
+</span><span class="label"><a id="x52-187007r5"></a><span class="ec-lmr-6">5</span></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">Fs</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">*(0:</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">/2)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">create</span></span><span style="color:#005900"> <span class="ec-lmtt-9">abscissa in Hz, where Fs/N is the bin width</span> 
+</span><span class="label"><a id="x52-187008r6"></a></span><span style="color:#000000"><span class="ec-lmtt-9">p</span></span><span style="color:#000000"> <span class="ec-lmtt-9">=</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">unwrap</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">angle</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">H</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1:</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">/2+1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">calculate</span></span><span style="color:#005900"> <span class="ec-lmtt-9">the phase in rad</span> 
+</span><span class="label"><a id="x52-187009r7"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">plot</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">p</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">xlabel</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">f</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">(Hz)</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">ylabel</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">Phase</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">(rad)</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">pause</span></span> 
+<span class="label"><a id="x52-187010r8"></a></span><span style="color:#000000"><span class="ec-lmtt-9">k1</span></span><span style="color:#000000"><span class="ec-lmtt-9">=2;</span></span><span style="color:#000000"> <span class="ec-lmtt-9">k2=4;</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">choose</span></span><span style="color:#005900"> <span class="ec-lmtt-9">two points of the line</span> 
+</span><span class="label"><a id="x52-187011r9"></a></span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">Calculate</span></span><span style="color:#005900"> <span class="ec-lmtt-9">derivative as the slope. Convert from Hz to rad/s first:</span> 
+</span><span class="label"><a id="x52-187012r10"></a><span class="ec-lmr-6">10</span></span><span style="color:#000000"><span class="ec-lmtt-9">groupDelay</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= -</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">atan2</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">p</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">k2</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">-</span></span><span style="color:#000000"><span class="ec-lmtt-9">p</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">k1</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,2*</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"><span class="ec-lmtt-9">*(</span></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">k2</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">-</span></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">k1</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">in</span></span><span style="color:#005900"> <span class="ec-lmtt-9">seconds</span> 
+</span><span class="label"><a id="x52-187013r11"></a></span><span style="color:#000000"><span class="ec-lmtt-9">groupDelayInSamples</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">round</span></span><span style="color:#000000"><span class="ec-lmtt-9">(2*</span></span><span style="color:#000000"><span class="ec-lmtt-9">groupDelay</span></span><span style="color:#000000"><span class="ec-lmtt-9">*</span></span><span style="color:#000000"><span class="ec-lmtt-9">Fs</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">/2;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">quantize</span></span><span style="color:#005900"> <span class="ec-lmtt-9">with step=0.5</span> 
+</span><span class="label"><a id="x52-187014r12"></a></span><span style="color:#000000"><span class="ec-lmtt-9">grpdelay</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">h</span></span><span style="color:#000000"><span class="ec-lmtt-9">,1,</span></span><span style="color:#000000"><span class="ec-lmtt-9">f</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1:</span></span><span style="color:#000000"><span class="ec-lmtt-9">N</span></span><span style="color:#000000"><span class="ec-lmtt-9">/2+1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">Fs</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">find</span></span><span style="color:#005900"> <span class="ec-lmtt-9">delay for positive frequencies</span></span>
+  </pre>
+<!-- l. 3097 -->
+<p class="noindent">
+Line 11 used <span class="ec-lmss-10x-x-109">round </span>to avoid numerical errors. The trick of multiplying by 2 and after rounding divide by 2 allows to take into account that a symmetric FIR, unless the estimation was troubled due to the existence of zeros on the unit circle, has group delay that can be represented with a quantizer of step <!-- l. 3097 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.5</mn></mrow></math> sample.
+</p>
+<!-- l. 3105 -->
+<p class="indent">
+Figure&nbsp;<a href="#x52-18703049">3.49<!-- tex4ht:ref: fig:groupDelayLinearPhase  --></a> and Figure&nbsp;<a href="#x52-18703150">3.50<!-- tex4ht:ref: fig:groupDelayNonLinearPhase  --></a> were obtained by executing Listing&nbsp;<a href="#x52-187017r29">3.29<!-- tex4ht:ref: code:ak_plotGroupDelay  --></a> for the filters <span class="ec-lmss-10x-x-109">[0.3 -0.4 0.5 0.8 0.5 -0.4 0.3] </span>and <span class="ec-lmss-10x-x-109">[0.3 -0.4 0.5 0.8 -0.2 0.1 0.5]</span>, respectively.
+</p>
+<!-- l. 3107 -->
+<figcaption class="caption">
+<span class="id">Listing&nbsp;3.29: </span><span class="content">Code for plotting the group delay and phase.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-187017r3.13.7  -->
+<pre class="lstinputlisting" id="listing-104"><span class="label"><a id="x52-187019r1"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">function</span></span><span style="color:#000000"> <span class="ec-lmtt-9">ak_plotGroupDelay(B,A)</span> 
+</span><span class="label"><a id="x52-187020r2"></a></span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"> <span class="ec-lmtt-9">function ak_plotGroupDelay(B,A)</span> 
+</span><span class="label"><a id="x52-187021r3"></a></span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">Plots</span></span><span style="color:#005900"> <span class="ec-lmtt-9">both the group delay and phase using plotyy</span> 
+</span><span class="label"><a id="x52-187022r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">gd</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= grpdelay(B,A,128);</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">estimate</span></span><span style="color:#005900"> <span class="ec-lmtt-9">the group delay</span> 
+</span><span class="label"><a id="x52-187023r5"></a><span class="ec-lmr-6">5</span></span><span style="color:#000000"><span class="ec-lmtt-9">gd</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1)</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= [];</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">avoid</span></span><span style="color:#005900"> <span class="ec-lmtt-9">NaN at first sample</span> 
+</span><span class="label"><a id="x52-187024r6"></a></span><span style="color:#000000"><span class="ec-lmtt-9">[</span></span><span style="color:#000000"><span class="ec-lmtt-9">H</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">w</span></span><span style="color:#000000"><span class="ec-lmtt-9">]</span></span><span style="color:#000000"> <span class="ec-lmtt-9">=</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">freqz</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">B</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">A</span></span><span style="color:#000000"><span class="ec-lmtt-9">,128)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">obtain</span></span><span style="color:#005900"> <span class="ec-lmtt-9">DTFT at 128 points</span> 
+</span><span class="label"><a id="x52-187025r7"></a></span><span style="color:#000000"><span class="ec-lmtt-9">H</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1)</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= []; w(1) = [];</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">keep</span></span><span style="color:#005900"> <span class="ec-lmtt-9">the same size as gd vector</span> 
+</span><span class="label"><a id="x52-187026r8"></a></span><span style="color:#000000"><span class="ec-lmtt-9">phase</span></span><span style="color:#000000"> <span class="ec-lmtt-9">=</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">unwrap</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">angle</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">H</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">unwrap</span></span><span style="color:#005900"> <span class="ec-lmtt-9">the phase for better visualization</span> 
+</span><span class="label"><a id="x52-187027r9"></a></span><span style="color:#000000"><span class="ec-lmtt-9">ax</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">plotyy</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">w</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">gd</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">w</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"><span class="ec-lmtt-9">phase</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">use</span></span><span style="color:#005900"> <span class="ec-lmtt-9">two distinct y axes</span> 
+</span><span class="label"><a id="x52-187028r10"></a><span class="ec-lmr-6">10</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">ylabel</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">ax</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">Group</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">Delay (samples)</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">ylabel</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">ax</span></span><span style="color:#000000"><span class="ec-lmtt-9">(2)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">Phase</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">(rad)</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span> 
+<span class="label"><a id="x52-187029r11"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">xlabel</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">Frequency</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">\Omega (rad)</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">grid</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span>
+  </pre>
+<figure class="figure">
+<p><a id="x52-18703049"></a></p>
+<!-- l. 3111 -->
+<p class="noindent">
+<img alt="PIC" src="Figures/groupDelayLinearPhase.png" class="figure-img">
+</p>
+<figcaption class="caption figure-caption">
+<span class="id">Figure&nbsp;3.49: </span><span class="content">Group delay and phase for a channel represented by a symmetric FIR with linear phase and constant group delay of 3 samples.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-18703049  -->
+</figure>
+<figure class="figure">
+<p><a id="x52-18703150"></a></p>
+<!-- l. 3117 -->
+<p class="noindent">
+<img alt="PIC" src="Figures/groupDelayNonLinearPhase.png" class="figure-img">
+</p>
+<figcaption class="caption figure-caption">
+<span class="id">Figure&nbsp;3.50: </span><span class="content">Group delay and phase for a channel represented by a non-symmetric FIR <span class="ec-lmss-10x-x-109">h=[0.3 -0.4 0.5 0.8 -0.2 0.1 0.5] </span>with non-linear phase.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-18703150  -->
+</figure>
+<!-- l. 3121 -->
+<p class="indent">
+The filter of Figure&nbsp;<a href="#x52-18703049">3.49<!-- tex4ht:ref: fig:groupDelayLinearPhase  --></a> has a linear phase while the one in Figure&nbsp;<a href="#x52-18703150">3.50<!-- tex4ht:ref: fig:groupDelayNonLinearPhase  --></a> does not. It can be seen from Figure&nbsp;<a href="#x52-18703150">3.50<!-- tex4ht:ref: fig:groupDelayNonLinearPhase  --></a> that even causal systems can have a negative group delay for some frequencies.
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.8</span>&nbsp;&nbsp;<a id="x52-1880003.13.8"></a>Zeros close to the unit circle may impact the phase linearity
+</h4>
+<!-- l. 3127 -->
+<p class="noindent">
+An often overlooked fact is that if <!-- l. 3129 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> approaches zero, the phase graph is not guaranteed to be visualized as a linear function of <!-- l. 3129 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Ω</mi></math>. For example, the first filter (from Eq.&nbsp;(<a href="#x52-186007r92">3.92<!-- tex4ht:ref: eq:linear_phase_example  --></a>)) in the script below shows a linear phase via the <span class="ec-lmss-10x-x-109">freqz </span>function, but the second does not due to a zero at approximately <!-- l. 3129 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">±</mo><mi>j</mi><mn>1.994</mn></mrow></msup></math>:
+</p>
+<!-- l. 3130 -->
+<pre class="lstlisting" id="listing-105"><span class="label"><a id="x52-188001r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">h1</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1.5</span></span><span style="color:#000000"> <span class="ec-lmtt-9">-2 5 -2 1.5];</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">freqz</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">h1</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">pause</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">has</span></span><span style="color:#005900"> <span class="ec-lmtt-9">linear phase</span> 
+</span><span class="label"><a id="x52-188002r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">h2</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[-0.7</span></span><span style="color:#000000"> <span class="ec-lmtt-9">6 4 6 -0.7];</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">freqz</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">h2</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">does</span></span><span style="color:#005900"> <span class="ec-lmtt-9">not have linear phase</span> 
+</span><span class="label"><a id="x52-188003r3"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">abs</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">roots</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">h2</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">angle</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">roots</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">h2</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">;</span></span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">h2</span></span><span style="color:#005900"> <span class="ec-lmtt-9">has zeros on unit circle!</span></span></pre>
+<!-- l. 3135 -->
+<p class="indent">
+The function <span class="ec-lmss-10x-x-109">grpdelay </span>properly treats the zeros on the unit circle and indicates <!-- l. 3135 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>g</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math> samples for both <span class="ec-lmss-10x-x-109">h1 </span>and <span class="ec-lmss-10x-x-109">h2 </span>filters. Because conventional filters such as lowpass and bandpass do not have zeros at the passband, the symmetry of their coefficients guarantees linear phase within the band of interest and the discussed behavior often manifest itself only in the stopband.
+</p>
+<!-- l. 3138 -->
+<p class="indent">
+Another way of interpreting the problem caused by zeros on the unit circle is to note that they lead to a zero magnitude. If the magnitude of a complex number is zero or close enough to zero, its phase will not be important.
+</p>
+<!-- l. 3142 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.13.9</span>&nbsp;&nbsp;<a id="x52-1890003.13.9"></a>Four types of symmetric FIR filters
+</h4>
+<!-- l. 3144 -->
+<p class="noindent">
+</p><p>Depending on the symmetry, there are four types of linear-phase FIR filters. The filter of Eq.&nbsp;(<a href="#x52-186007r92">3.92<!-- tex4ht:ref: eq:linear_phase_example  --></a>) is classified as a linear-phase FIR of type I. In general, a type I has an order <!-- l. 3146 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math> that is even (the length of <!-- l. 3146 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> is odd) and is symmetric <!-- l. 3146 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>. Table&nbsp;<a href="#x52-1890018">3.8<!-- tex4ht:ref: tab:fir-types  --></a> summarizes all types.</p>
+<p></p>
+<!-- l. 3148 -->
+<p class="indent">
+<a id="x52-1890018"></a>
+</p>
+<figure class="float figure">
+<figcaption class="caption figure-caption">
+<span class="id">Table&nbsp;3.8: </span><span class="content">Types of linear-phase FIR filters. It is assumed that the filters are causal with the first non-zero sample at <!-- l. 3150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>. Type III filters have <!-- l. 3150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-1890018  -->
+
+<table class="tabular" id="TBL-110">
+<colgroup id="TBL-110-1g">
+<col id="TBL-110-1">
+<col id="TBL-110-2">
+<col id="TBL-110-3">
+<col id="TBL-110-4">
+<col id="TBL-110-5">
+</colgroup>
+<tbody><tr id="TBL-110-1-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-110-1-1" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Type </span>
+</td>
+<td class="td11" id="TBL-110-1-2" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">Symmetry</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-1-3" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">Order (</span><!-- l. 3160 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math><span class="ec-lmr-10">)</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-1-4" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<!-- l. 3160 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi mathvariant="normal">Ω</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow></msub></mrow></math> <span class="ec-lmr-10">(DC)</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-1-5" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<!-- l. 3160 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi mathvariant="normal">Ω</mi><mo class="MathClass-rel" stretchy="false">=</mo><mi>π</mi></mrow></msub></mrow></math> <span class="ec-lmr-10">(Nyquist)</span>
+</p>
+</td>
+</tr>
+<tr id="TBL-110-2-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-110-2-1" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">I </span>
+</td>
+<td class="td11" id="TBL-110-2-2" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">Symmetric:</span> <!-- l. 3160 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+</p>
+</td>
+<td class="td11" id="TBL-110-2-3" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">even</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-2-4" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">any value</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-2-5" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">any value</span>
+</p>
+</td>
+</tr>
+<tr id="TBL-110-3-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-110-3-1" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">II </span>
+</td>
+<td class="td11" id="TBL-110-3-2" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">Symmetric:</span> <!-- l. 3160 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+</p>
+</td>
+<td class="td11" id="TBL-110-3-3" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">odd</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-3-4" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">any value</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-3-5" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">0</span>
+</p>
+</td>
+</tr>
+<tr id="TBL-110-4-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-110-4-1" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">III </span>
+</td>
+<td class="td11" id="TBL-110-4-2" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">Anti-symmetric:</span> <!-- l. 3160 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+</p>
+</td>
+<td class="td11" id="TBL-110-4-3" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">even</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-4-4" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">0</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-4-5" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">0</span>
+</p>
+</td>
+</tr>
+<tr id="TBL-110-5-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-110-5-1" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">IV </span>
+</td>
+<td class="td11" id="TBL-110-5-2" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">Anti-symmetric:</span> <!-- l. 3160 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+</p>
+</td>
+<td class="td11" id="TBL-110-5-3" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">odd</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-5-4" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">0</span>
+</p>
+</td>
+<td class="td11" id="TBL-110-5-5" style="text-align:left;">
+<!-- l. 3160 -->
+<p class="noindent">
+<span class="ec-lmr-10">any value</span>
+</p>
+</td>
+</tr>
+
+</tbody></table>
+</figure>
+<!-- l. 3163 -->
+<p class="indent">
+Recall that, because <!-- l. 3163 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi mathvariant="normal">Ω</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>z</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub></mrow></math>, the behavior of a FIR filter at DC can be obtained with
+</p>
+
+<table class="equation-star">
+<tbody><tr>
+<td>
+<!-- l. 3164 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>z</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo> </mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>M</mi></mrow></munderover><msub><mrow><mi>b</mi></mrow><mrow> <mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo> </mrow><mrow><mi>n</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>M</mi></mrow></munderover><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+</tr>
+
+</tbody></table>
+<!-- l. 3167 -->
+<p class="indent">
+Hence, the anti-symmetric filters in Table&nbsp;<a href="#x52-1890018">3.8<!-- tex4ht:ref: tab:fir-types  --></a> are restricted to have a zero at DC. Similarly, at the Nyquist frequency <!-- l. 3168 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi></mrow></math> rad, <!-- l. 3168 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi mathvariant="normal">Ω</mi><mo class="MathClass-rel" stretchy="false">=</mo><mi>π</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>z</mi><mo class="MathClass-rel" stretchy="false">=</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msub></mrow></math>, and for a type III FIR with order <!-- l. 3168 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math> even:
+</p>
+<!-- tex4ht:inline -->
+<!-- l. 3172 -->
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align-star" columnalign="left" displaystyle="true"> <mtr><mtd class="align-odd" columnalign="right"><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>z</mi><mo class="MathClass-rel" stretchy="false">=</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msub></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo> </mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>M</mi></mrow></munderover><msub><mrow><mi>b</mi></mrow><mrow> <mi>k</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo> </mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></munderover><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>b</mi></mrow><mrow> <mn>2</mn><mi>k</mi></mrow></msub><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn><mi>k</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>b</mi></mrow><mrow> <mn>2</mn><mi>k</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn></mrow></msub><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn><mi>k</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn></mrow></msup><mo class="MathClass-close" stretchy="false">]</mo><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"></mtd> <mtd class="align-label"> <mspace width="2em"></mspace></mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd> <mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo> </mrow><mrow><mi>n</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></munderover><mo class="MathClass-open" stretchy="false">(</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mn>2</mn><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mn>2</mn><mi>n</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>h</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>M</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd> <mtd class="align-label" columnalign="right"></mtd> <mtd class="align-label"> <mspace width="2em"></mspace></mtd></mtr></mtable></math> <!-- l. 3173 -->
+<p class="noindent">
+where the first parcels in the summations correspond to even (<!-- l. 3173 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>k</mi></mrow></math> or <!-- l. 3173 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>n</mi></mrow></math>) and the second parcels to odd coefficients. This kind of relation is better visualized via examples as in Listing&nbsp;<a href="#x52-189002r30">3.30<!-- tex4ht:ref: code:snip_systems_FIR_types  --></a>.
+</p>
+<p><!-- l. 3176 --></p>
+<figcaption class="caption">
+<span class="id">Listing&nbsp;3.30: </span><span class="content">MatlabOctaveCodeSnippets/snip_systems_FIR_types.m</span>
+</figcaption>
+<!-- tex4ht:label?: x52-189002r3.13.9  -->
+<pre class="lstinputlisting" id="listing-106"><span class="label"><a id="x52-189004r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">hI</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1</span></span><span style="color:#000000"> <span class="ec-lmtt-9">2 3 2 1]</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">Type</span></span><span style="color:#005900"> <span class="ec-lmtt-9">I FIR</span> 
+</span><span class="label"><a id="x52-189005r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">hII</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1</span></span><span style="color:#000000"> <span class="ec-lmtt-9">2 2 1]</span> </span><span class="ec-lmtt-9">&nbsp;</span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">Type</span></span><span style="color:#005900"> <span class="ec-lmtt-9">II FIR</span> 
+</span><span class="label"><a id="x52-189006r3"></a></span><span style="color:#000000"><span class="ec-lmtt-9">hIII</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1</span></span><span style="color:#000000"> <span class="ec-lmtt-9">2 0 -2 -1]</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">Type</span></span><span style="color:#005900"> <span class="ec-lmtt-9">III FIR</span> 
+</span><span class="label"><a id="x52-189007r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">hIV</span></span><span style="color:#000000"><span class="ec-lmtt-9">=[1</span></span><span style="color:#000000"> <span class="ec-lmtt-9">2 -2 -1]</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">Type</span></span><span style="color:#005900"> <span class="ec-lmtt-9">IV FIR</span> 
+</span><span class="label"><a id="x52-189008r5"></a><span class="ec-lmr-6">5</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">disp</span></span><span style="color:#000000"><span class="ec-lmtt-9">([</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">I</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">:</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">DC=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hI</span></span><span style="color:#000000"><span class="ec-lmtt-9">,1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> <span class="ec-lmtt-9">...</span> 
+</span><span class="label"><a id="x52-189009r6"></a></span><span class="ec-lmtt-9">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">Nyquist=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hI</span></span><span style="color:#000000"><span class="ec-lmtt-9">,-1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">])</span></span> 
+<span class="label"><a id="x52-189010r7"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">disp</span></span><span style="color:#000000"><span class="ec-lmtt-9">([</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">II</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">:</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">DC=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hII</span></span><span style="color:#000000"><span class="ec-lmtt-9">,1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> <span class="ec-lmtt-9">...</span> 
+</span><span class="label"><a id="x52-189011r8"></a></span><span class="ec-lmtt-9">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">Nyquist=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hII</span></span><span style="color:#000000"><span class="ec-lmtt-9">,-1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">])</span></span> 
+<span class="label"><a id="x52-189012r9"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">disp</span></span><span style="color:#000000"><span class="ec-lmtt-9">([</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">III</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">:</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">DC=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hIII</span></span><span style="color:#000000"><span class="ec-lmtt-9">,1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> <span class="ec-lmtt-9">...</span> 
+</span><span class="label"><a id="x52-189013r10"></a><span class="ec-lmr-6">10</span></span><span class="ec-lmtt-9">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">Nyquist=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hIII</span></span><span style="color:#000000"><span class="ec-lmtt-9">,-1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">])</span></span> 
+<span class="label"><a id="x52-189014r11"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">disp</span></span><span style="color:#000000"><span class="ec-lmtt-9">([</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">IV</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">:</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">DC=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hIV</span></span><span style="color:#000000"><span class="ec-lmtt-9">,1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> <span class="ec-lmtt-9">...</span> 
+</span><span class="label"><a id="x52-189015r12"></a></span><span class="ec-lmtt-9">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"> <span class="ec-lmtt-9">Nyquist=</span><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"> </span><span style="color:#0000FF"><span class="ec-lmtt-9">num2str</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">polyval</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">hIV</span></span><span style="color:#000000"><span class="ec-lmtt-9">,-1)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">])</span></span>
+  </pre>
+<!-- l. 3191 -->
+<p class="indent">
+</p><p>Running Listing&nbsp;<a href="#x52-189002r30">3.30<!-- tex4ht:ref: code:snip_systems_FIR_types  --></a> outputs</p>
+<p></p>
+<pre class="verbatim" id="verbatim-4">I:&nbsp;DC=9&nbsp;Nyquist=1
+II:&nbsp;DC=6&nbsp;Nyquist=0
+III:&nbsp;DC=0&nbsp;Nyquist=0
+IV:&nbsp;DC=0&nbsp;Nyquist=2
+</pre>
+<!-- l. 3197 -->
+<p class="nopar">
+as expected from Table&nbsp;<a href="#x52-1890018">3.8<!-- tex4ht:ref: tab:fir-types  --></a>. Because the gain at DC is zero, linear-phase FIR filters of type III and IV are useful to operate as differentiator filters, for example.
+</p>
+<!-- l. 3200 -->
+<p class="indent">
+Figure&nbsp;<a href="#x52-18901851">3.51<!-- tex4ht:ref: fig:fir_symmetries  --></a> shows the impulse and frequency responses for the four types of symmetric FIR filters exemplified in Listing&nbsp;<a href="#x52-189002r30">3.30<!-- tex4ht:ref: code:snip_systems_FIR_types  --></a>. Note that the type II FIR in this case (<span class="ec-lmss-10x-x-109">hII=[1 2 2 1]</span>) has three zeros on the unit circle (use <span class="ec-lmss-10x-x-109">abs(roots(hII))</span>) and its phase has a discontinuity in spite of a constant group delay (use <span class="ec-lmss-10x-x-109">grpdelay(hII)</span>), as warned in Section&nbsp;<a href="#x52-1880003.13.8">3.13.8<!-- tex4ht:ref: sec:symmetricFIRnonlinearPhase  --></a>.
+</p>
+<figure class="figure">
+<p><a id="x52-18901851"></a></p>
+<!-- l. 3208 -->
+<p class="noindent">
+<img alt="PIC" src="Figures/fir_symmetries.png" class="figure-img">
+</p>
+<figcaption class="caption figure-caption">
+<span class="id">Figure&nbsp;3.51: </span><span class="content">Impulse and frequency responses for the four types of symmetric FIR filters exemplified in Listing&nbsp;<a href="#x52-189002r30">3.30<!-- tex4ht:ref: code:snip_systems_FIR_types  --></a>.</span>
+</figcaption>
+<!-- tex4ht:label?: x52-18901851  -->
+</figure>
+<div class="footnotes">
+<a id="x52-181002x3.13.1"></a> <!-- l. 2925 -->
+<p class="indent">
+<span class="footnote-mark"><a href="#fn30x5-bk" id="fn30x5"><sup class="textsuperscript">30</sup>&nbsp;</a></span><span class="ec-lmr-9">Note that Matlab shows the pole multiplicity in </span><span class="ec-lmss-9">zplane </span><span class="ec-lmr-9">while Octave version 3.2.3 does not.</span>
+</p>
+<a id="x52-181004x3.13.1"></a> <!-- l. 2926 -->
+<p class="indent">
+<span class="footnote-mark"><a href="#fn31x5-bk" id="fn31x5"><sup class="textsuperscript">31</sup>&nbsp;</a></span><span class="ec-lmr-9">See [url3poi] for a brief discussion about poles at infinity.</span>
+</p>
+<pre><code>                                               &lt;/div&gt;</code></pre>
+
+
+
+
+
+</div></dd></dl></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ak_dsp_bookse42.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">ak_dsp_bookse42.html</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ak_dsp_bookse44.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">ak_dsp_bookse44.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Digital Signal Processing with Python, Matlab or Octave, Applications in Machine Learning Aldebaro Klautau Federal University of Pará (UFPA), Brazil</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

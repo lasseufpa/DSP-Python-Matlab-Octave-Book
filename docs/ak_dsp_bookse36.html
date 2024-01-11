@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.537">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aldebaro Klautau">
+
+<title>Digital Signal Processing with Python, Matlab or Octave</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ak_dsp_bookse37.html" rel="next">
+<link href="./ak_dsp_bookse35.html" rel="prev">
+<link href="./cover.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ak_dsp_bookse31.html">ak_dsp_bookch3</a></li><li class="breadcrumb-item"><a href="./ak_dsp_bookse36.html"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Digital Signal Processing with Python, Matlab or Octave</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ak_dsp_bookap1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ak_dsp_bookap2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ak_dsp_bookap3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ak_dsp_bookap4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ak_dsp_bookli1.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ak_dsp_bookli2.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">ak_dsp_bookli3.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookli4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ak_dsp_bookli4.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ak_dsp_book.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ak_dsp_bookch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ak_dsp_bookch1.html</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ak_dsp_bookse1.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ak_dsp_bookse2.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ak_dsp_bookse3.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ak_dsp_bookse4.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ak_dsp_bookse5.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ak_dsp_bookse6.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ak_dsp_bookse7.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">ak_dsp_bookse8.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ak_dsp_bookse9.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">ak_dsp_bookse10.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">ak_dsp_bookse11.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">ak_dsp_bookse12.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">ak_dsp_bookse13.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ak_dsp_bookse14.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ak_dsp_bookse15.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ak_dsp_bookse16.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ak_dsp_bookse17.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">ak_dsp_bookch2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">ak_dsp_bookse18.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">ak_dsp_bookse19.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">ak_dsp_bookse20.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ak_dsp_bookse21.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ak_dsp_bookse22.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">ak_dsp_bookse23.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">ak_dsp_bookse24.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">ak_dsp_bookse25.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">ak_dsp_bookse26.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">ak_dsp_bookse27.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">ak_dsp_bookse28.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ak_dsp_bookse29.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ak_dsp_bookse30.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">ak_dsp_bookch3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ak_dsp_bookse31.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">ak_dsp_bookse32.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse33.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ak_dsp_bookse33.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse34.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ak_dsp_bookse34.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse35.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse36.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse37.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">ak_dsp_bookse37.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse38.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">ak_dsp_bookse38.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse39.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">ak_dsp_bookse39.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse40.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">ak_dsp_bookse40.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse41.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">ak_dsp_bookse41.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse42.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">ak_dsp_bookse42.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse43.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">ak_dsp_bookse43.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse44.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">ak_dsp_bookse44.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse45.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">ak_dsp_bookse45.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse46.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">ak_dsp_bookse46.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse47.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">ak_dsp_bookse47.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse48.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">ak_dsp_bookse48.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse49.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">ak_dsp_bookse49.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">ak_dsp_bookch4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse50.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">ak_dsp_bookse50.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse51.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">ak_dsp_bookse51.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse52.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">ak_dsp_bookse52.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse53.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">ak_dsp_bookse53.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse54.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">ak_dsp_bookse54.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse55.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">ak_dsp_bookse55.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse56.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">ak_dsp_bookse56.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse57.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">ak_dsp_bookse57.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse58.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">ak_dsp_bookse58.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse59.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">ak_dsp_bookse59.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse60.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">ak_dsp_bookse60.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse61.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">ak_dsp_bookse61.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse62.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">ak_dsp_bookse62.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse63.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">ak_dsp_bookse63.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse64.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">ak_dsp_bookse64.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse65.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">ak_dsp_bookse65.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse66.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">ak_dsp_bookse66.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse67.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">ak_dsp_bookse67.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse68.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">ak_dsp_bookse68.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse69.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">ak_dsp_bookse69.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse70.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">ak_dsp_bookse70.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse71.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">ak_dsp_bookse71.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse72.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">ak_dsp_bookse72.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse73.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">ak_dsp_bookse73.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse74.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">ak_dsp_bookse74.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse75.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">ak_dsp_bookse75.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse76.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">ak_dsp_bookse76.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse77.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">ak_dsp_bookse77.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse78.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">ak_dsp_bookse78.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse79.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">ak_dsp_bookse79.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse80.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">ak_dsp_bookse80.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse81.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">ak_dsp_bookse81.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse82.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">ak_dsp_bookse82.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse83.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">ak_dsp_bookse83.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse84.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">ak_dsp_bookse84.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse85.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">ak_dsp_bookse85.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse86.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">ak_dsp_bookse86.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse87.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">ak_dsp_bookse87.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse88.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">ak_dsp_bookse88.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse89.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">98</span>&nbsp; <span class="chapter-title">ak_dsp_bookse89.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse90.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">99</span>&nbsp; <span class="chapter-title">ak_dsp_bookse90.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse91.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">100</span>&nbsp; <span class="chapter-title">ak_dsp_bookse91.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse92.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">101</span>&nbsp; <span class="chapter-title">ak_dsp_bookse92.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse93.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">102</span>&nbsp; <span class="chapter-title">ak_dsp_bookse93.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse94.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">103</span>&nbsp; <span class="chapter-title">ak_dsp_bookse94.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse95.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">104</span>&nbsp; <span class="chapter-title">ak_dsp_bookse95.html</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+&lt;!DOCTYPE html&gt;
+
+
+<title>
+Facts About First and Second-Order Systems
+</title>
+<meta charset="utf-8">
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link href="ak_dsp_book.css" rel="stylesheet" type="text/css">
+<meta content="ak_dsp_book.tex" name="src">
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+
+
+<h3 class="sectionHead anchored">
+<span class="titlemark">3.6</span>&nbsp;&nbsp;<a id="x45-1400003.6"></a>Facts About First and Second-Order Systems
+</h3>
+<!-- l. 1035 -->
+<p class="noindent">
+Because they are basic building blocks for higher-order filters, first and second-order systems are discussed in the sequel.
+</p>
+<!-- l. 1037 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.6.1</span>&nbsp;&nbsp;<a id="x45-1410003.6.1"></a>First-order systems
+</h4>
+<!-- l. 1038 -->
+<p class="noindent">
+If the coefficients are real, a first-order system <!-- l. 1038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>a</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mi>ℝ</mi></mrow></math>, (as the one whose frequency response is depicted in Figure&nbsp;<a href="ak_dsp_bookse34.html#x43-12600412">3.12<!-- tex4ht:ref: fig:freq_response_onepole  --></a>) is restricted to have a lowpass frequency response. This <!-- l. 1038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> has a pole at <!-- l. 1038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>a</mi></mrow></math> and a zero at <!-- l. 1038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>∞</mi></mrow></math>. Using <!-- l. 1038 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> leads to a unitary gain at DC. Placing a zero at <!-- l. 1039 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> leads to <!-- l. 1039 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>s</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, which has a highpass response.
+</p>
+<!-- l. 1041 -->
+<p class="indent">
+A system <!-- l. 1041 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with ROC given by <!-- l. 1041 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>σ</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>a</mi></mrow></math> has an inverse Laplace transform <!-- l. 1041 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="italic">at</mi></mrow></msup><mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, which can be written as <!-- l. 1041 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi>τ</mi></mrow></msup><mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> where <!-- l. 1041 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi></math> is the well-known <span class="ec-lmri-10x-x-109">time constant</span><a id="dx45-141001"></a> [url3mit]. After an interval of one time constant, the impulse response has decayed to 36.8% of its initial value.
+</p>
+<!-- l. 1044 -->
+<p class="indent">
+</p><p>If the ROC of <!-- l. 1044 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> includes <!-- l. 1044 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi mathvariant="italic">jω</mi></mrow></math>, the frequency response in this case is <!-- l. 1044 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">jω</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. As illustrated by Eq.&nbsp;(<a href="ak_dsp_bookse37.html#x46-146002r36">3.36<!-- tex4ht:ref: eq:cutoffOfPole  --></a>), the magnitude <!-- l. 1045 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ω</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">|</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow><msup><mrow><mi>a</mi></mrow><mrow><mn>2</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>ω</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt></mrow></math> at <!-- l. 1045 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ω</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi></mrow></math> is then <!-- l. 1045 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">|</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow><mn>2</mn></mrow></msqrt></mrow></math>, which is the cutoff frequency <!-- l. 1045 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi></mrow></math> because it corresponds to a decrease of 3&nbsp;dB in power.</p>
+<p></p>
+<!-- l. 1047 -->
+<p class="noindent">
+</p>
+<h4 class="subsectionHead anchored">
+<span class="titlemark">3.6.2</span>&nbsp;&nbsp;<a id="x45-1420003.6.2"></a>Second-order systems
+</h4>
+<!-- l. 1049 -->
+<p class="noindent">
+The system function <!-- l. 1049 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of a second-order system (SOS), also called a <span class="ec-lmri-10x-x-109">two-pole resonator</span>, has a denominator that can be written as <!-- l. 1049 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi mathvariant="italic">αs</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></math>. When there are two zeros at <!-- l. 1049 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>∞</mi></math> and the gain at DC is unitary (<!-- l. 1050 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>s</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>), the SOS is:
+</p>
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1051 -->
+<p class="indent">
+</p>
+<!-- l. 1051 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x45-142001r29"></mstyle><!-- endlabel --><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow> <mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi mathvariant="italic">αs</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.29)
+</td>
+</tr>
+</tbody></table>
+<!-- l. 1055 -->
+<p class="indent">
+where <!-- l. 1055 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math> is the <span class="ec-lmri-10x-x-109">natural frequency</span><a id="dx45-142002"></a> and <!-- l. 1055 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> the <span class="ec-lmri-10x-x-109">decay rate</span><a id="dx45-142003"></a> parameter, which is useful for defining the <span class="ec-lmri-10x-x-109">damping ratio</span> <!-- l. 1055 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>α</mi><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>. Hence, Eq.&nbsp;(<a href="#x45-142001r29">3.29<!-- tex4ht:ref: eq:resonator  --></a>) can be rewritten as:
+</p>
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1056 -->
+<p class="indent">
+</p>
+<!-- l. 1056 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x45-142004r30"></mstyle><!-- endlabel --><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow> <mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.30)
+</td>
+</tr>
+</tbody></table>
+<!-- l. 1061 -->
+<p class="indent">
+</p><p>The values of <!-- l. 1061 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math>, <!-- l. 1061 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ζ</mi></math> and <!-- l. 1061 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math> can be related to several characteristics of a SOS. For example,</p>
+<!-- l. 1061 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> represents the rate of exponential decay of oscillations when the system input is a unit step <!-- l. 1061 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. And depending on <!-- l. 1063 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ζ</mi></math>, three categories of second-order systems are defined:
+<p></p>
+<ul class="itemize1">
+<li class="itemize">
+<!-- l. 1065 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>: <span class="ec-lmri-10x-x-109">critically damped </span>SOS, with a double real pole at <!-- l. 1065 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>;
+</li>
+<li class="itemize">
+<!-- l. 1066 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></mrow></math>: <span class="ec-lmri-10x-x-109">overdamped </span>SOS, with real poles at <!-- l. 1066 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">±</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>;
+</li>
+<li class="itemize">
+<!-- l. 1067 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0</mn> <mo class="MathClass-rel" stretchy="false">≤</mo> <mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>1</mn></mrow></math>: <span class="ec-lmri-10x-x-109">underdamped </span>SOS, with complex conjugate poles.
+</li>
+</ul>
+<!-- l. 1069 -->
+<p class="noindent">
+Note that these three categories depend only on the denominator of <!-- l. 1069 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+</p>
+<!-- l. 1071 -->
+<p class="indent">
+The numerator of <!-- l. 1071 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> represents another degree of freedom. Changing this numerator, leads to distinct SOS. An alternative to Eq.&nbsp;(<a href="#x45-142001r29">3.29<!-- tex4ht:ref: eq:resonator  --></a>) (or, equivalently, Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>)) is
+</p>
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1074 -->
+<p class="indent">
+</p>
+<!-- l. 1074 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x45-142005r31"></mstyle><!-- endlabel --><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>s</mi></mrow> <mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.31)
+</td>
+</tr>
+</tbody></table>
+<!-- l. 1078 -->
+<p class="indent">
+which has a zero at the origin (<!-- l. 1078 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>s</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>). Yet, other two options of SOS can be defined as
+</p>
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1080 -->
+<p class="indent">
+</p>
+<!-- l. 1080 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x45-142006r32"></mstyle><!-- endlabel --><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow> <mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac> </mrow></math>
+</td>
+<td class="eq-no">
+(3.32)
+</td>
+</tr>
+</tbody></table>
+<!-- l. 1084 -->
+<p class="indent">
+and
+</p>
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1085 -->
+<p class="indent">
+</p>
+<!-- l. 1085 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x45-142007r33"></mstyle><!-- endlabel --><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>2</mn><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow> <mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.33)
+</td>
+</tr>
+</tbody></table>
+<!-- l. 1089 -->
+<p class="indent">
+</p><p>Table&nbsp;<a href="#x45-1420082">3.2<!-- tex4ht:ref: tab:sosNumTypes  --></a> summarizes these options for the numerator of a SOS.</p>
+<p></p>
+<!-- l. 1091 -->
+<p class="indent">
+<a id="x45-1420082"></a>
+</p>
+<figure class="float figure">
+<figcaption class="caption">
+<span class="id">Table&nbsp;3.2: </span><span class="content">Some distinct options for the numerator of a SOS.</span>
+</figcaption>
+<!-- tex4ht:label?: x45-1420082  -->
+<div class="tabular">
+<table class="tabular" id="TBL-102" rules="groups">
+<colgroup id="TBL-102-1g">
+<col id="TBL-102-1">
+</colgroup>
+<colgroup id="TBL-102-2g">
+<col id="TBL-102-2">
+</colgroup>
+<colgroup id="TBL-102-3g">
+<col id="TBL-102-3">
+</colgroup>
+<tbody><tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-102-1-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-102-1-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Characteristic </span>
+</td>
+<td class="td11" id="TBL-102-1-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Numerator </span>
+</td>
+<td class="td11" id="TBL-102-1-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Reference </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-102-2-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-102-2-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Two-zeros at </span><!-- l. 1097 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>∞</mi></math> <span class="ec-lmr-10">and unitary DC gain </span>
+</td>
+<td class="td11" id="TBL-102-2-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1097 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math>
+</td>
+<td class="td11" id="TBL-102-2-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x45-142004r30"><span class="ec-lmr-10">3.30</span><!-- tex4ht:ref: eq:secondOrder1  --></a><span class="ec-lmr-10">) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-102-3-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-102-3-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">One zero at DC </span>
+</td>
+<td class="td11" id="TBL-102-3-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1098 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+</td>
+<td class="td11" id="TBL-102-3-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x45-142005r31"><span class="ec-lmr-10">3.31</span><!-- tex4ht:ref: eq:secondOrder2  --></a><span class="ec-lmr-10">) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-102-4-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-102-4-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Two zeros at DC </span>
+</td>
+<td class="td11" id="TBL-102-4-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1099 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+</td>
+<td class="td11" id="TBL-102-4-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x45-142006r32"><span class="ec-lmr-10">3.32</span><!-- tex4ht:ref: eq:secondOrder3  --></a><span class="ec-lmr-10">) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-102-5-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-102-5-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">One finite zero at </span><!-- l. 1100 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>ζ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+</td>
+<td class="td11" id="TBL-102-5-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1100 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></math>
+</td>
+<td class="td11" id="TBL-102-5-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Eq.&nbsp;(</span><a href="#x45-142007r33"><span class="ec-lmr-10">3.33</span><!-- tex4ht:ref: eq:secondOrder4  --></a><span class="ec-lmr-10">) </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</tbody></table>
+<pre><code>                                                                                           &lt;/div&gt;
+                                                                          
+                                                                          </code></pre>
+</div></figure>
+<!-- l. 1104 -->
+<p class="indent">
+Using the quadratic formula to find the roots of a SOS, the poles are <!-- l. 1104 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>s</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">±</mo><msqrt><mrow><msup><mrow><mi>α</mi></mrow><mrow><mn>2</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi> </mrow> <mrow> <mn>2</mn></mrow></msubsup></mrow></msqrt></mrow></math>, which can be rewritten as <!-- l. 1104 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>s</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">±</mo> <mi>j</mi><msqrt><mrow><msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi> </mrow> <mrow> <mn>2</mn> </mrow> </msubsup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>α</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt></mrow></math>. Figure&nbsp;<a href="#x45-14200923">3.23<!-- tex4ht:ref: fig:natural_cutoff_frequency  --></a> summarizes these relations. Note that <!-- l. 1106 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>s</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo></mrow></math> and, unless <!-- l. 1106 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>α</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> (poles on the <!-- l. 1106 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="italic">jω</mi></mrow></math> axis), the natural frequency <!-- l. 1106 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math> is different from the center frequency of the pole <!-- l. 1106 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"><mi>I</mi></mstyle><mi mathvariant="italic">mag</mi><mo class="MathClass-open" stretchy="false">{</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">}</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><msubsup><mrow><mi>ω</mi></mrow><mrow><mi>n</mi> </mrow> <mrow> <mn>2</mn> </mrow> </msubsup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>α</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><msqrt><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt></mrow></math>.
+</p>
+<figure class="figure">
+<p><a id="x45-14200923"></a></p>
+<!-- l. 1110 -->
+<p class="noindent">
+<img alt="PIC" src="./FiguresTex/natural_cutoff_frequency.png" class="figure-img">
+</p>
+<figcaption class="caption">
+<span class="id">Figure&nbsp;3.23: </span><span class="content">Relations between natural frequency <!-- l. 1112 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math>, pole center frequency <!-- l. 1112 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mn>0</mn></mrow></msub></math>, decay rate <!-- l. 1112 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> and damping ratio <!-- l. 1112 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ζ</mi></math> for a pair of complex conjugate poles.</span>
+</figcaption>
+<!-- tex4ht:label?: x45-14200923  -->
+</figure>
+<!-- l. 1115 -->
+<p class="indent">
+Note that for a first-order system <!-- l. 1115 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with real-valued coefficient <!-- l. 1115 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math>, the pole is real, its center frequency is <!-- l. 1115 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>, and the natural and cutoff frequencies <!-- l. 1115 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>a</mi></mrow></math> coincide. For a second-order system, the expression for the cutoff frequency <!-- l. 1115 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub></math> is more elaborated. Considering Eq.&nbsp;(<a href="#x45-142001r29">3.29<!-- tex4ht:ref: eq:resonator  --></a>), the cutoff is
+</p>
+<table class="equation">
+<tbody><tr>
+<td>
+<!-- l. 1116 -->
+<p class="indent">
+</p>
+<!-- l. 1116 -->
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mstyle class="label" id="x45-142010r34"></mstyle><!-- endlabel --><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><msqrt><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msqrt> <mrow><mn>4</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>4</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn></mrow></msqrt></mrow></msqrt><mo class="MathClass-punc" stretchy="false">,</mo> </mrow></math>
+</td>
+<td class="eq-no">
+(3.34)
+</td>
+</tr>
+</tbody></table>
+<!-- l. 1120 -->
+<p class="indent">
+which can be found by using <!-- l. 1120 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mi>s</mi><mo class="MathClass-rel" stretchy="false">=</mo><mi>j</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow><mn>2</mn></mrow></msqrt></mrow></math>. In this case, <!-- l. 1121 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math> when <!-- l. 1121 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow><mn>2</mn></mrow></msqrt></mrow></math>.
+</p>
+<!-- l. 1123 -->
+<p class="noindent">
+<a id="x45-142011r10"></a> <span id="textcolor198">Example 3.10. </span><span class="ec-lmbx-10x-x-109">On the damping ratio of a SOS</span>. Figure&nbsp;<a href="#x45-14201224">3.24<!-- tex4ht:ref: fig:secondOrderSys  --></a> illustrates the influence of the damping ratio using the values <!-- l. 1125 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0.707</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn></mrow></math> and 2.
+</p>
+<figure class="figure">
+<p><a id="x45-14201224"></a></p>
+<!-- l. 1129 -->
+<p class="noindent">
+<img alt="PIC" src="./Figures/secondOrderSys.png" class="figure-img">
+</p>
+<figcaption class="caption">
+<span class="id">Figure&nbsp;3.24: </span><span class="content">Magnitude of the frequency response for the SOS expressed by Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>) and Eq.&nbsp;(<a href="#x45-142007r33">3.33<!-- tex4ht:ref: eq:secondOrder4  --></a>).</span>
+</figcaption>
+<!-- tex4ht:label?: x45-14201224  -->
+</figure>
+<!-- l. 1133 -->
+<p class="indent">
+Figure&nbsp;<a href="#x45-14201224">3.24<!-- tex4ht:ref: fig:secondOrderSys  --></a> also compares Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>) and Eq.&nbsp;(<a href="#x45-142007r33">3.33<!-- tex4ht:ref: eq:secondOrder4  --></a>), which are two of the options contrasted in Table&nbsp;<a href="#x45-1420082">3.2<!-- tex4ht:ref: tab:sosNumTypes  --></a>. &nbsp;&nbsp;<!-- l. 1134 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mtext class="MathClass-ord">□</mtext></math>
+</p>
+<!-- l. 1136 -->
+<p class="indent">
+Figure&nbsp;<a href="#x45-14201325">3.25<!-- tex4ht:ref: fig:sosParameters  --></a> illustrates some key time-domain performance parameters for an underdamped system obtained when the input <!-- l. 1137 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is a step function. The <span class="ec-lmri-10x-x-109">rise time </span><!-- l. 1137 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>r</mi></mrow></msub></math> is the interval for the step response to rise from 10 to 90% of its final value. The <span class="ec-lmri-10x-x-109">settling time</span> <!-- l. 1138 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math> is the interval to have the output within a given range, which is 5% in Figure&nbsp;<a href="#x45-14201325">3.25<!-- tex4ht:ref: fig:sosParameters  --></a>. The <span class="ec-lmri-10x-x-109">overshoot </span>is the peak amplitude and occurs at the <span class="ec-lmri-10x-x-109">peak time</span> <!-- l. 1139 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>p</mi></mrow></msub></math>.
+</p>
+<figure class="figure">
+<p><a id="x45-14201325"></a></p>
+<!-- l. 1143 -->
+<p class="noindent">
+<img alt="PIC" src="./FiguresTex/sosParameters.png" class="figure-img">
+</p>
+<figcaption class="caption">
+<span class="id">Figure&nbsp;3.25: </span><span class="content">Time-domain performance parameters for an underdamped system based on its step response.</span>
+</figcaption>
+<!-- tex4ht:label?: x45-14201325  -->
+</figure>
+<!-- l. 1148 -->
+<p class="indent">
+</p><p>Table&nbsp;<a href="#x45-1420163">3.3<!-- tex4ht:ref: tab:sosParameters  --></a> summarizes some parameters for the system <!-- l. 1148 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> described by Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>), which can be found<span class="footnote-mark"><a href="#fn12x5" id="fn12x5-bk"><sup class="textsuperscript">12</sup></a></span><a id="x45-142014f12"></a> from the inverse Laplace transform of <!-- l. 1150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>Y</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mi>s</mi></mrow></math> given that <!-- l. 1150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mi>s</mi></mrow></math> is the transform of <!-- l. 1150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. The tolerance <!-- l. 1150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>𝜖</mi></math> is used to obtain <!-- l. 1150 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math> and a typical value is <!-- l. 1151 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>𝜖</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.05</mn></mrow></math>.</p>
+<p></p>
+<!-- l. 1153 -->
+<p class="indent">
+<a id="x45-1420163"></a>
+</p>
+<figure class="float figure">
+<figcaption class="caption">
+<span class="id">Table&nbsp;3.3: </span><span class="content">Parameters of a second-order system as described by Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>).</span>
+</figcaption>
+<!-- tex4ht:label?: x45-1420163  -->
+<div class="tabular">
+<table class="tabular" id="TBL-103" rules="groups">
+<colgroup id="TBL-103-1g">
+<col id="TBL-103-1">
+</colgroup>
+<colgroup id="TBL-103-2g">
+<col id="TBL-103-2">
+</colgroup>
+<colgroup id="TBL-103-3g">
+<col id="TBL-103-3">
+</colgroup>
+<tbody><tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-103-1-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-103-1-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Performance parameter </span>
+</td>
+<td class="td11" id="TBL-103-1-2" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">Expression </span>
+</td>
+<td class="td11" id="TBL-103-1-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">For </span><!-- l. 1158 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><mn>2</mn></mrow></msqrt><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn> <mo class="MathClass-rel" stretchy="false">≈</mo><mn>0.707</mn></mrow></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-103-2-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-103-2-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Peak time </span>
+</td>
+<td class="td11" id="TBL-103-2-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1159 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><msqrt><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+</td>
+<td class="td11" id="TBL-103-2-3" style="text-align:center; white-space:nowrap;">
+<!-- l. 1159 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4.4</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-103-3-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-103-3-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Rise time </span>
+</td>
+<td class="td11" id="TBL-103-3-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1160 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>r</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≈</mo><mo class="MathClass-open" stretchy="false">(</mo><mn>2.23</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo><mn>0.078</mn><mi>ζ</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1.12</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>
+</td>
+<td class="td11" id="TBL-103-3-3" style="text-align:center; white-space:nowrap;">
+<!-- l. 1160 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>r</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-103-4-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-103-4-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Settling time </span>
+</td>
+<td class="td11" id="TBL-103-4-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1161 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mtext class="qopname">ln</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo><!-- nolimits --><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜖</mi><msqrt><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>ζ</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+</td>
+<td class="td11" id="TBL-103-4-3" style="text-align:center; white-space:nowrap;">
+<!-- l. 1161 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4.7</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-103-5-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-103-5-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">Overshoot </span>
+</td>
+<td class="td11" id="TBL-103-5-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1162 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">ov</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">ζπ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow><mn>1</mn><mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt> </mrow></msup></mrow></math>
+</td>
+<td class="td11" id="TBL-103-5-3" style="text-align:center; white-space:nowrap;">
+<span class="ec-lmr-10">ov=4.32% </span>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr id="TBL-103-6-" style="vertical-align:baseline;">
+<td class="td11" id="TBL-103-6-1" style="text-align:left; white-space:nowrap;">
+<span class="ec-lmr-10">3-dB bandwidth </span><!-- l. 1163 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub></math> <span class="ec-lmr-10">(rad/s) </span>
+</td>
+<td class="td11" id="TBL-103-6-2" style="text-align:center; white-space:nowrap;">
+<!-- l. 1163 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub><msqrt><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msqrt> <mrow><mn>2</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>2</mn> </mrow> </msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>4</mn><msup><mrow><mi>ζ</mi></mrow><mrow><mn>4</mn></mrow></msup></mrow></msqrt></mrow></msqrt></mrow></math>
+</td>
+<td class="td11" id="TBL-103-6-3" style="text-align:center; white-space:nowrap;">
+<!-- l. 1163 -->
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>
+</td>
+</tr>
+<tr class="hline">
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</tbody></table>
+<pre><code>                                                                                                                                                                    &lt;/div&gt;
+                                                                          
+                                                                          </code></pre>
+</div></figure>
+<!-- l. 1167 -->
+<p class="indent">
+Table&nbsp;<a href="#x45-1420163">3.3<!-- tex4ht:ref: tab:sosParameters  --></a> indicates that, for an <span class="ec-lmri-10x-x-109">underdamped </span>system, the rise time when <!-- l. 1168 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><mn>2</mn></mrow></msqrt><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math> is <!-- l. 1168 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>r</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>. As expected, all three time parameters are inversely proportional to the natural frequency <!-- l. 1169 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math>.
+</p>
+<!-- l. 1171 -->
+<p class="indent">
+Listing&nbsp;<a href="#x45-142017r10">3.10<!-- tex4ht:ref: code:snip_systems_sos_parameters  --></a> indicates the commands to calculate the parameters, emphasizing the factors that depend on <!-- l. 1172 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ζ</mi></math> (<span class="ec-lmss-10x-x-109">zeta</span>) only.
+</p>
+<!-- l. 1174 -->
+<figcaption class="caption">
+<span class="id">Listing&nbsp;3.10: </span><span class="content">MatlabOctaveCodeSnippets/snip_systems_sos_parameters.m</span>
+</figcaption>
+<!-- tex4ht:label?: x45-142017r3.6.2  -->
+<pre class="lstinputlisting" id="listing-73"><span class="label"><a id="x45-142019r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">=0.5</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">damping</span></span><span style="color:#005900"> <span class="ec-lmtt-9">ratio, e.g. sqrt(2)/2 = 0.707;</span> 
+</span><span class="label"><a id="x45-142020r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"><span class="ec-lmtt-9">=2</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">natural</span></span><span style="color:#005900"> <span class="ec-lmtt-9">frequency in rad/s</span> 
+</span><span class="label"><a id="x45-142021r3"></a></span><span style="color:#000000"><span class="ec-lmtt-9">epsilon</span></span><span style="color:#000000"><span class="ec-lmtt-9">=0.05</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">tolerance</span></span><span style="color:#005900"> <span class="ec-lmtt-9">for the settling time (5% in this case)</span> 
+</span><span class="label"><a id="x45-142022r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">tp_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">sqrt</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1-</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">depends</span></span><span style="color:#005900"> <span class="ec-lmtt-9">on zeta only</span> 
+</span><span class="label"><a id="x45-142023r5"></a><span class="ec-lmr-6">5</span></span><span style="color:#000000"><span class="ec-lmtt-9">tp</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">tp_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">peak</span></span><span style="color:#005900"> <span class="ec-lmtt-9">time</span> 
+</span><span class="label"><a id="x45-142024r6"></a></span><span style="color:#000000"><span class="ec-lmtt-9">tr_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">=(2.23*</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2</span></span><span style="color:#000000"> <span class="ec-lmtt-9">- 0.078*zeta + 1.12)/</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">sqrt</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1-</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">zeta</span></span><span style="color:#005900"> <span class="ec-lmtt-9">only</span> 
+</span><span class="label"><a id="x45-142025r7"></a></span><span style="color:#000000"><span class="ec-lmtt-9">tr</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">tr_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">rise</span></span><span style="color:#005900"> <span class="ec-lmtt-9">time</span> 
+</span><span class="label"><a id="x45-142026r8"></a></span><span style="color:#000000"><span class="ec-lmtt-9">ts_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"> <span class="ec-lmtt-9">-</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">log</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">epsilon</span></span><span style="color:#000000"> <span class="ec-lmtt-9">*</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">sqrt</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1-</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">/(</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">zeta</span></span><span style="color:#005900"> <span class="ec-lmtt-9">only</span> 
+</span><span class="label"><a id="x45-142027r9"></a></span><span style="color:#000000"><span class="ec-lmtt-9">ts</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">ts_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">settling</span></span><span style="color:#005900"> <span class="ec-lmtt-9">time</span> 
+</span><span class="label"><a id="x45-142028r10"></a><span class="ec-lmr-6">10</span></span><span style="color:#000000"><span class="ec-lmtt-9">ov</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">exp</span></span><span style="color:#000000"><span class="ec-lmtt-9">(-(</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">*</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">pi</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">/</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">sqrt</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1-</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">overshoot</span></span><span style="color:#005900"> <span class="ec-lmtt-9">(depends on zeta only)</span> 
+</span><span class="label"><a id="x45-142029r11"></a></span><span style="color:#000000"><span class="ec-lmtt-9">bw_factor</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">sqrt</span></span><span style="color:#000000"><span class="ec-lmtt-9">(1-2*</span></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2</span></span><span style="color:#000000"> <span class="ec-lmtt-9">+</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">sqrt</span></span><span style="color:#000000"><span class="ec-lmtt-9">(2</span></span><span style="color:#000000"> <span class="ec-lmtt-9">- 4*zeta^2 + 4*zeta^4))</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">zeta</span></span><span style="color:#005900"> <span class="ec-lmtt-9">only</span> 
+</span><span class="label"><a id="x45-142030r12"></a></span><span style="color:#000000"><span class="ec-lmtt-9">wc</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"><span class="ec-lmtt-9">*</span></span><span style="color:#000000"><span class="ec-lmtt-9">bw_factor</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">cutoff</span></span><span style="color:#005900"> <span class="ec-lmtt-9">frequency=3-dB bandwidth (in radians/second)</span> 
+</span><span class="label"><a id="x45-142031r13"></a></span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"> <span class="ec-lmtt-9">Check whether the cuttoff frequency wc corresponds to a -3 dB gain</span> 
+</span><span class="label"><a id="x45-142032r14"></a></span><span style="color:#000000"><span class="ec-lmtt-9">s</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= 1j*wc</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">define</span></span><span style="color:#005900"> <span class="ec-lmtt-9">s = j wc</span> 
+</span><span class="label"><a id="x45-142033r15"></a><span class="ec-lmr-6">15</span></span><span style="color:#000000"><span class="ec-lmtt-9">Hs</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= (wn^2) / (s^2 + 2*zeta*wn*s + (wn^2))</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"> <span class="ec-lmtt-9">system function</span> 
+</span><span class="label"><a id="x45-142034r16"></a></span><span style="color:#000000"><span class="ec-lmtt-9">gain_at_wc</span></span><span style="color:#000000"> <span class="ec-lmtt-9">= 20*</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">log10</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">abs</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">Hs</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span class="ec-lmtt-9">&nbsp;</span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">answer</span></span><span style="color:#005900"> <span class="ec-lmtt-9">is -3.0103 dB</span></span>
+  </pre>
+<!-- l. 1176 -->
+<p class="indent">
+Matlab has the <span class="ec-lmss-10x-x-109">stepinfo </span>function, which can be used to obtain most of the parameters in Table&nbsp;<a href="#x45-1420163">3.3<!-- tex4ht:ref: tab:sosParameters  --></a> as follows:
+</p>
+<!-- l. 1178 -->
+<pre class="lstlisting" id="listing-74"><span class="label"><a id="x45-142035r1"></a></span><span style="color:#000000"><span class="ec-lmtt-9">zeta</span></span><span style="color:#000000"><span class="ec-lmtt-9">=0.5</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">damping</span></span><span style="color:#005900"> <span class="ec-lmtt-9">ratio, e.g. sqrt(2)/2 = 0.707;</span> 
+</span><span class="label"><a id="x45-142036r2"></a></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"><span class="ec-lmtt-9">=2</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">natural</span></span><span style="color:#005900"> <span class="ec-lmtt-9">frequency in rad/s</span> 
+</span><span class="label"><a id="x45-142037r3"></a></span><span style="color:#000000"><span class="ec-lmtt-9">sys</span></span><span style="color:#000000"> <span class="ec-lmtt-9">=</span> </span><span style="color:#0000FF"><span class="ec-lmtt-9">tf</span></span><span style="color:#000000"><span class="ec-lmtt-9">([</span></span><span style="color:#000000"><span class="ec-lmtt-9">wn</span></span><span style="color:#000000"><span class="ec-lmtt-9">^2],[1</span></span><span style="color:#000000"> <span class="ec-lmtt-9">2*zeta*wn wn^2]);</span> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">define</span></span><span style="color:#005900"> <span class="ec-lmtt-9">the transfer function</span> 
+</span><span class="label"><a id="x45-142038r4"></a></span><span style="color:#000000"><span class="ec-lmtt-9">S</span></span><span style="color:#000000"><span class="ec-lmtt-9">=</span></span><span style="color:#0000FF"><span class="ec-lmtt-9">stepinfo</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">sys</span></span><span style="color:#000000"><span class="ec-lmtt-9">,</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">RiseTimeLimits</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">,[0.1,0.9],</span></span><span style="color:#000000"> <span class="ec-lmtt-9">...</span> 
+</span><span class="label"><a id="x45-142039r5"></a><span class="ec-lmr-6">5</span></span><span class="ec-lmtt-9">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#FF0000"><span class="ec-lmtt-9">SettlingTimeThreshold</span></span><span style="color:#FF0000"><span class="ts1-lmtt9-">'</span></span><span style="color:#000000"><span class="ec-lmtt-9">,0.05)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">get</span></span><span style="color:#005900"> <span class="ec-lmtt-9">parameters with stepinfo</span> 
+</span><span class="label"><a id="x45-142040r6"></a></span><span style="color:#0000FF"><span class="ec-lmtt-9">step</span></span><span style="color:#000000"><span class="ec-lmtt-9">(</span></span><span style="color:#000000"><span class="ec-lmtt-9">sys</span></span><span style="color:#000000"><span class="ec-lmtt-9">)</span></span><span style="color:#000000"> </span><span style="color:#005900"><span class="ec-lmtt-9">%</span></span><span style="color:#005900"><span class="ec-lmtt-9">plot</span></span><span style="color:#005900"> <span class="ec-lmtt-9">step response to check results if want</span></span></pre>
+<!-- l. 1218 -->
+<p class="indent">
+</p><p>The system bandwidth will be discussed in the next section. Table&nbsp;<a href="#x45-1420163">3.3<!-- tex4ht:ref: tab:sosParameters  --></a> informs that, when <!-- l. 1219 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ζ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><mn>2</mn></mrow></msqrt><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></math>, the 3-dB bandwidth <!-- l. 1219 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub></math> in radians per second of the SOS given by Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>) is simply its natural frequency <!-- l. 1221 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math>. In fact, as <!-- l. 1221 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ζ</mi></math> varies from 0.5 to 0.8, which are the values typically used, its <!-- l. 1223 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>c</mi></mrow></msub></math> varies from <!-- l. 1223 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.27</mn><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math> to <!-- l. 1223 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.87</mn><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></mrow></math>. This justifies using <!-- l. 1224 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ω</mi></mrow><mrow><mi>n</mi></mrow></msub></math> as a rough approximation of bandwidth for Eq.&nbsp;(<a href="#x45-142004r30">3.30<!-- tex4ht:ref: eq:secondOrder1  --></a>).</p>
+<p></p>
+<div class="footnotes">
+<a id="x45-142015x3.6.2"></a> <!-- l. 1150 -->
+<p class="indent">
+<span class="footnote-mark"><a href="#fn12x5-bk" id="fn12x5"><sup class="textsuperscript">12</sup>&nbsp;</a></span><span class="ec-lmr-9">These results can be found in textbooks of control systems or, e. g., [url3con].</span>
+</p>
+<pre><code>                     &lt;/div&gt;</code></pre>
+
+
+
+
+
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ak_dsp_bookse35.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ak_dsp_bookse37.html" class="pagination-link" aria-label="<span class='chapter-number'>46</span>&nbsp; <span class='chapter-title'>ak_dsp_bookse37.html</span>">
+        <span class="nav-page-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">ak_dsp_bookse37.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Digital Signal Processing with Python, Matlab or Octave, Applications in Machine Learning Aldebaro Klautau Federal University of Pará (UFPA), Brazil</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
