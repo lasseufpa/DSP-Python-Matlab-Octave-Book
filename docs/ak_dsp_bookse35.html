@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Aldebaro Klautau">
 
-<title>Digital Signal Processing with Python, Matlab or Octave</title>
+<title>Digital Signal Processing with Python, Matlab or Octave - 35&nbsp; Sampling and Signal Reconstruction Revisited</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,13 +49,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -64,7 +58,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -74,18 +67,19 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ak_dsp_bookse31.html">ak_dsp_bookch3</a></li><li class="breadcrumb-item"><a href="./ak_dsp_bookse35.html"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ak_dsp_bookch3.html">Analog and Digital Systems</a></li><li class="breadcrumb-item"><a href="./ak_dsp_bookse35.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Sampling and Signal Reconstruction Revisited</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -95,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Digital Signal Processing with Python, Matlab or Octave</a> 
@@ -123,62 +117,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookap1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ak_dsp_bookap1.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookap2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ak_dsp_bookap2.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookap3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ak_dsp_bookap3.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookap4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ak_dsp_bookap4.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookli1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ak_dsp_bookli1.html</span></span></a>
+ <span class="menu-text">Contents</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookli2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ak_dsp_bookli2.html</span></span></a>
+ <span class="menu-text">List of Figures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookli3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">ak_dsp_bookli3.html</span></span></a>
+ <span class="menu-text">List of Tables</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookli4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ak_dsp_bookli4.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ak_dsp_book.html</span></span></a>
+ <span class="menu-text">Listings</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./ak_dsp_bookch1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ak_dsp_bookch1.html</span></a>
+ <span class="menu-text">Analog and Digital Signals</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -187,111 +151,111 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ak_dsp_bookse1.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">To Learn in This Chapter</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ak_dsp_bookse2.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Analog, Digital and Discrete-Time Signals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ak_dsp_bookse3.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic Signal Manipulation and Representation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ak_dsp_bookse4.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Block Processing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ak_dsp_bookse5.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Complex-Valued and Sampled Signals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ak_dsp_bookse6.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling the Stages in A/D and D/A Processes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ak_dsp_bookse7.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Relating Frequencies in Continuous, Sampled and Discrete-time Signals</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">ak_dsp_bookse8.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">An Introduction to Quantization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">ak_dsp_bookse9.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Categorization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">ak_dsp_bookse10.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Power and Energy in Discrete-Time</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">ak_dsp_bookse11.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Relating Power in Continuous and Discrete-Time</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">ak_dsp_bookse12.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Correlation: Finding Trends</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">ak_dsp_bookse13.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">A Linear Model for Quantization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ak_dsp_bookse14.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ak_dsp_bookse15.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Comments and Further Reading</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">ak_dsp_bookse16.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Review Exercises</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">ak_dsp_bookse17.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">ak_dsp_bookch2</span></a>
+            <a href="./ak_dsp_bookch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transforms and Signal Representation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -300,87 +264,87 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse18.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">ak_dsp_bookse18.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">To Learn in This Chapter</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse19.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">ak_dsp_bookse19.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Linear Transform</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse20.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">ak_dsp_bookse20.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Inner Products to Obtain the Transform Coefficients</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">ak_dsp_bookse21.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Block Transforms</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse22.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">ak_dsp_bookse22.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fourier Transforms and Series</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">ak_dsp_bookse23.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Relating discrete and analog frequencies</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse24.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">ak_dsp_bookse24.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary of equations for DFT / FFT Usage</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse25.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">ak_dsp_bookse25.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Laplace Transform</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse26.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">ak_dsp_bookse26.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Z Transform</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse27.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">ak_dsp_bookse27.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse28.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">ak_dsp_bookse28.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Comments and Further Reading</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse29.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ak_dsp_bookse29.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Review Exercises</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse30.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ak_dsp_bookse30.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">ak_dsp_bookch3</span></a>
+            <a href="./ak_dsp_bookch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analog and Digital Systems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -389,123 +353,123 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse31.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ak_dsp_bookse31.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">To Learn in This Chapter</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse32.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">ak_dsp_bookse32.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Contrasting Signals and Systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse33.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ak_dsp_bookse33.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analog and Digital Filters: A Quick Hands-On Tour</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse34.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ak_dsp_bookse34.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Linear Time-Invariant Systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse35.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ak_dsp_bookse35.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Sampling and Signal Reconstruction Revisited</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse36.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Facts About First and Second-Order Systems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse37.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">ak_dsp_bookse37.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bandwidth and Quality Factor</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse38.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">ak_dsp_bookse38.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Importance of Linear Phase (or Constant Group Delay)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse39.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">ak_dsp_bookse39.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Filtering technologies: Surface acoustic wave (SAW) and others</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse40.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">ak_dsp_bookse40.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Digital Filters</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse41.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">ak_dsp_bookse41.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">IIR Filter Design</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse42.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">ak_dsp_bookse42.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Bilinear Transformation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse43.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">ak_dsp_bookse43.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">FIR Filter Design</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse44.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">ak_dsp_bookse44.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Realization of Digital Filters</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse45.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">ak_dsp_bookse45.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Multirate Processing</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse46.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">ak_dsp_bookse46.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse47.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">ak_dsp_bookse47.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Comments and Further Reading</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse48.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">ak_dsp_bookse48.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse49.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">ak_dsp_bookse49.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Extra Exercises</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">ak_dsp_bookch4</span></a>
+            <a href="./ak_dsp_bookch4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Estimation Techniques</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -514,299 +478,140 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse50.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">ak_dsp_bookse50.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">To Learn in This Chapter</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse51.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">ak_dsp_bookse51.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse52.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">ak_dsp_bookse52.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Windows for spectral analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse53.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">ak_dsp_bookse53.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">The ESD, PSD and MS Spectrum functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse54.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">ak_dsp_bookse54.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Filtering Random Signals and the Impact on PSDs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse55.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">ak_dsp_bookse55.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Nonparametric PSD Estimation via Periodogram</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse56.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">ak_dsp_bookse56.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Nonparametric PSD Estimation via Welch’s method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse57.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">ak_dsp_bookse57.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Parametric PSD Estimation via Autoregressive (AR) Modeling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse58.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">ak_dsp_bookse58.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Time-frequency Analysis using the Spectrogram</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ak_dsp_bookse59.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">ak_dsp_bookse59.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Applications</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse60.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Comments and Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse61.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ak_dsp_bookse62.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Extra Exercises</span></span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse60.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">ak_dsp_bookse60.html</span></span></a>
+  <a href="./ak_dsp_bookap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">ak_dsp_bookap2.html</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse61.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">ak_dsp_bookse61.html</span></span></a>
+  <a href="./ak_dsp_bookap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">ak_dsp_bookap3.html</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse62.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">ak_dsp_bookse62.html</span></span></a>
+  <a href="./ak_dsp_bookap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">ak_dsp_bookap4.html</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse63.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">ak_dsp_bookse63.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse64.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">ak_dsp_bookse64.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse65.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">ak_dsp_bookse65.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse66.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">ak_dsp_bookse66.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse67.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">ak_dsp_bookse67.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse68.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">ak_dsp_bookse68.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse69.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">ak_dsp_bookse69.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse70.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">ak_dsp_bookse70.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse71.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">ak_dsp_bookse71.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse72.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">ak_dsp_bookse72.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse73.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">ak_dsp_bookse73.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse74.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">ak_dsp_bookse74.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse75.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">ak_dsp_bookse75.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse76.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">ak_dsp_bookse76.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse77.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">ak_dsp_bookse77.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse78.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">ak_dsp_bookse78.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse79.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">ak_dsp_bookse79.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse80.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">ak_dsp_bookse80.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse81.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">ak_dsp_bookse81.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse82.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">ak_dsp_bookse82.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse83.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">ak_dsp_bookse83.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse84.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">ak_dsp_bookse84.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse85.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">ak_dsp_bookse85.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse86.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">ak_dsp_bookse86.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse87.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">ak_dsp_bookse87.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse88.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">ak_dsp_bookse88.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse89.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">98</span>&nbsp; <span class="chapter-title">ak_dsp_bookse89.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse90.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">99</span>&nbsp; <span class="chapter-title">ak_dsp_bookse90.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse91.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">100</span>&nbsp; <span class="chapter-title">ak_dsp_bookse91.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse92.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">101</span>&nbsp; <span class="chapter-title">ak_dsp_bookse92.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse93.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">102</span>&nbsp; <span class="chapter-title">ak_dsp_bookse93.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse94.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">103</span>&nbsp; <span class="chapter-title">ak_dsp_bookse94.html</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ak_dsp_bookse95.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">104</span>&nbsp; <span class="chapter-title">ak_dsp_bookse95.html</span></span></a>
-  </div>
-</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Sampling and Signal Reconstruction Revisited</span></h1>
+</div>
 
 
 
-&lt;!DOCTYPE html&gt;
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
 
-<title>
-Sampling and Signal Reconstruction Revisited
-</title>
+</header>
+
 <meta charset="utf-8">
 <meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator">
 <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -815,9 +620,6 @@ Sampling and Signal Reconstruction Revisited
 <script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
 
 
-<h3 class="sectionHead anchored">
-<span class="titlemark">3.5</span>&nbsp;&nbsp;<a id="x44-1290003.5"></a>Sampling and Signal Reconstruction Revisited
-</h3>
 <!-- l. 669 -->
 <p class="noindent">
 Having established the fundamentals of convolution and Fourier transforms, it is possible now to sketch a proof of the sampling theorem (Theorem&nbsp;<a href="ak_dsp_bookse6.html#x13-35002r1">1<!-- tex4ht:ref: th:sampling  --></a>) without difficulties.
@@ -832,6 +634,7 @@ Having established the fundamentals of convolution and Fourier transforms, it is
 <p class="noindent">
 Sampling a signal <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> at each <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></math> seconds (periodic and uniform sampling) can be modeled as the multiplication of <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> by a periodic function <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with fundamental period <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></math>. For example, <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> can be a train of pulses with duty cycle <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mn>1</mn></mrow></msub></math>. However, it is mathematically convenient<span class="footnote-mark"><a href="#fn7x5" id="fn7x5-bk"><sup class="textsuperscript">7</sup></a></span><a id="x44-130001f7"></a> to adopt an <span class="ec-lmri-10x-x-109">impulse </span>train
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -845,11 +648,13 @@ Sampling a signal <!-- l. 674 --><math display="inline" xmlns="http://www.w3.org
 (3.16)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 679 -->
 <p class="indent">
 which allows to model the sampled signal as
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -863,6 +668,7 @@ which allows to model the sampled signal as
 (3.17)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 684 -->
 <p class="indent">
@@ -872,6 +678,7 @@ as anticipated in Eq.&nbsp;(<a href="ak_dsp_bookse6.html#x13-35004r17">1.17<!-- 
 <p class="indent">
 From Eq.&nbsp;(<a href="#x44-130004r17">3.17<!-- tex4ht:ref: eq:sampledSignalGeneralRevisited  --></a>) and the Fourier convolution property discussed in Section&nbsp;<a href="ak_dsp_bookse34.html#x43-1270003.4.7">3.4.7<!-- tex4ht:ref: sec:FourierConvolutionProperty  --></a>, the Fourier transform of <!-- l. 687 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -885,6 +692,7 @@ From Eq.&nbsp;(<a href="#x44-130004r17">3.17<!-- tex4ht:ref: eq:sampledSignalGen
 (3.18)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 692 -->
 <p class="indent">
@@ -901,7 +709,7 @@ This ideal filter will then cancel the undesired replicas of <!-- l. 694 --><mat
 <p class="noindent">
 <img alt="PIC" src="FiguresTex/samplingSpectra.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.15: </span><span class="content">Spectrum <!-- l. 699 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>X</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of a sampled signal <!-- l. 699 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> obtained by the convolution between <!-- l. 699 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 699 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> as indicated in Eq.&nbsp;(<a href="#x44-130005r18">3.18<!-- tex4ht:ref: eq:sampledSignalGeneralRevisitedFrequency  --></a>).</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13000615  -->
@@ -914,6 +722,7 @@ In summary, a lowpass signal <!-- l. 702 --><math display="inline" xmlns="http:/
 <p class="indent">
 The spectrum <!-- l. 704 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>X</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of <!-- l. 704 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>x</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> corresponds to <!-- l. 704 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>X</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>X</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. The multiplication of <!-- l. 705 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>X</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> by <!-- l. 705 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> in frequency-domain corresponds to the convolution of <!-- l. 705 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with the filter’s impulse response <!-- l. 705 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"></mstyle><mi>F</mi><mo class="MathClass-open" stretchy="false">{</mo><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">}</mo></mrow></math>. From Eq.&nbsp;(<a href="ak_dsp_bookse80.html#x92-279005r54">B.54<!-- tex4ht:ref: eq:sinc_transform  --></a>) and the duality property, <!-- l. 705 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle class="text"><mtext class="textrm" mathvariant="normal">sinc</mtext></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">∕</mo><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> in this case. Hence, this convolution is written as
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -927,6 +736,7 @@ The spectrum <!-- l. 704 --><math display="inline" xmlns="http://www.w3.org/1998
 (3.19)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 711 -->
 <p class="indent">
@@ -940,6 +750,7 @@ which corresponds to the convolution of the scaled sinc <!-- l. 711 --><math dis
 <p class="indent">
 Hence, when the sampling theorem is obeyed, the whole chain is as follows (the signals are depicted with their associated power in parenthesis as in Block&nbsp;(<a href="ak_dsp_bookse11.html#x18-67001r49">1.49<!-- tex4ht:ref: eq:powersFromCtoD  --></a>)):
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -953,6 +764,7 @@ Hence, when the sampling theorem is obeyed, the whole chain is as follows (the s
 (3.20)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 722 -->
 <p class="indent">
@@ -962,6 +774,7 @@ where <!-- l. 722 --><math display="inline" xmlns="http://www.w3.org/1998/Math/M
 <p class="indent">
 Using the notation suggested by Block&nbsp;(<a href="#x44-130012r20">3.20<!-- tex4ht:ref: eq:samplingAndReconstruction  --></a>), the samples <!-- l. 724 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> were converted to areas <!-- l. 725 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow><mrow><mi>a</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, which are converted to <!-- l. 725 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow><mrow><mi>a</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. Hence, Eq.&nbsp;(<a href="#x44-130007r19">3.19<!-- tex4ht:ref: eq:signalReconstructionViaSincs  --></a>) can be conveniently rewritten as
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -975,6 +788,7 @@ Using the notation suggested by Block&nbsp;(<a href="#x44-130012r20">3.20<!-- te
 (3.21)
 </td>
 </tr>
+
 </tbody></table>
 <h4 class="subsectionHead anchored">
 <span class="titlemark">3.5.2</span>&nbsp;&nbsp;<a id="x44-1310003.5.2"></a>Energy and power of a sampled signal
@@ -984,6 +798,7 @@ Using the notation suggested by Block&nbsp;(<a href="#x44-130012r20">3.20<!-- te
 </p><p>The squared of the continuous-time impulse <!-- l. 736 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>δ</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is not defined. This creates a problem when one considers the energy or power of <!-- l. 736 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. When <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is interpreted as a pulse <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with unit area and amplitude <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mi mathvariant="normal">Δ</mi></mrow></math>, one</p>
 can argue that when <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><munder class="msub"><mrow><mtext class="qopname">lim</mtext><mo> ⁡<!-- FUNCTION APPLICATION --> </mo> </mrow><mrow><mi mathvariant="normal">Δ</mi><mo class="MathClass-rel" stretchy="false">→</mo><mn>0</mn></mrow></munder></math> as in Eq.&nbsp;(<a href="ak_dsp_bookse88.html#x100-308001r120">B.120<!-- tex4ht:ref: eq:diracDeltaDefinition  --></a>), the resulting area of the squared pulse <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>p</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mi mathvariant="normal">Δ</mi></mrow></math>, which leads to <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>δ</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>∞</mi></mrow></math>. However, this would not be mathematically rigorous given that <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is a distribution. Hence, the following route is taken here: instead of defining new <span class="ec-lmri-10x-x-109">transformations</span><span class="footnote-mark"><a href="#fn9x5" id="fn9x5-bk"><sup class="textsuperscript">9</sup></a></span><a id="x44-131001f9"></a> on the distribution <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, the instantaneous power of a sampled signal <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is defined as the instantaneous power of its equivalent discrete-time signal <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> obtained via a S/D conversion, normalized by the associated <!-- l. 737 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></math>, i. e.
 <p></p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -997,6 +812,7 @@ can argue that when <!-- l. 737 --><math display="inline" xmlns="http://www.w3.o
 (3.22)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 743 -->
 <p class="indent">
@@ -1020,6 +836,7 @@ With the help of Eq.&nbsp;(<a href="#x44-130013r21">3.21<!-- tex4ht:ref: eq:sign
 <p class="indent">
 Eq.&nbsp;(<a href="#x44-130013r21">3.21<!-- tex4ht:ref: eq:signalReconstructionViaSincs2  --></a>) states that any band-limited signal <!-- l. 780 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> can be represented by its samples <!-- l. 780 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>. The interest here is to relate their respective power values <!-- l. 780 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"></mstyle><mi>P</mi></mrow><mrow><mi>c</mi></mrow></msub></math> and <!-- l. 780 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"></mstyle><mi>P</mi></mrow><mrow><mi>d</mi></mrow></msub></math>. Assuming <!-- l. 780 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is an energy signal and from Eq.&nbsp;(<a href="ak_dsp_bookse74.html#x86-267001r28">B.28<!-- tex4ht:ref: eq:sincOrthogonality  --></a>), its energy <!-- l. 780 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>E</mi></mrow><mrow><mi>c</mi></mrow></msub></math> can be written as
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -1033,6 +850,7 @@ Eq.&nbsp;(<a href="#x44-130013r21">3.21<!-- tex4ht:ref: eq:signalReconstructionV
 (3.23)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 785 -->
 <p class="indent">
@@ -1044,6 +862,7 @@ Eq.&nbsp;(<a href="#x44-130013r21">3.21<!-- tex4ht:ref: eq:signalReconstructionV
 <p class="noindent">
 From Eq.&nbsp;(<a href="#x44-132003r24">3.24<!-- tex4ht:ref: eq:powerRelationProved  --></a>) and Eq.&nbsp;(<a href="#x44-131003r22">3.22<!-- tex4ht:ref: eq:powerSampledSignal  --></a>), Block&nbsp;(<a href="#x44-130012r20">3.20<!-- tex4ht:ref: eq:samplingAndReconstruction  --></a>) can be simplified as
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -1057,6 +876,7 @@ From Eq.&nbsp;(<a href="#x44-132003r24">3.24<!-- tex4ht:ref: eq:powerRelationPro
 (3.25)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 802 -->
 <p class="indent">
@@ -1098,7 +918,7 @@ For example, consider a passband signal <!-- l. 825 --><math display="inline" xm
 <p class="noindent">
 <img alt="PIC" src="FiguresTex/filt_fpga_sinal_anlg.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.16: </span><span class="content">Passband signal with <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>25</mn></mrow></math>&nbsp;Hz and center frequency <!-- l. 830 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>f</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>70</mn></mrow></math>&nbsp;Hz.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13400316  -->
@@ -1117,7 +937,7 @@ Assuming <!-- l. 835 --><math display="inline" xmlns="http://www.w3.org/1998/Mat
 <p class="noindent">
 <img alt="PIC" src="FiguresTex/filt_fpga_sinal_amos.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.17: </span><span class="content">Result of sampling <!-- l. 842 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> in Figure&nbsp;<a href="#x44-13400316">3.16<!-- tex4ht:ref: fig:filt_fpga_sinal_anlg  --></a> with <!-- l. 842 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>56</mn></mrow></math>&nbsp;Hz, which places replicas at <!-- l. 842 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">±</mo><mn>14</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">±</mo><mn>42</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">±</mo><mo class="MathClass-punc" stretchy="false">,</mo><mn>70</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">±</mo><mn>98</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo></mrow></math>, with only the first six shown in this figure.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13400417  -->
@@ -1147,7 +967,7 @@ Figure&nbsp;<a href="#x44-13500118">3.18<!-- tex4ht:ref: fig:samplingNonSymmetri
 <p class="noindent">
 <img alt="PIC" src="FiguresTex/samplingNonSymmetrical.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.18: </span><span class="content">Sampling with <!-- l. 865 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>450</mn></mrow></math>&nbsp;Hz a complex-valued signal with non-symmetrical spectrum.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13500118  -->
@@ -1176,6 +996,7 @@ Similar to sampling, the D/S conversion can now be better understood. After that
 <p class="noindent">
 When a discrete-time signal <!-- l. 884 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> with DTFT <!-- l. 884 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is converted into a sampled signal <!-- l. 885 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with Fourier transform <!-- l. 885 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>X</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>ω</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> via a D/S conversion, as discussed in Section&nbsp;<a href="ak_dsp_bookse6.html#x13-290001.6.6">1.6.6<!-- tex4ht:ref: sec:ds_conversion  --></a>, it has a frequency-domain description given by
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -1189,6 +1010,7 @@ When a discrete-time signal <!-- l. 884 --><math display="inline" xmlns="http://
 (3.26)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 891 -->
 <p class="indent">
@@ -1210,7 +1032,7 @@ Eq.&nbsp;(<a href="#x44-137001r26">3.26<!-- tex4ht:ref: eq:sampledSignalSpectrum
 <p class="noindent">
 <img alt="PIC" src="Figures/dc_conversion.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.19: </span><span class="content">Result of converting <!-- l. 906 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> with spectrum <!-- l. 906 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>j</mi><mi mathvariant="normal">Ω</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> into <!-- l. 906 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with <!-- l. 906 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>X</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>ω</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>X</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">jω</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> via a D/S conversion using <!-- l. 906 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>&nbsp;Hz.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13700219  -->
@@ -1243,6 +1065,7 @@ Digital signal processing systems that interface with the analog world typically
 </p><p>The reconstruction process, which converts a sampled signal <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> into a continuous-time signal <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, is mathematically</p>
 modeled by convolving <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> with a signal <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> to obtain <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>x</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">∗</mo><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. As discussed along the text, the signal <!-- l. 929 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> can be interpreted as the impulse response of a system and the reconstruction process can be pictorially depicted as:
 <p></p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -1256,6 +1079,7 @@ modeled by convolving <!-- l. 929 --><math display="inline" xmlns="http://www.w3
 (3.27)
 </td>
 </tr>
+
 </tbody></table>
 <!-- l. 935 -->
 <p class="indent">
@@ -1265,14 +1089,17 @@ When one starts with the discrete-time signal <!-- l. 935 --><math display="inli
 <p class="indent">
 There are two important options for <!-- l. 937 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>:
 </p>
-<ul class="itemize1">
-<li class="itemize">
-<span class="ec-lmri-10x-x-109">Zero-order hold </span>reconstruction: where <!-- l. 940 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is a pulse with duration <!-- l. 940 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></math> and amplitude 1
-</li>
-<li class="itemize">
-<span class="ec-lmri-10x-x-109">Unitary energy </span>reconstruction: where <!-- l. 941 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> has unitary energy <!-- l. 941 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>E</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> as, for example, the normalized pulse <!-- l. 941 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow> <mrow><msqrt><mrow><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></msqrt></mrow></mfrac><mo class="MathClass-open" stretchy="false">[</mo><mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
-</li>
-</ul>
+<pre><code> &lt;ul class='itemize1'&gt;
+ &lt;li class='itemize'&gt;&lt;span class='ec-lmri-10x-x-109'&gt;Zero-order hold &lt;/span&gt;reconstruction: where &lt;!-- l. 940 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo class='MathClass-open' stretchy='false'&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo class='MathClass-close' stretchy='false'&gt;)&lt;/mo&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt; &lt;mi&gt;u&lt;/mi&gt;&lt;mo class='MathClass-open' stretchy='false'&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo class='MathClass-close' stretchy='false'&gt;)&lt;/mo&gt; &lt;mo class='MathClass-bin' stretchy='false'&gt;−&lt;/mo&gt; &lt;mi&gt;u&lt;/mi&gt;&lt;mo class='MathClass-open' stretchy='false'&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt; &lt;mo class='MathClass-bin' stretchy='false'&gt;−&lt;/mo&gt; &lt;msub&gt;&lt;mrow&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo class='MathClass-close' stretchy='false'&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;
+ is a pulse with duration &lt;!-- l. 940 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;msub&gt;&lt;mrow&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;/math&gt;
+ and amplitude 1
+ &lt;/li&gt;
+ &lt;li class='itemize'&gt;&lt;span class='ec-lmri-10x-x-109'&gt;Unitary energy &lt;/span&gt;reconstruction: where &lt;!-- l. 941 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo class='MathClass-open' stretchy='false'&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo class='MathClass-close' stretchy='false'&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;
+ has unitary energy &lt;!-- l. 941 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;&lt;mi&gt;E&lt;/mi&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt; &lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/math&gt;
+ as, for example, the normalized pulse &lt;!-- l. 941 --&gt;&lt;math display='inline' xmlns='http://www.w3.org/1998/Math/MathML'&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo class='MathClass-open' stretchy='false'&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo class='MathClass-close' stretchy='false'&gt;)&lt;/mo&gt; &lt;mo class='MathClass-rel' stretchy='false'&gt;=&lt;/mo&gt;   &lt;mfrac&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt; </code></pre>
+<mrow><msqrt><mrow><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></msqrt></mrow><mo class="MathClass-open" stretchy="false">[</mo><mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>u</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo>
+
+
 <!-- l. 944 -->
 <p class="indent">
 </p><p>As illustrated in Figure&nbsp;<a href="ak_dsp_bookse6.html#x13-3400223">1.23<!-- tex4ht:ref: fig:zoh  --></a>, D/S followed by zero-order hold reconstruction is a simplified model for the actual process executed by a DAC chip. It is adopted here for simplicity. A consequence of ZOH is that Eq.&nbsp;(<a href="ak_dsp_bookse11.html#x18-67003r51">1.51<!-- tex4ht:ref: eq:energyConservationContinuousDiscreteTime  --></a>) holds, and the power in continuous <!-- l. 946 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"></mstyle><mi>P</mi></mrow><mrow><mi>c</mi></mrow></msub></math> of <!-- l. 946 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and</p>
@@ -1300,7 +1127,7 @@ Figure&nbsp;<a href="#x44-13800420">3.20<!-- tex4ht:ref: fig:canonicalFilterWith
 <p class="noindent">
 <img alt="PIC" src="FiguresNonScript/canonicalFilterWithDC_CD.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.20: </span><span class="content">Extended version of Figure&nbsp;<a href="ak_dsp_bookse6.html#x13-3400324">1.24<!-- tex4ht:ref: fig:canonicalDSPChain  --></a> using an arbitrary reconstruction filter <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>h</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and incorporating the filters <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 970 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13800420  -->
@@ -1328,7 +1155,7 @@ response <!-- l. 992 --><math display="inline" xmlns="http://www.w3.org/1998/Mat
 <p class="noindent">
 <img alt="PIC" src="Figures/dacFilter25khz.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.21: </span><span class="content">Reconstruction of a digital signal with <!-- l. 998 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>25</mn></mrow></math>&nbsp;kHz and <!-- l. 998 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>200</mn></mrow></math>&nbsp;kHz using an analog filter with cutoff frequency <!-- l. 998 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>f</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>25</mn></mrow></math>&nbsp;kHz.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13800821  -->
@@ -1343,7 +1170,7 @@ Figure&nbsp;<a href="#x44-13800922">3.22<!-- tex4ht:ref: fig:dacFilter80khz  -->
 <p class="noindent">
 <img alt="PIC" src="Figures/dacFilter80khz.png" class="figure-img">
 </p>
-<figcaption class="caption">
+<figcaption class="caption figure-caption">
 <span class="id">Figure&nbsp;3.22: </span><span class="content">Same as Figure&nbsp;<a href="#x44-13800821">3.21<!-- tex4ht:ref: fig:dacFilter25khz  --></a>, but for a signal with <!-- l. 1007 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">BW</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>f</mi></mrow><mrow><mi>c</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>80</mn></mrow></math>&nbsp;kHz. In this case, the reconstruction generates significant out-of-band power due to the spectrum replicas.</span>
 </figcaption>
 <!-- tex4ht:label?: x44-13800922  -->
@@ -1359,6 +1186,7 @@ As illustrated by Figure&nbsp;<a href="#x44-13800922">3.22<!-- tex4ht:ref: fig:d
 <p class="noindent">
 When a digital filter <!-- l. 1015 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mi>z</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> (subindices will be used here to avoid confusion and disambiguate <!-- l. 1015 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and <!-- l. 1015 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>) is part of an analog signal processing scheme such as the one depicted in Figure&nbsp;<a href="#x44-13800420">3.20<!-- tex4ht:ref: fig:canonicalFilterWithDC_CD  --></a>, it is sometimes useful to combine the roles of <!-- l. 1016 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mi>z</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and D/S into one “analog” filter with frequency response <!-- l. 1017 --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>H</mi></mrow><mrow><mi>z</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">jω</mi><msub><mrow><mi>T</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. This can be interpreted as a simple abscissa scaling in graphs such as Figure&nbsp;<a href="#x44-13700219">3.19<!-- tex4ht:ref: fig:dc_conversion  --></a>. Another view is that, while Eq.&nbsp;(<a href="#x44-137001r26">3.26<!-- tex4ht:ref: eq:sampledSignalSpectrum  --></a>) refers to a sampled signal, a corresponding version of an equivalent (analog) “system” is
 </p>
+
 <table class="equation">
 <tbody><tr>
 <td>
@@ -1372,6 +1200,7 @@ When a digital filter <!-- l. 1015 --><math display="inline" xmlns="http://www.w
 (3.28)
 </td>
 </tr>
+
 </tbody></table>
 <div class="footnotes">
 <a id="x44-130002x3.5.1"></a> <!-- l. 674 -->
@@ -1480,9 +1309,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1492,17 +1322,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1515,120 +1336,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      return note.innerHTML;
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1672,7 +1379,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1698,32 +1404,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1785,31 +1465,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ak_dsp_bookse34.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ak_dsp_bookse34.html</span></span>
+      <a href="./ak_dsp_bookse34.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Linear Time-Invariant Systems</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ak_dsp_bookse36.html" class="pagination-link" aria-label="<span class='chapter-number'>45</span>&nbsp; <span class='chapter-title'>ak_dsp_bookse36.html</span>">
-        <span class="nav-page-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">ak_dsp_bookse36.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ak_dsp_bookse36.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Facts About First and Second-Order Systems</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Digital Signal Processing with Python, Matlab or Octave, Applications in Machine Learning Aldebaro Klautau Federal University of Pará (UFPA), Brazil</p>
-</div>   
+    <div class="nav-footer-left">Digital Signal Processing with Python, Matlab or Octave, Applications in Machine Learning Aldebaro Klautau Federal University of Pará (UFPA), Brazil</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 
