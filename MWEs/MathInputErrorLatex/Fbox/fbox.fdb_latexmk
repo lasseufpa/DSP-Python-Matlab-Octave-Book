@@ -1,0 +1,25 @@
+# Fdb version 4
+["pdflatex"] 1705930676 "/home/valdineirod/Documents/LASSE/Bootor/DSP-Python-Matlab-Octave-Book/MWEs/MathInputErrorLatex/Fbox/fbox.tex" "fbox.pdf" "fbox" 1705930676 0
+  "/home/valdineirod/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1705930180 82507 a9eef8696c92627b87e9975edea03b2a ""
+  "/home/valdineirod/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1701953591 24205733 4e383828c850245a1746d3b666cdfc8b ""
+  "/home/valdineirod/Documents/LASSE/Bootor/DSP-Python-Matlab-Octave-Book/MWEs/MathInputErrorLatex/Fbox/fbox.tex" 1705930675 393 73eb79147d5caf59f3627f531ea9875a ""
+  "/usr/local/share/miktex-texmf/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1698756712 1004 54797486969f23fa377b128694d548df ""
+  "/usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1698756712 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1698756712 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1698756712 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1698756712 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/share/miktex-texmf/tex/latex/amsmath/amsbsy.sty" 1698756713 2222 499d61426192c39efd8f410ee1a52b9c ""
+  "/usr/local/share/miktex-texmf/tex/latex/amsmath/amsgen.sty" 1698756713 4173 82ac04dfb1256038fad068287fbb4fe6 ""
+  "/usr/local/share/miktex-texmf/tex/latex/amsmath/amsmath.sty" 1698756713 88371 d84032c0f422c3d1e282266c01bef237 ""
+  "/usr/local/share/miktex-texmf/tex/latex/amsmath/amsopn.sty" 1698756713 4474 b811654f4bf125f11506d13d13647efb ""
+  "/usr/local/share/miktex-texmf/tex/latex/amsmath/amstext.sty" 1698756713 2444 0d0c1ee65478277e8015d65b86983da2 ""
+  "/usr/local/share/miktex-texmf/tex/latex/base/article.cls" 1699537528 20144 fbcf51733730d8f1a62143512ff5b1fe ""
+  "/usr/local/share/miktex-texmf/tex/latex/base/size10.clo" 1699537528 8448 74078c4a887f2cdcd57c3ec111622740 ""
+  "/usr/local/share/miktex-texmf/tex/latex/l3backend/l3backend-pdftex.def" 1698756720 29988 bb6a6635dd6c1ccb32cf27163b4e39bb ""
+  "fbox.aux" 1705930676 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "fbox.tex" 1705930675 393 73eb79147d5caf59f3627f531ea9875a ""
+  (generated)
+  "fbox.aux"
+  "fbox.log"
+  "fbox.pdf"
+  (rewritten before read)

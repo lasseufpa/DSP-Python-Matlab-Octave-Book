@@ -1,0 +1,507 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=latex 2023.12.5)  18 JAN 2024 10:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\makeatletter\def\HCode{\futurelet\HCode\HChar}\def\HChar{\ifx"\HCode\def\HCo
+de"##1"{\Link##1}\expandafter\HCode\else\expandafter\Link\fi}\def\Link#1.a.b.c.
+{\AddToHook{class/before}{\RequirePackage[#1,html]{tex4ht}}\let\HCode\documents
+tyle\def\documentstyle{\let\documentstyle\HCode\expandafter\def\csname tex4ht\e
+ndcsname{#1,html}\def\HCode####1{\documentstyle[tex4ht,}\@ifnextchar[{\HCode}{\
+documentstyle[tex4ht]}}}\makeatother\HCode xhtml,,charset=utf-8,html5.a.b.c.\in
+put "\detokenize{color_mwe.tex}"
+(color_mwe.tex (/usr/local/share/miktex-texmf/tex/generic/tex4ht/tex4ht.sty
+version 2023-10-04-13:17
+Package: tex4ht 
+--------------------------------------
+--- Note --- for _ at preamble, use the command line option `early_'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ at preamble, use the command line option `early^'
+--------------------------------------
+\tmp:toks=\toks17
+) (/usr/local/share/miktex-texmf/tex/latex/koma-script/scrbook.cls
+Document Class: scrbook 2023/07/07 v3.41 KOMA-Script document class (book)
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/usepackage.4ht
+version 2023-07-25-12:42
+) (/usr/local/share/miktex-texmf/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+(/usr/local/share/miktex-texmf/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+(/usr/local/share/miktex-texmf/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+(/usr/local/share/miktex-texmf/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+
+(/usr/local/share/miktex-texmf/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+))) (/usr/local/share/miktex-texmf/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+)) (/usr/local/share/miktex-texmf/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2023/07/07 v3.41 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip48
+\scr@dte@tocline@numbox=\box51
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 135.
+Class scrbook Info: File `scrsize11pt.clo' used instead of
+(scrbook)           file `scrsize11.clo' to setup font sizes on input line 2691
+.
+(/usr/local/share/miktex-texmf/tex/latex/koma-script/scrsize11pt.clo
+File: scrsize11pt.clo 2023/07/07 v3.41 KOMA-Script font size class option (11pt
+)
+) (/usr/local/share/miktex-texmf/tex/latex/koma-script/typearea.sty
+Package: typearea 2023/07/07 v3.41 KOMA-Script package (type area)
+\ta@bcor=\skip49
+\ta@div=\count186
+\ta@hblk=\skip50
+\ta@vblk=\skip51
+\ta@temp=\skip52
+\footheight=\skip53
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 47.2316pt
+(typearea)              \oddsidemargin  = -12.5192pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 595.80026pt
+(typearea)              \topmargin      = -25.16531pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1799.
+)
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\scr@dte@chapter@maxnumwidth=\skip54
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\chapter on input line 5990.
+\scr@dte@section@maxnumwidth=\skip55
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\section on input line 6001.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\section on input line 6001.
+\scr@dte@part@maxnumwidth=\skip56
+Class scrbook Info: using compatibility default `afterindent=true'
+(scrbook)           for `\part on input line 6010.
+\scr@dte@subsection@maxnumwidth=\skip57
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsection on input line 6020.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsection on input line 6020.
+\scr@dte@subsubsection@maxnumwidth=\skip58
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsubsection on input line 6030.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsubsection on input line 6030.
+\scr@dte@paragraph@maxnumwidth=\skip59
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\paragraph on input line 6041.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\paragraph on input line 6041.
+\scr@dte@subparagraph@maxnumwidth=\skip60
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subparagraph on input line 6051.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subparagraph on input line 6051.
+\abovecaptionskip=\skip61
+\belowcaptionskip=\skip62
+\c@pti@nb@sid@b@x=\box52
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 7242.
+\scr@dte@figure@maxnumwidth=\skip63
+\c@figure=\count194
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 7259.
+\scr@dte@table@maxnumwidth=\skip64
+\c@table=\count195
+Class scrbook Info: Redefining `\numberline' on input line 7430.
+\bibindent=\dimen140
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/xcolor-hooks.4ht
+version 2020-10-17-13:53
+) (/usr/local/share/miktex-texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 227.
+(/usr/local/share/miktex-texmf/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
+) (/usr/local/share/miktex-texmf/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/tex4ht.4ht
+version 2022-07-05-14:37
+--------------------------------------
+--- Note --- for additional information, use the command line option `info'
+--------------------------------------
+::::::::::::::::::::::::::::::::::::::::::
+ TeX4ht info is available in the log file 
+::::::::::::::::::::::::::::::::::::::::::
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/tex4ht.sty
+version 2023-10-04-13:17
+l.870 --- TeX4ht warning --- nonprimitive \everypar ---
+--- needs --- tex4ht color_mwe ---
+\tmp:cnt=\count196
+\openout15 = `color_mwe.tmp'.
+
+(color_mwe.tmp)
+\tmp:dim=\skip65
+(color_mwe.xref)
+\:refout=\write3
+\openout3 = `color_mwe.xref'.
+
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+--------------------------------------
+--- Note --- to remove the <?xml version=...?> processing instruction use the c
+ommand line option `no-VERSION'
+--------------------------------------
+--------------------------------------
+--- Note --- to remove the DOCTYPE declaration use the command line option `no-
+DOCTYPE'
+--------------------------------------
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)
+--------------------------------------
+--- Note --- for marking of the base font, use the command line option `fonts+'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for non active _, use the command line option `no_'
+--------------------------------------
+--------------------------------------
+--- Note --- for _ of catcode 13, use the command line option `_13'
+--------------------------------------
+--------------------------------------
+--- Note --- for non active ^, use the command line option `no^'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ of catcode 13, use the command line option `^13'
+--------------------------------------
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+--------------------------------------
+--- Note --- to ignore CSS font decoration, use the `NoFonts' command line opti
+on
+--------------------------------------
+--------------------------------------
+--- Note --- for jpg bitmaps of pictures, use the `jpg' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for gif bitmaps of pictures, use the `gif' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for content and toc in 2 frames, use the command line option `fram
+es'
+--------------------------------------
+--------------------------------------
+--- Note --- for content, toc, and footnotes in 3 frames, use the command line 
+option `frames-fn'
+--------------------------------------
+--------------------------------------
+--- Note --- for file extension name xht, use the command line option `xht'
+--------------------------------------
+TeX4ht package options: xhtml,charset=utf-8,html5,html
+--------------------------------------
+--- Note --- To print a timestamp, use the command line option timestamp
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS code, use the command line option `-css
+--------------------------------------
+--------------------------------------
+--- Note --- for inline CSS code, use the command line option `css-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for pop ups on mouse over, use the command line option `mouseover'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for addressing images in a subdirectory, use the command line opti
+on `imgdir:.../'
+--------------------------------------
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+--------------------------------------
+--- Note --- To print a timestamp, use the command line option timestamp
+--------------------------------------
+--------------------------------------
+--- Note --- We use a default CSS style. Use the `nostyle' option if you want t
+o use custom a CSS design
+--------------------------------------
+)
+\:tokwrite=\toks19
+\:tokpage=\toks20
+--------------------------------------
+--- Note --- for back links to toc, use the command line option `sections+'
+--------------------------------------
+--------------------------------------
+--- Note --- for linear crosslinks of pages, use the command line option `next'
+
+--------------------------------------
+\openout15 = `color_mwe.4ct'.
+
+\:tocout=\write4
+\openout4 = `color_mwe.4tc'.
+
+(color_mwe.4tc) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/latex.4ht
+version 2023-10-02-13:11
+LaTeX Info: Redefining \_ on input line 179.
+LaTeX Info: Redefining \begin on input line 597.
+LaTeX Info: Redefining \end on input line 645.
+LaTeX Info: Redefining \, on input line 807.
+LaTeX Info: Redefining \; on input line 808.
+LaTeX Info: Redefining \! on input line 809.
+LaTeX Info: Redefining \: on input line 810.
+LaTeX Info: Redefining \> on input line 811.
+--------------------------------------
+--- Note --- for links into captions, instead of float heads, use the command l
+ine option `refcaption'
+--------------------------------------
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+--------------------------------------
+--- Note --- For mini tocs immediately aftter the header use the command line o
+ption `minitoc<'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements with valued data, use the command lin
+e option `enumerate+'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements li's with value attributes, use the c
+ommand line option `enumerate-'
+--------------------------------------
+--------------------------------------
+--- Note --- for CSS2 code, use the command line option `css2'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial tabular, use the command line option `pic-tabular'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap fbox'es, use the command line option `pic-fbox'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap framebox'es, use the command line option `pic-framebox'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for inline footnotes use command line option `fn-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for tracing of latex font commands, use the command line option `f
+onts'
+--------------------------------------
+--------------------------------------
+--- Note --- for width specifications of tabular p entries, use the `p-width' c
+ommand line option or a configuration similar to \Configure{HColWidth}{\HCode{ 
+style="width:\HColWidth"}}
+--------------------------------------
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+--------------------------------------
+--- Note --- for pictorial eqnarray, use the command line option `pic-eqnarray'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ environments, use the command line option `pic
+-m' (not recommended!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ and $$...$$ environments with latex alt, use t
+he command line option `pic-m+' (not safe!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/fontmath.4ht
+version 2022-10-25-13:59
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/scrbook.4ht
+version 2023-04-10-13:46
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+--------------------------------------
+--- Note --- for sectioning pagination, use the command line option `1', `2', o
+r `3'
+--------------------------------------
+--------------------------------------
+--- Note --- for i-columns index, use the command line option `index=i' (e.g., 
+index=2)
+--------------------------------------
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/xcolor.4ht
+version 2022-04-17-09:34
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/color.4ht
+version 2022-02-01-14:27
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/color.4ht
+version 2022-02-01-14:27
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/dvips.4ht
+version 2009-05-21-09:32
+(/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4.4ht
+version 2023-10-13-14:16
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/unicode.4ht
+version 2023-04-02-08:01
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html4-math.4ht
+version 2022-10-25-13:59
+) (/usr/local/share/miktex-texmf/tex/generic/tex4ht/html5.4ht
+version 2023-10-09-13:31
+)) (/usr/local/share/miktex-texmf/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2023-10-23 L3 backend support: dvips
+\l__pdf_internal_box=\box53
+\g__pdf_backend_object_int=\count197
+\l__pdf_backend_content_box=\box54
+\l__pdf_backend_model_box=\box55
+\g__pdf_backend_annotation_int=\count198
+\g__pdf_backend_link_int=\count199
+\g__pdf_backend_link_sf_int=\count266
+) (color_mwe.aux)
+\openout1 = `color_mwe.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+Package scrbase Info: activating english \partname on input line 4.
+Package scrbase Info: activating english \chaptername on input line 4.
+Package scrbase Info: activating english \appendixname on input line 4.
+Package scrbase Info: activating english \figurename on input line 4.
+Package scrbase Info: activating english \tablename on input line 4.
+Package scrbase Info: activating english \contentsname on input line 4.
+Package scrbase Info: activating english \listfigurename on input line 4.
+Package scrbase Info: activating english \listtablename on input line 4.
+Package scrbase Info: activating english \bibname on input line 4.
+Package scrbase Info: activating english \indexname on input line 4.
+--- file color_mwe.css ---
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
+.
+(/usr/local/share/miktex-texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
+[1
+
+] (color_mwe.aux)
+ ***********
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-01>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 8039 strings out of 474594
+ 137984 string characters out of 5752898
+ 1926527 words of memory out of 5000000
+ 30129 multiletter control sequences out of 15000+600000
+ 558626 words of font info for 38 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 113i,5n,127p,11414b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on color_mwe.dvi (1 page, 11424 bytes).

@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{amsmath} 
+
+\newcommand {\arrowedbox}[1] {{\rightarrow\boxed{#1}\rightarrow}} %draw box with arrow
+
+\begin{document}
+\[
+x(t) \arrowedbox{SAMPLING} x_s(t) \arrowedbox{S/D} x[n] \rightarrow\boxed{\tilde{Q}_c}\rightarrow x_b[n]
+\]
+
+\[
+x(t) \arrowedbox{SAMPLING} x_s(t) \arrowedbox{S/D} x[n] \rightarrow\fbox{$\tilde{Q}_c$}\rightarrow x_b[n]
+\]
+
+\end{document}

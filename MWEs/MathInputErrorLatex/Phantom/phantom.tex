@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{ifpdf}
+
+\begin{document}
+    After fix in HTML
+    \begin{align*}
+        &=
+        \frac{1}{2} \left\{
+        5
+        \left[
+        \begin{array}{c}
+                1 \\ 1 \\ 1 \\ 1
+        \\ \end{array}
+        \right]
+        - 2.230
+        \left[
+        \begin{array}{c}
+                1.307 \\ 0.541 \\ -0.541  \\ -1.307
+        \\ \end{array}
+        \right] \right.\\
+        &\mathrel{\ifpdf \phantom{=} \else \fbox{\phantom{=}} \fi} \left. +0
+        \left[
+        \begin{array}{c}
+                1 \\ -1 \\ -1 \\ 1
+        \\ \end{array}
+        \right]
+        -0.158
+        \left[
+        \begin{array}{c}
+                0.541 \\ -1.307 \\ 1.307 \\ -0.541
+        \\ \end{array}
+        \right]
+        \right\}.
+        \end{align*}
+
+        Using phantom
+\begin{align*}
+    &=
+    \frac{1}{2} \left\{
+    5
+    \left[
+    \begin{array}{c}
+            1 \\ 1 \\ 1 \\ 1
+    \\ \end{array}
+    \right]
+    - 2.230
+    \left[
+    \begin{array}{c}
+            1.307 \\ 0.541 \\ -0.541  \\ -1.307
+    \\ \end{array}
+    \right] \right.\\
+    &\mathrel{\phantom{=}} \left. +0
+    \left[
+    \begin{array}{c}
+            1 \\ -1 \\ -1 \\ 1
+    \\ \end{array}
+    \right]
+    -0.158
+    \left[
+    \begin{array}{c}
+            0.541 \\ -1.307 \\ 1.307 \\ -0.541
+    \\ \end{array}
+    \right]
+    \right\}.
+    \end{align*}
+\end{document}
